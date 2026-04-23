@@ -40,34 +40,57 @@ img {
 .page-loader {
   position: fixed;
   inset: 0;
-  background: var(--bg);
+  background: #0a0b0e;
   display: grid;
   place-items: center;
   z-index: 1100;
   transition: opacity 0.6s ease, visibility 0.6s ease;
+  overflow: hidden;
 }
 
 .page-loader.hidden {
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
+}
+
+.page-loader-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-loader.no-video .page-loader-video {
+  display: none;
+}
+
+.page-loader-shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .loader-mark {
+  position: relative;
+  z-index: 2;
   letter-spacing: 0.35em;
   font-weight: 800;
-  color: var(--gold);
-  animation: pulse 1.4s infinite ease-in-out;
+  font-size: clamp(2.8rem, 10vw, 6rem);
+  color: #f3f4f6;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  animation: loaderEntrance 1s ease-out both;
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.45;
-    transform: scale(0.98);
+@keyframes loaderEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
   }
-  50% {
+  100% {
     opacity: 1;
-    transform: scale(1.02);
+    transform: translateY(0);
   }
 }
 
