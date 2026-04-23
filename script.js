@@ -39,7 +39,7 @@ if (contactForm) {
     event.preventDefault();
     const button = contactForm.querySelector("button[type='submit']");
     if (button) {
-      button.textContent = "Message Sent ✓";
+      button.textContent = "Sporočilo poslano ✓";
       button.disabled = true;
     }
   });
@@ -74,6 +74,19 @@ if (productGrid) {
   const customizationForm = document.getElementById("customizationForm");
 
   const CART_STORAGE_KEY = "jdsfCart";
+  const materialLabels = {
+    wood: "LES",
+    glass: "STEKLO / KRISTAL",
+    slate: "SKRILAVEC",
+    leather: "USNJE",
+    metal: "KOVINA",
+  };
+  const fontLabels = {
+    serif: "Serifna",
+    "sans-serif": "Brezserifna",
+    cursive: "Kurzivna",
+    monospace: "Enoširinska",
+  };
   let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
   let currentProduct = null;
   let uploadedLogoData = "";
@@ -91,7 +104,7 @@ if (productGrid) {
 
   // Updates the live engraving preview in real-time.
   const updatePreview = () => {
-    const previewValue = engravingTextInput.value.trim() || "Your engraving text";
+    const previewValue = engravingTextInput.value.trim() || "Vaše besedilo gravure";
     previewText.textContent = previewValue;
     previewText.style.fontFamily = fontSelect.value;
     previewText.style.fontSize = `${fontSize.value}px`;
@@ -120,7 +133,7 @@ if (productGrid) {
     cartItems.innerHTML = "";
 
     if (!cart.length) {
-      cartItems.innerHTML = "<p>Your cart is empty.</p>";
+      cartItems.innerHTML = "<p>Vaša košarica je prazna.</p>";
       cartTotal.textContent = "$0.00";
       cartCount.textContent = "0";
       return;
@@ -134,10 +147,10 @@ if (productGrid) {
       row.className = "cart-item";
       row.innerHTML = `
         <p><strong>${item.name}</strong> — $${item.price.toFixed(2)}</p>
-        <p>Text: ${item.engravingText || "(none)"}</p>
-        <p>Font: ${item.font}</p>
-        ${item.image ? `<img src="${item.image}" alt="Uploaded logo" style="width:56px;height:42px;object-fit:contain;border-radius:6px;">` : ""}
-        <button class="btn btn-ghost" type="button" data-remove-index="${index}">Remove</button>
+        <p>Besedilo: ${item.engravingText || "(brez)"}</p>
+        <p>Pisava: ${fontLabels[item.font] || item.font}</p>
+        ${item.image ? `<img src="${item.image}" alt="Naložen logotip" style="width:56px;height:42px;object-fit:contain;border-radius:6px;">` : ""}
+        <button class="btn btn-ghost" type="button" data-remove-index="${index}">Odstrani</button>
       `;
       cartItems.appendChild(row);
     });
@@ -165,7 +178,7 @@ if (productGrid) {
     productModalTitle.textContent = currentProduct.name;
     modalDescription.textContent = currentProduct.description;
     modalPrice.textContent = `$${currentProduct.price.toFixed(2)}`;
-    modalMaterial.textContent = currentProduct.material.toUpperCase();
+    modalMaterial.textContent = materialLabels[currentProduct.material] || currentProduct.material;
 
     resetCustomizer();
     openModal();
@@ -209,7 +222,7 @@ if (productGrid) {
 
     const accepted = ["image/png", "image/jpeg"];
     if (!accepted.includes(file.type)) {
-      alert("Please upload a PNG or JPG image.");
+      alert("Naložite sliko PNG ali JPG.");
       logoUpload.value = "";
       return;
     }

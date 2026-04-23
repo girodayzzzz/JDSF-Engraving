@@ -168,9 +168,66 @@ img {
   background: linear-gradient(90deg, rgba(14, 15, 18, 0.88), rgba(14, 15, 18, 0.58));
 }
 
+.engraving-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.engraving-line {
+  position: absolute;
+  height: 1px;
+  width: 46%;
+  left: -50%;
+  background: linear-gradient(90deg, transparent, rgba(225, 187, 120, 0.95), transparent);
+  opacity: 0;
+  filter: drop-shadow(0 0 7px rgba(201, 169, 106, 0.55));
+  animation: engravingScan 4.6s linear infinite;
+}
+
+.engraving-line:nth-child(1) {
+  top: 28%;
+  animation-delay: 0s;
+}
+
+.engraving-line:nth-child(2) {
+  top: 40%;
+  animation-delay: 0.8s;
+}
+
+.engraving-line:nth-child(3) {
+  top: 52%;
+  animation-delay: 1.6s;
+}
+
+.engraving-line:nth-child(4) {
+  top: 64%;
+  animation-delay: 2.4s;
+}
+
+@keyframes engravingScan {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateX(320%);
+    opacity: 0;
+  }
+}
+
 .hero-content {
   position: relative;
   max-width: 760px;
+  z-index: 2;
 }
 
 .eyebrow {
