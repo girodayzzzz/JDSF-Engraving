@@ -30,39 +30,160 @@
     <main class="subpage-main">
       <section class="section section-tight">
         <div class="container">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Shop</p>
-            <h1>Featured Engraved Products</h1>
+          <div class="section-heading reveal shop-topbar">
+            <div>
+              <p class="eyebrow">Shop</p>
+              <h1>Featured Engraved Products</h1>
+              <p class="shop-subtitle">Design, preview, and personalize premium engraving pieces instantly.</p>
+            </div>
+            <div class="shop-cta-wrap">
+              <button class="btn btn-primary" id="startDesignBtn" type="button">Start Custom Design</button>
+              <button class="btn btn-ghost cart-trigger" id="cartToggleBtn" type="button">Cart (<span id="cartCount">0</span>)</button>
+            </div>
           </div>
-          <div class="grid cards three-col">
-            <article class="product-card reveal">
+
+          <div class="shop-filters reveal" aria-label="Material filters">
+            <span class="filter-label">Filter by material:</span>
+            <button class="btn btn-filter active" type="button" data-filter="all">All</button>
+            <button class="btn btn-filter" type="button" data-filter="wood">Wood</button>
+            <button class="btn btn-filter" type="button" data-filter="glass">Glass / Crystal</button>
+            <button class="btn btn-filter" type="button" data-filter="slate">Slate</button>
+            <button class="btn btn-filter" type="button" data-filter="leather">Leather</button>
+            <button class="btn btn-filter" type="button" data-filter="metal">Metal</button>
+          </div>
+
+          <div class="grid cards three-col" id="productGrid">
+            <article class="product-card reveal" data-material="wood" data-product-id="wood-plaque" data-price="79" data-name="Signature Wood Plaque" data-description="A hand-finished hardwood plaque perfect for family names, milestones, or office recognition.">
               <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Engraved wooden plaque" />
-              <div class="product-content"><h3>Signature Wood Plaque</h3><p>$79.00</p><a class="btn btn-ghost" href="contact.html">View Details</a></div>
+              <div class="product-content">
+                <h3>Signature Wood Plaque</h3>
+                <p>$79.00</p>
+                <div class="product-actions">
+                  <button class="btn btn-ghost view-product-btn" type="button">View Details</button>
+                  <button class="btn btn-primary customize-btn" type="button">Customize</button>
+                </div>
+              </div>
             </article>
-            <article class="product-card reveal">
+
+            <article class="product-card reveal" data-material="glass" data-product-id="crystal-award" data-price="129" data-name="Crystal Award Piece" data-description="A polished crystal block engraved with logos, names, and ceremonial text for elevated gifting.">
               <img src="https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=700&q=80" alt="Engraved crystal award" />
-              <div class="product-content"><h3>Crystal Award Piece</h3><p>$129.00</p><a class="btn btn-ghost" href="contact.html">View Details</a></div>
+              <div class="product-content">
+                <h3>Crystal Award Piece</h3>
+                <p>$129.00</p>
+                <div class="product-actions">
+                  <button class="btn btn-ghost view-product-btn" type="button">View Details</button>
+                  <button class="btn btn-primary customize-btn" type="button">Customize</button>
+                </div>
+              </div>
             </article>
-            <article class="product-card reveal">
+
+            <article class="product-card reveal" data-material="leather" data-product-id="leather-journal" data-price="49" data-name="Leather Journal" data-description="Personalized leather notebook with clean line engraving, ideal for executive kits and keepsakes.">
               <img src="https://images.unsplash.com/photo-1589987607627-89f25af5f5be?auto=format&fit=crop&w=700&q=80" alt="Engraved leather notebook" />
-              <div class="product-content"><h3>Leather Journal</h3><p>$49.00</p><a class="btn btn-ghost" href="contact.html">View Details</a></div>
+              <div class="product-content">
+                <h3>Leather Journal</h3>
+                <p>$49.00</p>
+                <div class="product-actions">
+                  <button class="btn btn-ghost view-product-btn" type="button">View Details</button>
+                  <button class="btn btn-primary customize-btn" type="button">Customize</button>
+                </div>
+              </div>
             </article>
-            <article class="product-card reveal">
+
+            <article class="product-card reveal" data-material="metal" data-product-id="metal-nameplate" data-price="39" data-name="Metal Nameplate" data-description="Precision engraved aluminum nameplate suitable for desks, doors, and memorial applications.">
               <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=700&q=80" alt="Engraved metal tag" />
-              <div class="product-content"><h3>Metal Nameplate</h3><p>$39.00</p><a class="btn btn-ghost" href="contact.html">View Details</a></div>
+              <div class="product-content">
+                <h3>Metal Nameplate</h3>
+                <p>$39.00</p>
+                <div class="product-actions">
+                  <button class="btn btn-ghost view-product-btn" type="button">View Details</button>
+                  <button class="btn btn-primary customize-btn" type="button">Customize</button>
+                </div>
+              </div>
             </article>
-            <article class="product-card reveal">
+
+            <article class="product-card reveal" data-material="slate" data-product-id="slate-coasters" data-price="59" data-name="Slate Coaster Set" data-description="A natural slate coaster set with durable laser etching designed for branded hospitality and gifts.">
               <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=700&q=80" alt="Engraved slate coaster" />
-              <div class="product-content"><h3>Slate Coaster Set</h3><p>$59.00</p><a class="btn btn-ghost" href="contact.html">View Details</a></div>
+              <div class="product-content">
+                <h3>Slate Coaster Set</h3>
+                <p>$59.00</p>
+                <div class="product-actions">
+                  <button class="btn btn-ghost view-product-btn" type="button">View Details</button>
+                  <button class="btn btn-primary customize-btn" type="button">Customize</button>
+                </div>
+              </div>
             </article>
-            <article class="product-card reveal">
+
+            <article class="product-card reveal" data-material="glass" data-product-id="gift-bundle" data-price="159" data-name="Custom Gift Bundle" data-description="A curated luxury bundle with mixed materials and custom engraving placement for premium presentations.">
               <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=700&q=80" alt="Custom engraved luxury gift" />
-              <div class="product-content"><h3>Custom Gift Bundle</h3><p>$159.00</p><a class="btn btn-ghost" href="contact.html">View Details</a></div>
+              <div class="product-content">
+                <h3>Custom Gift Bundle</h3>
+                <p>$159.00</p>
+                <div class="product-actions">
+                  <button class="btn btn-ghost view-product-btn" type="button">View Details</button>
+                  <button class="btn btn-primary customize-btn" type="button">Customize</button>
+                </div>
+              </div>
             </article>
           </div>
         </div>
       </section>
     </main>
+
+    <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart" aria-hidden="true">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button class="cart-close" id="cartCloseBtn" type="button" aria-label="Close cart">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <p>Total: <strong id="cartTotal">$0.00</strong></p>
+        <button class="btn btn-primary" type="button">Checkout (Demo)</button>
+      </div>
+    </aside>
+
+    <div class="modal-backdrop" id="productModal" aria-hidden="true">
+      <div class="product-modal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
+        <button class="modal-close" id="productModalClose" type="button" aria-label="Close">✕</button>
+        <div class="modal-grid">
+          <div class="modal-image-wrap">
+            <img id="modalProductImage" src="" alt="Selected engraved product" />
+            <div class="engraving-overlay" id="engravingPreview">
+              <img id="previewLogo" src="" alt="Uploaded logo preview" hidden />
+              <p id="previewText">Your engraving text</p>
+            </div>
+          </div>
+          <div class="modal-content-wrap">
+            <p class="eyebrow" id="modalMaterial">Material</p>
+            <h2 id="productModalTitle">Product Name</h2>
+            <p class="modal-description" id="modalDescription"></p>
+            <p class="modal-price" id="modalPrice"></p>
+
+            <form id="customizationForm" class="customization-panel">
+              <label for="engravingText">Engraving text (max 28 chars)</label>
+              <input id="engravingText" name="engravingText" type="text" maxlength="28" placeholder="e.g., The Johnson Family" />
+
+              <label for="fontSelect">Font style</label>
+              <select id="fontSelect" name="fontSelect">
+                <option value="serif">Serif</option>
+                <option value="sans-serif">Sans-serif</option>
+                <option value="cursive">Cursive</option>
+                <option value="monospace">Monospace</option>
+              </select>
+
+              <label for="fontSize">Font size</label>
+              <input id="fontSize" name="fontSize" type="range" min="16" max="40" value="24" />
+
+              <label for="logoUpload">Upload logo/image (PNG/JPG)</label>
+              <input id="logoUpload" name="logoUpload" type="file" accept="image/png,image/jpeg" />
+
+              <div class="customization-actions">
+                <button class="btn btn-primary" id="modalAddToCart" type="submit">Add to Cart</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="container footer-grid">
