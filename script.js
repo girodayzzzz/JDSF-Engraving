@@ -11,8 +11,19 @@ if (navToggle && navMenu) {
 // Intro loader transition
 window.addEventListener("load", () => {
   const loader = document.getElementById("pageLoader");
+  const loaderVideo = document.getElementById("pageLoaderVideo");
+
+  if (loader && loaderVideo) {
+    const fallbackToDark = () => loader.classList.add("no-video");
+    loaderVideo.addEventListener("error", fallbackToDark, { once: true });
+    const playPromise = loaderVideo.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(fallbackToDark);
+    }
+  }
+
   if (loader) {
-    setTimeout(() => loader.classList.add("hidden"), 600);
+    setTimeout(() => loader.classList.add("hidden"), 2000);
   }
 });
 
