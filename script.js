@@ -1,8 +1,294 @@
-const navToggle=document.getElementById('navToggle');const navMenu=document.getElementById('navMenu');const siteHeader=document.getElementById('siteHeader');if(navToggle&&navMenu){navToggle.addEventListener('click',()=>navMenu.classList.toggle('open'));}
-window.addEventListener('scroll',()=>siteHeader?.classList.toggle('scrolled',window.scrollY>16));
-const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target);}}),{threshold:.16});document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
-const glow=document.getElementById('cursorGlow');window.addEventListener('mousemove',e=>{if(!glow)return;glow.style.left=`${e.clientX}px`;glow.style.top=`${e.clientY}px`;});
-const compare=document.getElementById('compareSlider');if(compare){const range=compare.querySelector('input');const after=compare.querySelector('.after');range.addEventListener('input',()=>after.style.width=`${range.value}%`);}
-const particlesCanvas=document.getElementById('particlesCanvas');if(particlesCanvas){const ctx=particlesCanvas.getContext('2d');let w,h,pts=[];const resize=()=>{w=particlesCanvas.width=innerWidth;h=particlesCanvas.height=innerHeight;pts=Array.from({length:46},()=>({x:Math.random()*w,y:Math.random()*h,v:(Math.random()*.8)+.25,r:Math.random()*1.7+0.5}));};const draw=()=>{ctx.clearRect(0,0,w,h);pts.forEach(p=>{p.y-=p.v;if(p.y<0)p.y=h;ctx.beginPath();ctx.fillStyle='rgba(201,169,106,.65)';ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();});requestAnimationFrame(draw);};resize();addEventListener('resize',resize);draw();}
-window.addEventListener('DOMContentLoaded',()=>{if(!(window.fabric&&document.getElementById('engravingCanvas')))return;const canvas=new fabric.Canvas('engravingCanvas',{backgroundColor:'#d8d3c9',selection:true});const base=new fabric.Rect({left:30,top:28,width:500,height:302,rx:18,ry:18,fill:'#c8b79b',stroke:'#a38e6e',strokeWidth:2,selectable:false});canvas.add(base);const text=new fabric.IText('Your engraving text',{left:140,top:140,fontFamily:'serif',fill:'#2a1e13',fontSize:34});canvas.add(text);canvas.setActiveObject(text);
-const textInput=document.getElementById('engravingText');const fontFamily=document.getElementById('fontFamily');const logoUpload=document.getElementById('logoUpload');textInput?.addEventListener('input',()=>{text.text=textInput.value||'Your engraving text';canvas.renderAll();});fontFamily?.addEventListener('change',()=>{text.fontFamily=fontFamily.value;canvas.renderAll();});logoUpload?.addEventListener('change',e=>{const file=e.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>fabric.Image.fromURL(String(reader.result),img=>{img.scaleToWidth(100);img.set({left:40,top:50});canvas.add(img);canvas.setActiveObject(img);});reader.readAsDataURL(file);});});
+// Mobile nav toggle
+const navToggle = document.getElementById("navToggle");
+const navMenu = document.getElementById("navMenu");
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+  });
+}
+
+// Intro loader transition
+window.addEventListener("load", () => {
+  const loader = document.getElementById("pageLoader");
+  if (loader) {
+    setTimeout(() => loader.classList.add("hidden"), 600);
+  }
+});
+
+// Scroll reveal animation
+const revealItems = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
+
+revealItems.forEach((item) => revealObserver.observe(item));
+
+// Demo contact form submission behavior
+const contactForm = document.querySelector(".contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const button = contactForm.querySelector("button[type='submit']");
+    if (button) {
+      button.textContent = "Sporočilo poslano ✓";
+      button.disabled = true;
+    }
+  });
+}
+
+// Shop customization and cart logic (shop page only)
+const productGrid = document.getElementById("productGrid");
+
+if (productGrid) {
+  const productCards = [...document.querySelectorAll(".product-card")];
+  const filterButtons = [...document.querySelectorAll(".btn-filter")];
+  const productModal = document.getElementById("productModal");
+  const productModalClose = document.getElementById("productModalClose");
+  const modalProductImage = document.getElementById("modalProductImage");
+  const modalMaterial = document.getElementById("modalMaterial");
+  const productModalTitle = document.getElementById("productModalTitle");
+  const modalDescription = document.getElementById("modalDescription");
+  const modalPrice = document.getElementById("modalPrice");
+  const engravingTextInput = document.getElementById("engravingText");
+  const fontSelect = document.getElementById("fontSelect");
+  const fontSize = document.getElementById("fontSize");
+  const logoUpload = document.getElementById("logoUpload");
+  const previewText = document.getElementById("previewText");
+  const previewLogo = document.getElementById("previewLogo");
+  const cartSidebar = document.getElementById("cartSidebar");
+  const cartToggleBtn = document.getElementById("cartToggleBtn");
+  const cartCloseBtn = document.getElementById("cartCloseBtn");
+  const cartItems = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+  const cartCount = document.getElementById("cartCount");
+  const startDesignBtn = document.getElementById("startDesignBtn");
+  const customizationForm = document.getElementById("customizationForm");
+
+  const CART_STORAGE_KEY = "jdsfCart";
+  const materialLabels = {
+    wood: "LES",
+    glass: "STEKLO / KRISTAL",
+    slate: "SKRILAVEC",
+    leather: "USNJE",
+    metal: "KOVINA",
+  };
+  const fontLabels = {
+    serif: "Serifna",
+    "sans-serif": "Brezserifna",
+    cursive: "Kurzivna",
+    monospace: "Enoširinska",
+  };
+  let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
+  let currentProduct = null;
+  let uploadedLogoData = "";
+
+  const resetCustomizer = () => {
+    engravingTextInput.value = "";
+    fontSelect.value = "serif";
+    fontSize.value = "24";
+    logoUpload.value = "";
+    uploadedLogoData = "";
+    previewLogo.src = "";
+    previewLogo.hidden = true;
+    updatePreview();
+  };
+
+  // Updates the live engraving preview in real-time.
+  const updatePreview = () => {
+    const previewValue = engravingTextInput.value.trim() || "Vaše besedilo gravure";
+    previewText.textContent = previewValue;
+    previewText.style.fontFamily = fontSelect.value;
+    previewText.style.fontSize = `${fontSize.value}px`;
+
+    if (uploadedLogoData) {
+      previewLogo.src = uploadedLogoData;
+      previewLogo.hidden = false;
+    } else {
+      previewLogo.hidden = true;
+    }
+  };
+
+  const openModal = () => {
+    productModal.classList.add("open");
+    productModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    productModal.classList.remove("open");
+    productModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  const renderCart = () => {
+    cartItems.innerHTML = "";
+
+    if (!cart.length) {
+      cartItems.innerHTML = "<p>Vaša košarica je prazna.</p>";
+      cartTotal.textContent = "$0.00";
+      cartCount.textContent = "0";
+      return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      total += item.price;
+      const row = document.createElement("article");
+      row.className = "cart-item";
+      row.innerHTML = `
+        <p><strong>${item.name}</strong> — $${item.price.toFixed(2)}</p>
+        <p>Besedilo: ${item.engravingText || "(brez)"}</p>
+        <p>Pisava: ${fontLabels[item.font] || item.font}</p>
+        ${item.image ? `<img src="${item.image}" alt="Naložen logotip" style="width:56px;height:42px;object-fit:contain;border-radius:6px;">` : ""}
+        <button class="btn btn-ghost" type="button" data-remove-index="${index}">Odstrani</button>
+      `;
+      cartItems.appendChild(row);
+    });
+
+    cartTotal.textContent = `$${total.toFixed(2)}`;
+    cartCount.textContent = String(cart.length);
+  };
+
+  const persistCart = () => {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    renderCart();
+  };
+
+  const openProductWithCard = (card) => {
+    currentProduct = {
+      id: card.dataset.productId,
+      name: card.dataset.name,
+      description: card.dataset.description,
+      material: card.dataset.material,
+      price: Number(card.dataset.price),
+      image: card.querySelector("img")?.src || "",
+    };
+
+    modalProductImage.src = currentProduct.image;
+    productModalTitle.textContent = currentProduct.name;
+    modalDescription.textContent = currentProduct.description;
+    modalPrice.textContent = `$${currentProduct.price.toFixed(2)}`;
+    modalMaterial.textContent = materialLabels[currentProduct.material] || currentProduct.material;
+
+    resetCustomizer();
+    openModal();
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      productCards.forEach((card) => {
+        const shouldShow = filter === "all" || card.dataset.material === filter;
+        card.classList.toggle("is-hidden", !shouldShow);
+      });
+    });
+  });
+
+  productCards.forEach((card) => {
+    const viewBtn = card.querySelector(".view-product-btn");
+    const customizeBtn = card.querySelector(".customize-btn");
+
+    if (viewBtn) {
+      viewBtn.addEventListener("click", () => openProductWithCard(card));
+    }
+
+    if (customizeBtn) {
+      customizeBtn.addEventListener("click", () => openProductWithCard(card));
+    }
+
+    card.querySelector("img")?.addEventListener("click", () => openProductWithCard(card));
+  });
+
+  [engravingTextInput, fontSelect, fontSize].forEach((input) => {
+    input.addEventListener("input", updatePreview);
+  });
+
+  logoUpload.addEventListener("change", (event) => {
+    const [file] = event.target.files || [];
+    if (!file) return;
+
+    const accepted = ["image/png", "image/jpeg"];
+    if (!accepted.includes(file.type)) {
+      alert("Naložite sliko PNG ali JPG.");
+      logoUpload.value = "";
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      uploadedLogoData = String(reader.result);
+      updatePreview();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  customizationForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!currentProduct) return;
+
+    cart.push({
+      id: currentProduct.id,
+      name: currentProduct.name,
+      price: currentProduct.price,
+      engravingText: engravingTextInput.value.trim(),
+      font: fontSelect.value,
+      fontSize: Number(fontSize.value),
+      image: uploadedLogoData,
+    });
+
+    persistCart();
+    closeModal();
+    cartSidebar.classList.add("open");
+    cartSidebar.setAttribute("aria-hidden", "false");
+  });
+
+  cartItems.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-remove-index]");
+    if (!button) return;
+
+    const index = Number(button.dataset.removeIndex);
+    cart = cart.filter((_, itemIndex) => itemIndex !== index);
+    persistCart();
+  });
+
+  cartToggleBtn.addEventListener("click", () => {
+    cartSidebar.classList.add("open");
+    cartSidebar.setAttribute("aria-hidden", "false");
+  });
+
+  cartCloseBtn.addEventListener("click", () => {
+    cartSidebar.classList.remove("open");
+    cartSidebar.setAttribute("aria-hidden", "true");
+  });
+
+  startDesignBtn.addEventListener("click", () => {
+    const firstVisibleProduct = productCards.find((card) => !card.classList.contains("is-hidden"));
+    if (firstVisibleProduct) {
+      openProductWithCard(firstVisibleProduct);
+    }
+  });
+
+  productModalClose.addEventListener("click", closeModal);
+  productModal.addEventListener("click", (event) => {
+    if (event.target === productModal) {
+      closeModal();
+    }
+  });
+
+  updatePreview();
+  renderCart();
+}
