@@ -38,7 +38,7 @@
             </div>
             <div class="shop-cta-wrap">
               <button class="btn btn-primary" id="startDesignBtn" type="button">Začni oblikovanje po meri</button>
-              <button class="btn btn-ghost cart-trigger" id="cartToggleBtn" type="button">Košarica (<span id="cartCount">0</span>)</button>
+              <a class="btn btn-ghost" href="contact.html">Naročilo za podjetja</a>
             </div>
           </div>
 
@@ -53,7 +53,7 @@
           </div>
 
           <div class="grid cards three-col" id="productGrid">
-            <article class="product-card reveal" data-material="wood" data-product-id="wood-plaque" data-price="79" data-name="Lesena plaketa Signature" data-description="Ročno obdelana trda lesena plaketa, idealna za družinska imena, mejnike ali poslovna priznanja.">
+            <article class="product-card reveal" data-material="wood" data-product-id="wood-plaque" data-price="79" data-name="Lesena plaketa Signature" data-description="Ročno obdelana trda lesena plaketa, idealna za družinska imena, mejnike ali poslovna priznanja." data-checkout-url="https://buy.stripe.com/test_wood_plaque">
               <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80" alt="Gravirana lesena plaketa" />
               <div class="product-content">
                 <h3>Lesena plaketa Signature</h3>
@@ -65,7 +65,7 @@
               </div>
             </article>
 
-            <article class="product-card reveal" data-material="glass" data-product-id="crystal-award" data-price="129" data-name="Kristalna nagrada" data-description="Poliran kristalni blok z graviranimi logotipi, imeni in slovesnim besedilom za prestižna darila.">
+            <article class="product-card reveal" data-material="glass" data-product-id="crystal-award" data-price="129" data-name="Kristalna nagrada" data-description="Poliran kristalni blok z graviranimi logotipi, imeni in slovesnim besedilom za prestižna darila." data-checkout-url="https://buy.stripe.com/test_crystal_award">
               <img src="https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=700&q=80" alt="Gravirana kristalna nagrada" />
               <div class="product-content">
                 <h3>Kristalna nagrada</h3>
@@ -77,7 +77,7 @@
               </div>
             </article>
 
-            <article class="product-card reveal" data-material="leather" data-product-id="leather-journal" data-price="49" data-name="Usnjen dnevnik" data-description="Personaliziran usnjen zvezek s čistim linijskim graviranjem, primeren za poslovne sete in spominke.">
+            <article class="product-card reveal" data-material="leather" data-product-id="leather-journal" data-price="49" data-name="Usnjen dnevnik" data-description="Personaliziran usnjen zvezek s čistim linijskim graviranjem, primeren za poslovne sete in spominke." data-checkout-url="https://buy.stripe.com/test_leather_journal">
               <img src="https://images.unsplash.com/photo-1589987607627-89f25af5f5be?auto=format&fit=crop&w=700&q=80" alt="Graviran usnjen zvezek" />
               <div class="product-content">
                 <h3>Usnjen dnevnik</h3>
@@ -89,7 +89,7 @@
               </div>
             </article>
 
-            <article class="product-card reveal" data-material="metal" data-product-id="metal-nameplate" data-price="39" data-name="Kovinska tablica z imenom" data-description="Natančno gravirana aluminijasta tablica, primerna za mize, vrata in spominska obeležja.">
+            <article class="product-card reveal" data-material="metal" data-product-id="metal-nameplate" data-price="39" data-name="Kovinska tablica z imenom" data-description="Natančno gravirana aluminijasta tablica, primerna za mize, vrata in spominska obeležja." data-checkout-url="https://buy.stripe.com/test_metal_nameplate">
               <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=700&q=80" alt="Gravirana kovinska oznaka" />
               <div class="product-content">
                 <h3>Kovinska tablica z imenom</h3>
@@ -101,7 +101,7 @@
               </div>
             </article>
 
-            <article class="product-card reveal" data-material="slate" data-product-id="slate-coasters" data-price="59" data-name="Komplet podstavkov iz skrilavca" data-description="Naravni podstavki iz skrilavca z obstojnim laserskim graviranjem za gostinstvo in darila.">
+            <article class="product-card reveal" data-material="slate" data-product-id="slate-coasters" data-price="59" data-name="Komplet podstavkov iz skrilavca" data-description="Naravni podstavki iz skrilavca z obstojnim laserskim graviranjem za gostinstvo in darila." data-checkout-url="https://buy.stripe.com/test_slate_coasters">
               <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=700&q=80" alt="Graviran podstavek iz skrilavca" />
               <div class="product-content">
                 <h3>Komplet podstavkov iz skrilavca</h3>
@@ -113,7 +113,7 @@
               </div>
             </article>
 
-            <article class="product-card reveal" data-material="glass" data-product-id="gift-bundle" data-price="159" data-name="Darilni paket po meri" data-description="Skrbno izbran luksuzni paket iz različnih materialov z graviranjem po meri za prestižne predstavitve.">
+            <article class="product-card reveal" data-material="glass" data-product-id="gift-bundle" data-price="159" data-name="Darilni paket po meri" data-description="Skrbno izbran luksuzni paket iz različnih materialov z graviranjem po meri za prestižne predstavitve." data-checkout-url="https://buy.stripe.com/test_gift_bundle">
               <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=700&q=80" alt="Luksuzno darilo z gravuro" />
               <div class="product-content">
                 <h3>Darilni paket po meri</h3>
@@ -128,18 +128,6 @@
         </div>
       </section>
     </main>
-
-    <aside class="cart-sidebar" id="cartSidebar" aria-label="Nakupovalna košarica" aria-hidden="true">
-      <div class="cart-header">
-        <h3>Vaša košarica</h3>
-        <button class="cart-close" id="cartCloseBtn" type="button" aria-label="Zapri košarico">✕</button>
-      </div>
-      <div class="cart-items" id="cartItems"></div>
-      <div class="cart-footer">
-        <p>Skupaj: <strong id="cartTotal">$0.00</strong></p>
-        <button class="btn btn-primary" type="button">Zaključek nakupa (demo)</button>
-      </div>
-    </aside>
 
     <div class="modal-backdrop" id="productModal" aria-hidden="true">
       <div class="product-modal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
@@ -177,8 +165,9 @@
               <input id="logoUpload" name="logoUpload" type="file" accept="image/png,image/jpeg" />
 
               <div class="customization-actions">
-                <button class="btn btn-primary" id="modalAddToCart" type="submit">Dodaj v košarico</button>
+                <button class="btn btn-primary" id="stripeCheckoutBtn" type="submit">Nadaljuj na Stripe plačilo</button>
               </div>
+              <p class="checkout-note">Brez košarice: vsak izdelek se plača neposredno preko svojega Stripe checkout linka.</p>
             </form>
           </div>
         </div>

@@ -45,7 +45,7 @@ if (contactForm) {
   });
 }
 
-// Shop customization and cart logic (shop page only)
+// Shop customization and direct Stripe checkout logic (shop page only)
 const productGrid = document.getElementById("productGrid");
 
 if (productGrid) {
@@ -64,16 +64,10 @@ if (productGrid) {
   const logoUpload = document.getElementById("logoUpload");
   const previewText = document.getElementById("previewText");
   const previewLogo = document.getElementById("previewLogo");
-  const cartSidebar = document.getElementById("cartSidebar");
-  const cartToggleBtn = document.getElementById("cartToggleBtn");
-  const cartCloseBtn = document.getElementById("cartCloseBtn");
-  const cartItems = document.getElementById("cartItems");
-  const cartTotal = document.getElementById("cartTotal");
-  const cartCount = document.getElementById("cartCount");
   const startDesignBtn = document.getElementById("startDesignBtn");
   const customizationForm = document.getElementById("customizationForm");
+  const stripeCheckoutBtn = document.getElementById("stripeCheckoutBtn");
 
-  const CART_STORAGE_KEY = "jdsfCart";
   const materialLabels = {
     wood: "LES",
     glass: "STEKLO / KRISTAL",
@@ -81,13 +75,6 @@ if (productGrid) {
     leather: "USNJE",
     metal: "KOVINA",
   };
-  const fontLabels = {
-    serif: "Serifna",
-    "sans-serif": "Brezserifna",
-    cursive: "Kurzivna",
-    monospace: "Enoširinska",
-  };
-  let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
   let currentProduct = null;
   let uploadedLogoData = "";
 
@@ -129,41 +116,6 @@ if (productGrid) {
     document.body.style.overflow = "";
   };
 
-  const renderCart = () => {
-    cartItems.innerHTML = "";
-
-    if (!cart.length) {
-      cartItems.innerHTML = "<p>Vaša košarica je prazna.</p>";
-      cartTotal.textContent = "$0.00";
-      cartCount.textContent = "0";
-      return;
-    }
-
-    let total = 0;
-
-    cart.forEach((item, index) => {
-      total += item.price;
-      const row = document.createElement("article");
-      row.className = "cart-item";
-      row.innerHTML = `
-        <p><strong>${item.name}</strong> — $${item.price.toFixed(2)}</p>
-        <p>Besedilo: ${item.engravingText || "(brez)"}</p>
-        <p>Pisava: ${fontLabels[item.font] || item.font}</p>
-        ${item.image ? `<img src="${item.image}" alt="Naložen logotip" style="width:56px;height:42px;object-fit:contain;border-radius:6px;">` : ""}
-        <button class="btn btn-ghost" type="button" data-remove-index="${index}">Odstrani</button>
-      `;
-      cartItems.appendChild(row);
-    });
-
-    cartTotal.textContent = `$${total.toFixed(2)}`;
-    cartCount.textContent = String(cart.length);
-  };
-
-  const persistCart = () => {
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
-    renderCart();
-  };
-
   const openProductWithCard = (card) => {
     currentProduct = {
       id: card.dataset.productId,
@@ -172,6 +124,7 @@ if (productGrid) {
       material: card.dataset.material,
       price: Number(card.dataset.price),
       image: card.querySelector("img")?.src || "",
+      checkoutUrl: card.dataset.checkoutUrl || "",
     };
 
     modalProductImage.src = currentProduct.image;
@@ -239,40 +192,13 @@ if (productGrid) {
     event.preventDefault();
 
     if (!currentProduct) return;
-
-    cart.push({
-      id: currentProduct.id,
-      name: currentProduct.name,
-      price: currentProduct.price,
-      engravingText: engravingTextInput.value.trim(),
-      font: fontSelect.value,
-      fontSize: Number(fontSize.value),
-      image: uploadedLogoData,
-    });
-
-    persistCart();
-    closeModal();
-    cartSidebar.classList.add("open");
-    cartSidebar.setAttribute("aria-hidden", "false");
-  });
-
-  cartItems.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-remove-index]");
-    if (!button) return;
-
-    const index = Number(button.dataset.removeIndex);
-    cart = cart.filter((_, itemIndex) => itemIndex !== index);
-    persistCart();
-  });
-
-  cartToggleBtn.addEventListener("click", () => {
-    cartSidebar.classList.add("open");
-    cartSidebar.setAttribute("aria-hidden", "false");
-  });
-
-  cartCloseBtn.addEventListener("click", () => {
-    cartSidebar.classList.remove("open");
-    cartSidebar.setAttribute("aria-hidden", "true");
+    if (!currentProduct.checkoutUrl) {
+      alert("Stripe checkout povezava še ni nastavljena za ta izdelek.");
+      return;
+    }
+    stripeCheckoutBtn.disabled = true;
+    stripeCheckoutBtn.textContent = "Preusmerjam na Stripe…";
+    window.location.href = currentProduct.checkoutUrl;
   });
 
   startDesignBtn.addEventListener("click", () => {
@@ -290,5 +216,4 @@ if (productGrid) {
   });
 
   updatePreview();
-  renderCart();
 }
