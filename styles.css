@@ -571,67 +571,10 @@ textarea:focus {
   flex-wrap: wrap;
 }
 
-.cart-sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: min(390px, 92vw);
-  height: 100vh;
-  background: #11141b;
-  border-left: 1px solid var(--border);
-  z-index: 1250;
-  transform: translateX(102%);
-  transition: transform 0.35s ease;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-}
-
-.cart-sidebar.open {
-  transform: translateX(0);
-}
-
-.cart-header,
-.cart-footer {
-  padding: 1rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.cart-footer {
-  border-bottom: 0;
-  border-top: 1px solid var(--border);
-}
-
-.cart-close {
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--text);
-  border-radius: 8px;
-  padding: 0.25rem 0.55rem;
-}
-
-.cart-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart-items {
-  padding: 1rem;
-  overflow: auto;
-  display: grid;
-  gap: 0.7rem;
-}
-
-.cart-item {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 0.7rem;
-  background: #0d1016;
-}
-
-.cart-item p {
-  margin: 0.2rem 0;
-  font-size: 0.9rem;
+.checkout-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.35rem 0 0;
 }
 
 .modal-backdrop {
