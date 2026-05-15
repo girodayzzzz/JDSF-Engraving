@@ -8,7 +8,7 @@
   const materialFilterWrap = document.getElementById("materialFilterButtons");
   const customOrderBtn = document.getElementById("startDesignBtn");
 
-  const MATERIAL_ORDER = ["All", "Wood", "K9 Crystal", "Metal"];
+  const MATERIAL_ORDER = ["All", "Wood", "Metal", "Crystal"];
   const CATEGORY_ORDER = ["All", "Gifts", "Business Gifts", "Memorial", "Decoration", "Custom"];
 
   let products = [];
@@ -17,17 +17,25 @@
   let searchTerm = "";
 
   const normalize = (value) => (value || "").toString().trim();
+  const normalizeMaterial = (value) => {
+    const clean = normalize(value).toLowerCase();
+    if (clean.includes("wood") || clean.includes("les")) return "Wood";
+    if (clean.includes("metal") || clean.includes("kov")) return "Metal";
+    if (clean.includes("crystal") || clean.includes("kristal") || clean.includes("k9")) return "Crystal";
+    return normalize(value);
+  };
 
   const productCard = (product) => {
     const card = document.createElement("article");
     card.className = "product-card reveal";
+    card.dataset.material = product.material.toLowerCase();
     card.innerHTML = `
       <div class="product-image-wrap">
-        <img src="${product.image}" alt="${product.title}" loading="lazy" />
+        <img src="${product.image}" alt="${product.title} - lasersko graviran izdelek" loading="lazy" decoding="async" />
       </div>
       <div class="product-content">
         <div class="product-tags">
-          <span class="tag tag-material">${product.material}</span>
+          <span class="tag tag-material tag-material-${product.material.toLowerCase()}">${product.material}</span>
           ${product.customizable ? '<span class="tag tag-custom">Po meri</span>' : ""}
           ${product.badge ? `<span class="tag tag-badge">${product.badge}</span>` : ""}
         </div>
@@ -87,7 +95,7 @@
     products = loaded
       .map((p) => ({
         ...p,
-        material: normalize(p.material),
+        material: normalizeMaterial(p.material),
         category: normalize(p.category),
         description: normalize(p.description)
       }))
