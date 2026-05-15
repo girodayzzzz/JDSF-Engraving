@@ -1,20 +1,21 @@
-# Product JSON System
+# Sistem izdelkov (Trgovina)
 
-## Quick workflow (GitHub Pages)
-1. Upload product images to the matching folder in `assets/products/<material>/`.
-2. Copy `products/product.template.json` and save it in one of:
-   - `products/wood/`
-   - `products/k9-crystal/`
-   - `products/metal/`
-3. Fill all product fields.
-4. Add the new file path into `products/index.json` under `files`.
-5. Commit and push. Product appears automatically on `shop.html`.
+Za dodajanje novega izdelka ni treba spreminjati glavne kode trgovine.
 
-## Allowed values
-- `material`: `Wood`, `K9 Crystal`, `Metal`
-- `category`: `Gifts`, `Business Gifts`, `Memorial`, `Decoration`, `Custom`
+## Struktura
+- `products/les/`
+- `products/kovina/`
+- `products/darila/`
 
-## Notes
-- `featured: true` puts product at the top.
-- `customizable: true` adds "Po meri" badge.
-- `gallery` supports multiple images for future product detail views.
+Vsak izdelek je ločena `.json` datoteka s polji:
+- `ime`
+- `opis`
+- `cena`
+- `slika`
+- `kategorija` (`Les`, `Kovina`, `Darila`)
+
+## GitHub Pages
+Na produkciji (`*.github.io`) trgovina samodejno prebere vse `.json` datoteke iz map `les`, `kovina`, `darila` preko GitHub API.
+
+## Lokalni razvoj
+Za lokalni predogled se uporablja `products/index.json` kot rezervni manifest.

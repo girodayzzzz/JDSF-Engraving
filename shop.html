@@ -3,72 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trgovina | Laser graviranje po meri | JDSF</title>
-    <meta name="description" content="Spletna trgovina JDSF: lasersko gravirani izdelki po meri na les, kovino in kristal. Hitra izdelava in personalizacija." />
+    <title>Trgovina | Lasersko graviranje Slovenija | JDSF Graviranje</title>
+    <meta name="description" content="Premium trgovina za lasersko graviranje v Sloveniji: personalizirana darila, gravura na les in kovino ter unikatna darila po meri." />
+    <meta property="og:title" content="Trgovina | JDSF Graviranje" />
+    <meta property="og:description" content="Personalizirana darila in lasersko graviranje po meri: les, kovina in darila za posebne priložnosti." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://girodayzzzz.github.io/JDSF-Engraving/shop.html" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=1400&q=80" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <header class="site-header" id="siteHeader"><div class="container nav-wrap"><a class="logo" href="index.html">JDSF</a><button class="nav-toggle" id="navToggle" aria-label="Preklopi navigacijo">☰</button><nav class="nav" id="navMenu"><a href="index.html">Domov</a><a href="shop.html" class="active">Trgovina</a><a href="about.html">O nas</a><a href="contact.html">Kontakt</a><a class="btn btn-primary btn-nav" href="contact.html">Zahtevaj ponudbo</a></nav></div></header>
-    <main class="subpage-main">
-      <section class="section section-tight"><div class="container"><div class="section-heading reveal shop-topbar"><div><p class="eyebrow">Trgovina</p><h1>Lasersko gravirani izdelki po meri</h1><p class="shop-subtitle">Izberite material, dodajte simbole, napise ali logotipe in naročite lasersko gravirane izdelke za darila, podjetja ali posebne priložnosti.</p></div><div class="shop-cta-wrap"><button class="btn btn-primary" id="startDesignBtn" type="button">Začni oblikovanje po meri</button><a class="btn btn-ghost" href="contact.html">Naročilo za podjetja</a></div></div>
+  <body class="shop-page">
+    <header class="site-header" id="siteHeader"><div class="container nav-wrap"><a class="logo" href="index.html">JDSF</a><button class="nav-toggle" id="navToggle" aria-label="Preklopi navigacijo">☰</button><nav class="nav" id="navMenu"><a href="index.html">Domov</a><a href="shop.html" class="active">Trgovina</a><a href="about.html">O nas</a><a href="contact.html">Kontakt</a><a class="btn btn-primary btn-nav" href="contact.html">Pošlji povpraševanje</a></nav></div></header>
 
-      <div class="shop-toolbar reveal">
-        <div class="shop-filters" aria-label="Filtri materialov"><span class="filter-label">Material:</span><div id="materialFilterButtons"></div></div>
-        <div class="shop-filters" aria-label="Filtri kategorij"><span class="filter-label">Kategorija:</span><div id="filterButtons"></div></div>
-        <label class="shop-search-label" for="productSearch">Išči izdelek</label>
-        <input id="productSearch" class="shop-search" type="search" placeholder="Vpišite ime ali opis izdelka..." />
-      </div>
-
-      <section class="shop-benefits reveal" aria-label="Prednosti naročila">
-        <article class="shop-benefit">Custom engraving made to order</article>
-        <article class="shop-benefit">Fast production 24–48h</article>
-        <article class="shop-benefit">High precision laser engraving</article>
+    <main class="shop-shell">
+      <section class="shop-hero container">
+        <p class="eyebrow">Trgovina</p>
+        <h1>Trgovina</h1>
+        <p class="shop-lead">Personalizirana laserska gravura po meri</p>
       </section>
 
-      <div class="shop-section reveal"><h2>Izdelki</h2><div class="grid cards three-col" id="productGrid"></div></div>
-      <div class="custom-product-note reveal">
-        <h3>Ne najdete izdelka?</h3>
-        <p>Izdelamo tudi gravure po meri.</p>
-        <a class="btn btn-primary" href="contact.html">Pošlji povpraševanje</a>
-      </div>
-      <p id="productsEmptyState" class="products-empty is-hidden">Za izbrane filtre ni izdelkov.</p>
-      </div></section>
+      <section class="container shop-filters sticky-panel">
+        <div class="filter-group" id="categoryFilters"></div>
+        <input id="searchInput" type="search" placeholder="Išči po imenu izdelka..." aria-label="Išči izdelek" />
+        <select id="sortSelect" aria-label="Razvrsti izdelke">
+          <option value="">Razvrsti po</option>
+          <option value="asc">Cena: najnižja</option>
+          <option value="desc">Cena: najvišja</option>
+        </select>
+      </section>
+
+      <section class="container">
+        <div class="shop-grid" id="productGrid"></div>
+        <p id="emptyState" class="empty-state" hidden>Za izbrane filtre trenutno ni izdelkov.</p>
+      </section>
     </main>
 
     <div class="modal-backdrop" id="productModal" aria-hidden="true">
-      <div class="product-modal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle">
-        <button class="modal-close" id="productModalClose" type="button" aria-label="Zapri">✕</button>
-        <div class="modal-grid">
-          <div class="modal-image-wrap">
-            <img id="modalProductImage" src="" alt="Izbran graviran izdelek" />
-            <div class="engraving-overlay" id="engravingPreview">
-              <img id="previewLogo" src="" alt="Predogled naloženega logotipa" hidden />
-              <p id="previewText">Vaš simbol ali napis</p>
-            </div>
-          </div>
-          <div class="modal-content-wrap">
-            <p class="eyebrow" id="modalMaterial">Material</p>
-            <h2 id="productModalTitle">Ime izdelka</h2>
-            <p class="modal-description" id="modalDescription"></p>
-            <p class="modal-price" id="modalPrice"></p>
-            <form id="customizationForm" class="customization-panel">
-              <label for="engravingText">Napis za graviranje (največ 28 znakov)</label>
-              <input id="engravingText" name="engravingText" type="text" maxlength="28" placeholder="npr. Družina Novak" />
-              <label for="fontSelect">Slog pisave</label>
-              <select id="fontSelect" name="fontSelect"><option value="serif">Serifna</option><option value="sans-serif">Brezserifna</option><option value="cursive">Pisava v kurzivi</option><option value="monospace">Enoširinska</option></select>
-              <label for="fontSize">Velikost pisave</label><input id="fontSize" name="fontSize" type="range" min="16" max="40" value="24" />
-              <label for="logoUpload">Naloži simbol, logotip ali sliko (PNG/JPG)</label><input id="logoUpload" name="logoUpload" type="file" accept="image/png,image/jpeg" />
-              <div class="customization-actions"><button class="btn btn-primary" id="stripeCheckoutBtn" type="submit">Nadaljuj na Stripe plačilo</button></div>
-              <p class="checkout-note">Brez košarice: vsak lasersko graviran izdelek se plača neposredno preko svojega Stripe checkout linka.</p>
-            </form>
-          </div>
+      <article class="shop-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button id="closeModal" class="modal-close" type="button" aria-label="Zapri">✕</button>
+        <img id="modalImage" src="" alt="" />
+        <div>
+          <p class="modal-category" id="modalCategory"></p>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+          <p class="modal-price" id="modalPrice"></p>
+          <a class="btn btn-primary" href="contact.html">Pošlji povpraševanje</a>
         </div>
-      </div>
+      </article>
     </div>
-    <footer class="site-footer"><div class="container footer-grid"><div><a class="logo" href="index.html">JDSF</a><p>Unikatne laserske gravure po meri za darila, podjetja in posebne priložnosti.</p></div><div><h4>Hitre povezave</h4><ul><li><a href="index.html">Domov</a></li><li><a href="shop.html">Trgovina</a></li><li><a href="about.html">O nas</a></li><li><a href="contact.html">Kontakt</a></li></ul></div><div><h4>Kontakt</h4><p>E-pošta: <a href="mailto:hello@jdsfengraving.com">hello@jdsfengraving.com</a></p><h4>Družbena omrežja</h4><div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="LinkedIn">IN</a></div></div></div><div class="copyright">© 2026 JDSF Graviranje. Vse pravice pridržane.</div></footer>
+
+    <footer class="site-footer"><div class="container footer-grid"><div><a class="logo" href="index.html">JDSF</a><p>Unikatne laserske gravure po meri za darila, podjetja in posebne priložnosti.</p></div><div><h4>Hitre povezave</h4><ul><li><a href="index.html">Domov</a></li><li><a href="shop.html">Trgovina</a></li><li><a href="about.html">O nas</a></li><li><a href="contact.html">Kontakt</a></li></ul></div><div><h4>Kontakt</h4><p>E-pošta: <a href="mailto:hello@jdsfengraving.com">hello@jdsfengraving.com</a></p></div></div></footer>
+
     <script src="script.js"></script>
     <script src="js/products-loader.js"></script>
   </body>
