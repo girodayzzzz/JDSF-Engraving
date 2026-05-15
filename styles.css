@@ -105,6 +105,7 @@ img {
   color: var(--muted);
   text-decoration: none;
   font-weight: 500;
+  padding: 0.2rem 0.1rem;
   transition: color 0.25s ease;
 }
 
@@ -228,6 +229,7 @@ img {
   position: relative;
   max-width: 760px;
   z-index: 2;
+  padding: 1.8rem 0;
 }
 
 .eyebrow {
@@ -254,6 +256,7 @@ h1 {
 .subheadline {
   max-width: 58ch;
   color: #e8eaf0;
+  font-size: clamp(1.03rem, 2vw, 1.2rem);
 }
 
 .hero-actions {
@@ -273,6 +276,10 @@ h1 {
 
 .section-heading {
   margin-bottom: 2rem;
+}
+
+.section-heading p {
+  max-width: 72ch;
 }
 
 .grid {
@@ -324,11 +331,14 @@ h1 {
 .gallery-grid img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  width: 100%;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
 }
 
 .gallery-grid img:hover {
   transform: scale(1.03);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
 }
 
 .cta-card {
@@ -400,7 +410,7 @@ textarea:focus {
 
 .site-footer {
   border-top: 1px solid var(--border);
-  padding-top: 2.2rem;
+  padding-top: 3rem;
   background: #0b0c10;
 }
 
@@ -430,6 +440,13 @@ textarea:focus {
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 0.34rem 0.62rem;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.socials a:hover {
+  color: var(--text);
+  border-color: rgba(201, 169, 106, 0.5);
+  transform: translateY(-2px);
 }
 
 .copyright {
@@ -451,6 +468,41 @@ textarea:focus {
   transform: translateY(0);
 }
 
+.trust-section {
+  padding-top: 3.2rem;
+}
+
+.trust-card h3 {
+  margin-bottom: 0.4rem;
+}
+
+.feature-check {
+  font-weight: 600;
+}
+
+#why-us .three-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.product-assist {
+  margin-top: 2rem;
+  padding: 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  text-align: center;
+}
+
+.product-assist h3 {
+  margin-bottom: 0.5rem;
+}
+
+.product-assist p {
+  color: var(--muted);
+  margin: 0 auto 1.1rem;
+  max-width: 64ch;
+}
+
 @media (max-width: 960px) {
   .six-col,
   .three-col,
@@ -463,6 +515,10 @@ textarea:focus {
   .footer-grid,
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  #why-us .three-col {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -500,6 +556,14 @@ textarea:focus {
 
   .hero {
     min-height: 82vh;
+  }
+
+  #why-us .three-col {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding: 0.8rem 0;
   }
 }
 
