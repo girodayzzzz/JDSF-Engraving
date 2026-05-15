@@ -16,16 +16,16 @@
       <section class="section section-tight"><div class="container"><div class="section-heading reveal shop-topbar"><div><p class="eyebrow">Trgovina</p><h1>Lasersko gravirani izdelki po meri</h1><p class="shop-subtitle">Izberite material, dodajte simbole, napise ali logotipe in naročite lasersko gravirane izdelke za darila, podjetja ali posebne priložnosti.</p></div><div class="shop-cta-wrap"><button class="btn btn-primary" id="startDesignBtn" type="button">Začni oblikovanje po meri</button><a class="btn btn-ghost" href="contact.html">Naročilo za podjetja</a></div></div>
 
       <div class="shop-toolbar reveal">
-        <div class="shop-filters" aria-label="Filtri kategorij"><span class="filter-label">Filtriraj po kategoriji:</span><div id="filterButtons"></div></div>
+        <div class="shop-filters" aria-label="Filtri materialov"><span class="filter-label">Material:</span><div id="materialFilterButtons"></div></div>
+        <div class="shop-filters" aria-label="Filtri kategorij"><span class="filter-label">Kategorija:</span><div id="filterButtons"></div></div>
         <label class="shop-search-label" for="productSearch">Išči izdelek</label>
         <input id="productSearch" class="shop-search" type="search" placeholder="Vpišite ime ali opis izdelka..." />
       </div>
 
-      <div id="featuredSection" class="shop-section reveal"><h2>Izpostavljeni izdelki</h2><div class="grid cards three-col" id="featuredGrid"></div></div>
-      <div id="newSection" class="shop-section reveal"><h2>Novi izdelki</h2><div class="grid cards three-col" id="newProductsGrid"></div></div>
-      <div class="shop-section reveal"><h2>Vsi izdelki</h2><div class="grid cards three-col" id="productGrid"></div></div>
+      <div class="shop-section reveal"><h2>Izdelki</h2><div class="grid cards three-col" id="productGrid"></div></div>
       <div class="custom-product-note reveal">
-        <p>Ne najdete želenega izdelka? Kontaktirajte nas za gravuro po meri.</p>
+        <h3>Ne najdete izdelka?</h3>
+        <p>Izdelamo tudi gravure po meri.</p>
         <a class="btn btn-primary" href="contact.html">Pošlji povpraševanje</a>
       </div>
       <p id="productsEmptyState" class="products-empty is-hidden">Za izbrane filtre ni izdelkov.</p>
@@ -64,5 +64,6 @@
     </div>
     <footer class="site-footer"><div class="container footer-grid"><div><a class="logo" href="index.html">JDSF</a><p>Unikatne laserske gravure po meri za darila, podjetja in posebne priložnosti.</p></div><div><h4>Hitre povezave</h4><ul><li><a href="index.html">Domov</a></li><li><a href="shop.html">Trgovina</a></li><li><a href="about.html">O nas</a></li><li><a href="contact.html">Kontakt</a></li></ul></div><div><h4>Kontakt</h4><p>E-pošta: <a href="mailto:hello@jdsfengraving.com">hello@jdsfengraving.com</a></p><h4>Družbena omrežja</h4><div class="socials"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="LinkedIn">IN</a></div></div></div><div class="copyright">© 2026 JDSF Graviranje. Vse pravice pridržane.</div></footer>
     <script src="script.js"></script>
+    <script src="js/products-loader.js"></script>
   </body>
 </html>

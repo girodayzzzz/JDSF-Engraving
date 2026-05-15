@@ -1,0 +1,17 @@
+{
+  "id": "wood-plaque-classic-001",
+  "title": "Klasična lesena plaketa",
+  "material": "Wood",
+  "category": "Gifts",
+  "price": "€49",
+  "badge": "Best Seller",
+  "image": "assets/products/wood/wood-plaque-classic.jpg",
+  "gallery": [
+    "assets/products/wood/wood-plaque-classic.jpg",
+    "assets/products/wood/wood-plaque-classic-detail.jpg"
+  ],
+  "description": "Eleganten lesen izdelek z natančno gravuro imena, citata ali logotipa.",
+  "customizable": true,
+  "featured": true,
+  "checkoutUrl": "contact.html"
+}
