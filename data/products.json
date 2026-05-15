@@ -1,0 +1,70 @@
+[
+  {
+    "id": "wood-plaketa-001",
+    "title": "Lesena plaketa z graviranim napisom",
+    "category": "wood",
+    "material": "Les",
+    "price": "$79.00",
+    "personalized": true,
+    "featured": true,
+    "new": false,
+    "shortDescription": "Ročno obdelana lesena plaketa za gravirane napise, simbole in posvetila.",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80"
+    ],
+    "checkoutUrl": "https://buy.stripe.com/test_wood_plaque",
+    "customizationOptions": { "imageUpload": true, "customText": true, "fontSelection": true, "sizeSelection": true }
+  },
+  {
+    "id": "k9-kristalna-kocka-001",
+    "title": "K9 kristalna nagrada",
+    "category": "k9-crystal",
+    "material": "K9 Kristal",
+    "price": "$129.00",
+    "personalized": true,
+    "featured": true,
+    "new": true,
+    "shortDescription": "Poliran K9 kristal z lasersko graviranimi logotipi in imeni.",
+    "image": "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=700&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=700&q=80"
+    ],
+    "checkoutUrl": "https://buy.stripe.com/test_crystal_award",
+    "customizationOptions": { "imageUpload": true, "customText": true, "fontSelection": true, "sizeSelection": true }
+  },
+  {
+    "id": "metal-tablica-001",
+    "title": "Kovinska tablica z imenom",
+    "category": "metal",
+    "material": "Kovina",
+    "price": "$39.00",
+    "personalized": true,
+    "featured": false,
+    "new": false,
+    "shortDescription": "Natančno gravirana kovinska tablica za imena in tehnične napise.",
+    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=700&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=700&q=80"
+    ],
+    "checkoutUrl": "https://buy.stripe.com/test_metal_nameplate",
+    "customizationOptions": { "imageUpload": false, "customText": true, "fontSelection": true, "sizeSelection": true }
+  },
+  {
+    "id": "stone-podstavki-001",
+    "title": "Komplet podstavkov iz skrilavca",
+    "category": "stone",
+    "material": "Skrilavec",
+    "price": "$59.00",
+    "personalized": true,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Naravni podstavki iz skrilavca z obstojnim laserskim graviranjem.",
+    "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=700&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=700&q=80"
+    ],
+    "checkoutUrl": "https://buy.stripe.com/test_slate_coasters",
+    "customizationOptions": { "imageUpload": false, "customText": true, "fontSelection": false, "sizeSelection": false }
+  }
+]

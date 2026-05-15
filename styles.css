@@ -725,3 +725,10 @@ input[type="range"] {
     justify-content: flex-start;
   }
 }
+
+.shop-toolbar { display: grid; gap: 0.7rem; margin-bottom: 1rem; }
+#filterButtons { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.shop-search-label { color: var(--muted); font-size: 0.9rem; }
+.shop-search { width: 100%; padding: 0.7rem 0.9rem; border-radius: 10px; border: 1px solid var(--border); background: #101319; color: var(--text); }
+.shop-section { margin-bottom: 2rem; }
+.products-empty { color: var(--muted); }
