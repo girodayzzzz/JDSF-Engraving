@@ -1,65 +1,27 @@
-# Product Management System (GitHub Pages Friendly)
+# JDSF Product System (GitHub Pages)
 
-Ta sistem je narejen tako, da **ne potrebujete programiranja** za dodajanje novih izdelkov.
+## File structure
+- `products/index.json` (manifest of product JSON files)
+- `products/product.template.json` (copy this for every new item)
+- `products/wood/*.json`
+- `products/k9-crystal/*.json`
+- `products/metal/*.json`
+- `assets/products/wood/*`
+- `assets/products/k9-crystal/*`
+- `assets/products/metal/*`
+- `js/products-loader.js` (auto render + filter + sorting)
 
-## Kako dodati nov izdelek (2 koraka)
-1. Naložite slike v ustrezno mapo: `assets/products/<kategorija>/`
-2. Dodajte nov objekt v `data/products.json`
+## Add product in 3 steps
+1. Upload product images to `assets/products/<material>/`.
+2. Duplicate `products/product.template.json`, fill product data, and save into the correct material folder.
+3. Add the JSON path to `products/index.json`.
 
-Stran bo izdelek samodejno prikazala v trgovini.
+Done. Product appears automatically on `shop.html`.
 
-## Struktura map
-- `products/` – kategorije (organizacija)
-- `assets/products/` – slike izdelkov po kategorijah
-- `data/products.json` – vsi izdelki
+## Supported filtering
+- Material: All, Wood, K9 Crystal, Metal
+- Category: All, Gifts, Business Gifts, Memorial, Decoration, Custom
 
-## Kategorije
-Uporabite eno od teh vrednosti v polju `category`:
-- `wood`
-- `k9-crystal`
-- `metal`
-- `stone`
-- `ornaments`
-- `keychains`
-- `personalized-gifts`
-
-## Primer izdelka
-```json
-{
-  "id": "k9-kristalna-kocka-001",
-  "title": "K9 Kristalna kocka z gravuro slike",
-  "category": "k9-crystal",
-  "material": "K9 Kristal",
-  "price": "Po povpraševanju",
-  "personalized": true,
-  "featured": true,
-  "new": true,
-  "shortDescription": "Personalizirana K9 kristalna kocka z gravuro fotografije.",
-  "image": "assets/products/k9-crystal/kristal-kocka-001.jpg",
-  "gallery": ["assets/products/k9-crystal/kristal-kocka-001.jpg"],
-  "checkoutUrl": "https://buy.stripe.com/...",
-  "customizationOptions": {
-    "imageUpload": true,
-    "customText": true,
-    "fontSelection": true,
-    "sizeSelection": true
-  }
-}
-```
-
-## Kako označiti “featured” ali “new”
-- `"featured": true` → prikaže se v razdelku **Izpostavljeni izdelki**
-- `"new": true` → prikaže se v razdelku **Novi izdelki**
-
-## Kako dodati personalizacijo
-- `"personalized": true`
-- Nastavite `customizationOptions` (npr. slika, tekst, izbira pisave, velikosti)
-
-## Priporočene velikosti slik
-- Priporočeno: **1200 x 900 px**
-- Razmerje: **4:3**
-- Format: **JPG** (fotografije), **PNG** (logo/transparent)
-- Velikost datoteke: idealno pod **400 KB** za hitrejše nalaganje
-
-## Opomba
-Po spremembah samo naredite commit/push na GitHub in GitHub Pages bo posodobil stran.
+## Sorting
+- Featured products are listed first automatically.
+- Non-featured products follow.

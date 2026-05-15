@@ -1,0 +1,16 @@
+{
+  "id": "k9-crystal-award-001",
+  "title": "K9 kristalna nagrada",
+  "material": "K9 Crystal",
+  "category": "Business Gifts",
+  "price": "€119",
+  "badge": "Premium",
+  "image": "assets/products/k9-crystal/k9-crystal-award.jpg",
+  "gallery": [
+    "assets/products/k9-crystal/k9-crystal-award.jpg"
+  ],
+  "description": "Poliran K9 kristal za poslovna priznanja in protokolarna darila.",
+  "customizable": true,
+  "featured": true,
+  "checkoutUrl": "contact.html"
+}

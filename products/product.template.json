@@ -1,0 +1,16 @@
+{
+  "id": "your-product-id-001",
+  "title": "Ime izdelka",
+  "material": "Wood",
+  "category": "Gifts",
+  "price": "€0",
+  "badge": "Optional",
+  "image": "assets/products/wood/your-image.jpg",
+  "gallery": [
+    "assets/products/wood/your-image.jpg"
+  ],
+  "description": "Kratek profesionalen opis izdelka.",
+  "customizable": true,
+  "featured": false,
+  "checkoutUrl": "contact.html"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "metal-nameplate-001",
+  "title": "Kovinska tablica",
+  "material": "Metal",
+  "category": "Custom",
+  "price": "€39",
+  "badge": "Custom",
+  "image": "assets/products/metal/metal-nameplate.jpg",
+  "gallery": [
+    "assets/products/metal/metal-nameplate.jpg"
+  ],
+  "description": "Trpežna kovinska gravura za vrata, mize ali industrijske označbe.",
+  "customizable": true,
+  "featured": false,
+  "checkoutUrl": "contact.html"
+}
