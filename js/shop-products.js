@@ -6,7 +6,6 @@
   const searchInput = document.getElementById('searchInput');
   const sortSelect = document.getElementById('sortSelect');
   const emptyState = document.getElementById('emptyState');
-  const modal = document.getElementById('productModal');
 
   const CATEGORY_LABELS = {
     all: 'Vsi izdelki',
@@ -69,28 +68,18 @@
     });
   };
 
-  const openModal = (product) => {
-    document.getElementById('modalImage').src = product.image;
-    document.getElementById('modalImage').alt = product.name;
-    document.getElementById('modalCategory').textContent = CATEGORY_LABELS[product.category] || CATEGORY_LABELS.custom;
-    document.getElementById('modalTitle').textContent = product.name;
-    document.getElementById('modalDescription').textContent = product.description;
-    document.getElementById('modalPrice').textContent = product.price;
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-  };
-
   const createCard = (product) => {
     const article = document.createElement('article');
     article.className = 'shop-card';
-    article.innerHTML = `<img src="${product.image}" alt="${product.name}" loading="lazy" />
+    article.innerHTML = `<a class="shop-card-link" href="product.html?id=${encodeURIComponent(product.id)}" aria-label="Odpri izdelek ${product.name}">
+      <img src="${product.image}" alt="${product.name}" loading="lazy" />
       <div class="shop-card-body">
         <h3>${product.name}</h3>
         <p>${product.description}</p>
         <div class="price">${product.price}</div>
-        <button class="btn btn-primary" type="button">Poglej izdelek</button>
-      </div>`;
-    article.querySelector('button').addEventListener('click', () => openModal(product));
+        <span class="btn btn-primary">Poglej izdelek</span>
+      </div>
+    </a>`;
     return article;
   };
 
@@ -136,8 +125,4 @@
     renderProducts();
   });
 
-  document.getElementById('closeModal').addEventListener('click', () => {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-  });
 })();

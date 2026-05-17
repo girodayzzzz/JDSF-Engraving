@@ -883,6 +883,19 @@ input[type="range"] {
 .shop-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform .25s ease, box-shadow .25s ease; }
 .shop-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38); }
 .shop-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 0; }
+
+.shop-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.shop-card-link:focus-visible {
+  outline: 2px solid var(--primary, #0f766e);
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
+
 .shop-card-body { padding: 1rem; }
 .shop-card h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
 .shop-card p { margin: 0 0 .6rem; color: var(--muted); font-size: .95rem; }
