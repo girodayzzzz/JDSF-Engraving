@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B2B sodelovanje | JDSF Graviranje</title>
+    <meta name="description" content="B2B stran za naročila, povpraševanja in sodelovanje z JDSF Laser Craft." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html">JDSF</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Preklopi navigacijo">☰</button>
+        <nav class="nav" id="navMenu">
+          <a href="index.html">Domov</a>
+          <a href="shop.html">Trgovina</a>
+          <a href="about.html">O nas</a>
+          <a href="contact.html">Kontakt</a>
+          <a href="b2b.html" class="active">B2B</a>
+          <a class="btn btn-primary btn-nav" href="contact.html">Zahtevaj ponudbo</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section-compact page-hero">
+        <div class="container">
+          <h1>B2B naročila in sodelovanje</h1>
+          <p>
+            Za podjetja pripravljamo personalizirane serije izdelkov, poslovna darila in gravure po meri.
+            Izpolnite obrazec za naročilo ali povpraševanje o sodelovanju.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container contact-grid">
+          <div class="card reveal">
+            <h2>Zakaj sodelovati z nami?</h2>
+            <ul>
+              <li>Prilagoditev izdelkov vaši blagovni znamki.</li>
+              <li>Kratki dobavni roki za manjše in srednje serije.</li>
+              <li>Podpora pri pripravi dizajna in materialov.</li>
+            </ul>
+            <p><strong>E-pošta:</strong> <a href="mailto:info@jdsf-lasercraft.com">info@jdsf-lasercraft.com</a></p>
+            <p><strong>Telefon:</strong> +386 51 653 423</p>
+          </div>
+
+          <form class="contact-form card reveal">
+            <h2>B2B obrazec</h2>
+            <label for="company">Podjetje</label>
+            <input id="company" name="company" type="text" placeholder="Ime podjetja" required />
+
+            <label for="name">Kontaktna oseba</label>
+            <input id="name" name="name" type="text" placeholder="Ime in priimek" required />
+
+            <label for="email">E-pošta</label>
+            <input id="email" name="email" type="email" placeholder="ime@podjetje.si" required />
+
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" type="tel" placeholder="+386 ..." />
+
+            <label for="message">Naročilo / povpraševanje / sodelovanje</label>
+            <textarea id="message" name="message" rows="5" placeholder="Opišite količino, rok, vrsto izdelkov in vaše želje." required></textarea>
+
+            <button class="btn btn-primary" type="submit">Pošlji B2B povpraševanje</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div><a class="logo" href="index.html">JDSF</a></div>
+        <div><h4>Hitre povezave</h4><ul><li><a href="index.html">Domov</a></li><li><a href="shop.html">Trgovina</a></li><li><a href="about.html">O nas</a></li><li><a href="contact.html">Kontakt</a></li><li><a href="b2b.html">B2B</a></li></ul></div>
+        <div><h4>Kontakt</h4><p>E-pošta: <a href="mailto:info@jdsf-lasercraft.com">info@jdsf-lasercraft.com</a></p><p>Telefon: +386 51 653 423</p><h4>Družbena omrežja</h4><div class="socials"><a href="#">IG</a><a href="#">FB</a><a href="#">IN</a></div></div>
+      </div>
+      <div class="copyright">© 2026 JDSF Graviranje. Vse pravice pridržane.</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
