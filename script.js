@@ -20,13 +20,12 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
 
-const contactForm = document.querySelector(".contact-form");
-if (contactForm)
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const button = contactForm.querySelector("button[type='submit']");
+document.querySelectorAll(".contact-form").forEach((form) => {
+  form.addEventListener("submit", () => {
+    const button = form.querySelector("button[type='submit']");
     if (button) {
-      button.textContent = "Sporočilo poslano ✓";
+      button.textContent = "Pošiljanje ...";
       button.disabled = true;
     }
   });
+});
