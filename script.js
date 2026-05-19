@@ -23,10 +23,9 @@ document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(it
 const contactForm = document.querySelector(".contact-form");
 if (contactForm)
   contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
     const button = contactForm.querySelector("button[type='submit']");
     if (button) {
-      button.textContent = "Sporočilo poslano ✓";
+      button.textContent = "Pošiljanje ...";
       button.disabled = true;
     }
   });
