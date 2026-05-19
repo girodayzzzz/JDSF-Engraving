@@ -22,10 +22,17 @@ document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(it
 
 const contactForm = document.querySelector(".contact-form");
 if (contactForm)
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", () => {
+    const method = (contactForm.getAttribute("method") || "GET").toUpperCase();
+    const action = (contactForm.getAttribute("action") || "").trim();
+    const isRemotePostForm = action.length > 0 && method === "POST";
+
+    if (!isRemotePostForm) return;
+
     const button = contactForm.querySelector("button[type='submit']");
     if (button) {
       button.textContent = "Pošiljanje ...";
       button.disabled = true;
+      button.setAttribute("aria-disabled", "true");
     }
   });
