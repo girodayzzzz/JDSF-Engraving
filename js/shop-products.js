@@ -71,7 +71,7 @@
   const createCard = (product) => {
     const article = document.createElement('article');
     article.className = 'shop-card';
-    article.innerHTML = `<a class="shop-card-link" href="product.html?id=${encodeURIComponent(product.id)}" aria-label="Odpri izdelek ${product.name}">
+    article.innerHTML = `<a class="shop-card-link" href="izdelek.html?id=${encodeURIComponent(product.id)}" aria-label="Odpri izdelek ${product.name}">
       <img src="${product.image}" alt="${product.name}" loading="lazy" />
       <div class="shop-card-body">
         <h3>${product.name}</h3>

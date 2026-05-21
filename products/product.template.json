@@ -12,5 +12,5 @@
   "description": "Kratek profesionalen opis izdelka.",
   "customizable": true,
   "featured": false,
-  "checkoutUrl": "contact.html"
+  "checkoutUrl": "kontakt.html"
 }

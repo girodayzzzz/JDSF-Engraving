@@ -16,7 +16,7 @@
 2. Duplicate `products/product.template.json`, fill product data, and save into the correct material folder.
 3. Add the JSON path to `products/index.json`.
 
-Done. Product appears automatically on `shop.html`.
+Done. Product appears automatically on `trgovina.html`.
 
 ## Supported filtering
 - Material: All, Wood, K9 Crystal, Metal
