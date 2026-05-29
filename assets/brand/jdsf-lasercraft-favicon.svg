@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="JDSF LaserCraft favicon">
+  <rect width="512" height="512" rx="80" fill="#050505"/>
+  <g fill="none" stroke="#ffe100" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 142h126l42 43h76l42-43h126"/>
+    <path d="M34 178h142l40 40h80l40-40h142"/>
+    <path d="M50 213h92l55 55h118l55-55h92"/>
+    <path d="M50 323h92l55-55h118l55 55h92"/>
+    <path d="M34 358h142l40-40h80l40 40h142"/>
+    <path d="M50 394h126l42-43h76l42 43h126"/>
+  </g>
+  <g fill="#ffe100">
+    <circle cx="50" cy="142" r="17"/><circle cx="462" cy="142" r="17"/>
+    <circle cx="34" cy="178" r="17"/><circle cx="478" cy="178" r="17"/>
+    <circle cx="50" cy="213" r="17"/><circle cx="462" cy="213" r="17"/>
+    <circle cx="50" cy="323" r="17"/><circle cx="462" cy="323" r="17"/>
+    <circle cx="34" cy="358" r="17"/><circle cx="478" cy="358" r="17"/>
+    <circle cx="50" cy="394" r="17"/><circle cx="462" cy="394" r="17"/>
+  </g>
+</svg>
