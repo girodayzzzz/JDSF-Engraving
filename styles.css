@@ -88,11 +88,23 @@ img {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   color: var(--text);
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+}
+
+.logo img {
+  display: block;
+  width: auto;
+  height: 46px;
+  max-width: 148px;
+  object-fit: contain;
+}
+
+.site-footer .logo img {
+  height: 52px;
+  max-width: 168px;
 }
 
 .nav {
