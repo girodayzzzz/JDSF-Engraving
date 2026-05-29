@@ -90,21 +90,37 @@ img {
 .logo {
   display: inline-flex;
   align-items: center;
+  position: relative;
+  flex: 0 0 auto;
+  width: 240px;
+  height: 56px;
+  overflow: hidden;
   text-decoration: none;
   color: var(--text);
 }
 
 .logo img {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: block;
   width: auto;
-  height: 46px;
-  max-width: 148px;
+  height: 240px;
+  max-width: none;
   object-fit: contain;
+  object-position: center;
+  transform: translate(-60px, -84px);
+}
+
+
+.site-footer .logo {
+  width: 260px;
+  height: 64px;
 }
 
 .site-footer .logo img {
-  height: 52px;
-  max-width: 168px;
+  height: 270px;
+  transform: translate(-72px, -94px);
 }
 
 .nav {
