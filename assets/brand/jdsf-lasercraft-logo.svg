@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 183" role="img" aria-labelledby="title desc">
+  <title id="title">JDSF LaserCraft</title>
+  <desc id="desc">Yellow JDSF LaserCraft logo with circuit traces on a transparent background.</desc>
+  <g fill="none" stroke="#f2db16" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M31 54h86l37 33h58"/>
+    <path d="M31 82h112l24 22h45"/>
+    <path d="M31 110h86l37-33h58"/>
+    <path d="M31 136h106l25-24h50"/>
+    <path d="M508 54h95l37 33h49"/>
+    <path d="M508 82h126l24 22h31"/>
+    <path d="M508 110h95l37-33h49"/>
+    <path d="M508 136h120l25-24h36"/>
+  </g>
+  <g fill="#f2db16">
+    <circle cx="24" cy="54" r="10"/>
+    <circle cx="24" cy="82" r="10"/>
+    <circle cx="24" cy="110" r="10"/>
+    <circle cx="24" cy="136" r="10"/>
+    <circle cx="696" cy="54" r="10"/>
+    <circle cx="696" cy="82" r="10"/>
+    <circle cx="696" cy="110" r="10"/>
+    <circle cx="696" cy="136" r="10"/>
+    <text x="360" y="101" text-anchor="middle" font-family="Arial Black, Impact, Arial, sans-serif" font-size="110" font-style="italic" font-weight="900" letter-spacing="2">JDSF</text>
+    <text x="360" y="154" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="52" font-style="italic" font-weight="700" letter-spacing="1">LaserCraft</text>
+  </g>
+</svg>
