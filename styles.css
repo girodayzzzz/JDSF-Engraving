@@ -92,8 +92,8 @@ img {
   align-items: center;
   position: relative;
   flex: 0 0 auto;
-  width: 240px;
-  height: 56px;
+  width: 280px;
+  height: 64px;
   overflow: hidden;
   text-decoration: none;
   color: var(--text);
@@ -105,22 +105,22 @@ img {
   left: 0;
   display: block;
   width: auto;
-  height: 240px;
+  height: 270px;
   max-width: none;
   object-fit: contain;
   object-position: center;
-  transform: translate(-60px, -84px);
+  transform: translate(-68px, -95px);
 }
 
 
 .site-footer .logo {
-  width: 260px;
-  height: 64px;
+  width: 300px;
+  height: 72px;
 }
 
 .site-footer .logo img {
-  height: 270px;
-  transform: translate(-72px, -94px);
+  height: 300px;
+  transform: translate(-80px, -105px);
 }
 
 .nav {
