@@ -1143,3 +1143,30 @@ input[type="range"] {
     display: none;
   }
 }
+
+@media (max-width: 960px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    padding-top: 2.2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+  }
+
+  .site-footer .logo {
+    width: min(260px, 100%);
+  }
+
+  .footer-grid p,
+  .footer-grid li {
+    overflow-wrap: anywhere;
+  }
+}
