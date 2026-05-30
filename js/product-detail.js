@@ -1,17 +1,56 @@
 (() => {
   const getProductId = () => new URLSearchParams(window.location.search).get('id');
 
-  const normalizeCategory = (category) => {
-    const key = String(category || '').toLowerCase();
-    if (key === 'kamen' || key === 'stone' || key === 'skrilavec') return 'Kamen';
-    if (key === 'obeski' || key === 'obesek' || key === 'keychains' || key === 'keychain') return 'Obeski';
-    if (key === 'nakit' || key === 'verizice' || key === 'verižice' || key === 'jewelry') return 'Nakit';
-    if (key === 'dodatki' || key === 'dodatek' || key === 'accessories' || key === 'accessory' || key === 'ornaments' || key === 'ornament' || key === 'okraski' || key === 'okrasek') return 'Dodatki';
-    if (key === 'kristali' || key === 'kristal' || key === 'k9-crystal' || key === 'crystal') return 'Kristali';
-    if (key === 'leseni-izdelki' || key === 'wood' || key === 'les') return 'Leseni izdelki';
-    if (key === 'kovinski-izdelki' || key === 'metal' || key === 'kovina' || key === 'kovine') return 'Kovinski izdelki';
-    return 'Personalizirano';
+  const CATEGORY_LABELS = {
+    kamen: 'Kamen',
+    obeski: 'Obeski',
+    nakit: 'Nakit',
+    dodatki: 'Dodatki',
+    kristali: 'Kristali',
+    'leseni-izdelki': 'Leseni izdelki',
+    'kovinski-izdelki': 'Kovinski izdelki',
+    personalizirano: 'Personalizirano'
   };
+
+  const CATEGORY_ALIASES = {
+    kamen: 'kamen',
+    stone: 'kamen',
+    skrilavec: 'kamen',
+    obeski: 'obeski',
+    obesek: 'obeski',
+    keychains: 'obeski',
+    keychain: 'obeski',
+    nakit: 'nakit',
+    verizice: 'nakit',
+    verižice: 'nakit',
+    jewelry: 'nakit',
+    dodatki: 'dodatki',
+    dodatek: 'dodatki',
+    accessories: 'dodatki',
+    accessory: 'dodatki',
+    okraski: 'dodatki',
+    okrasek: 'dodatki',
+    ornaments: 'dodatki',
+    ornament: 'dodatki',
+    kristali: 'kristali',
+    kristal: 'kristali',
+    crystal: 'kristali',
+    'k9-crystal': 'kristali',
+    les: 'leseni-izdelki',
+    wood: 'leseni-izdelki',
+    'leseni-izdelki': 'leseni-izdelki',
+    kovina: 'kovinski-izdelki',
+    kovine: 'kovinski-izdelki',
+    metal: 'kovinski-izdelki',
+    'kovinski-izdelki': 'kovinski-izdelki',
+    custom: 'personalizirano',
+    personalized: 'personalizirano',
+    personalizirano: 'personalizirano',
+    darila: 'personalizirano'
+  };
+
+  const normalizeCategory = (category) => CATEGORY_ALIASES[String(category || '').trim().toLowerCase()] || 'personalizirano';
+  const getCategoryLabel = (category) => CATEGORY_LABELS[normalizeCategory(category)] || CATEGORY_LABELS.personalizirano;
 
   const normalizeProduct = (product) => ({
     id: product.id,
@@ -20,18 +59,22 @@
     price: product.price || product.cena || '',
     image: product.image || product.slika || '',
     gallery: Array.isArray(product.gallery) ? product.gallery : [],
-    category: product.category || product.kategorija || product.material || ''
+    category: normalizeCategory(product.category || product.kategorija || product.material),
+    checkoutUrl: product.checkoutUrl || 'kontakt.html'
   });
 
   const renderProduct = (product) => {
     const mainImage = document.getElementById('productMainImage');
     const galleryWrap = document.getElementById('productGallery');
+    const checkoutLink = document.getElementById('productCheckoutLink');
 
     document.title = `${product.name} | JDSF Graviranje`;
     document.getElementById('productName').textContent = product.name;
     document.getElementById('productDescription').textContent = product.description;
     document.getElementById('productPrice').textContent = product.price;
-    document.getElementById('productCategory').textContent = normalizeCategory(product.category);
+    document.getElementById('productCategory').textContent = getCategoryLabel(product.category);
+
+    if (checkoutLink) checkoutLink.href = product.checkoutUrl;
 
     const gallery = [product.image, ...product.gallery].filter(Boolean);
     const uniqueGallery = [...new Set(gallery)];
