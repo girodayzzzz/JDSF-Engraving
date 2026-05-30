@@ -9,20 +9,47 @@
 
   const CATEGORY_LABELS = {
     all: 'Vsi izdelki',
-    wood: 'Les',
-    'k9-crystal': 'K9 Kristal',
-    metal: 'Kovina',
+    kamen: 'Kamen',
+    obeski: 'Obeski',
+    nakit: 'Nakit',
+    dodatki: 'Dodatki',
+    kristali: 'Kristali',
+    'leseni-izdelki': 'Leseni izdelki',
+    'kovinski-izdelki': 'Kovinski izdelki',
     custom: 'Personalizirano'
   };
 
   const CATEGORY_ALIASES = {
-    wood: 'wood',
-    les: 'wood',
-    'k9-crystal': 'k9-crystal',
-    crystal: 'k9-crystal',
-    kristal: 'k9-crystal',
-    metal: 'metal',
-    kovina: 'metal',
+    kamen: 'kamen',
+    stone: 'kamen',
+    skrilavec: 'kamen',
+    obeski: 'obeski',
+    obesek: 'obeski',
+    keychains: 'obeski',
+    keychain: 'obeski',
+    nakit: 'nakit',
+    verizice: 'nakit',
+    verižice: 'nakit',
+    jewelry: 'nakit',
+    dodatki: 'dodatki',
+    dodatek: 'dodatki',
+    accessories: 'dodatki',
+    accessory: 'dodatki',
+    okraski: 'dodatki',
+    okrasek: 'dodatki',
+    ornaments: 'dodatki',
+    ornament: 'dodatki',
+    kristali: 'kristali',
+    kristal: 'kristali',
+    crystal: 'kristali',
+    'k9-crystal': 'kristali',
+    les: 'leseni-izdelki',
+    wood: 'leseni-izdelki',
+    'leseni-izdelki': 'leseni-izdelki',
+    kovina: 'kovinski-izdelki',
+    kovine: 'kovinski-izdelki',
+    metal: 'kovinski-izdelki',
+    'kovinski-izdelki': 'kovinski-izdelki',
     custom: 'custom',
     personalized: 'custom',
     personalizirano: 'custom',
@@ -41,6 +68,7 @@
     id: product.id || `izdelek-${index + 1}`,
     name: product.name || product.title || product.ime || 'Izdelek',
     category: normalizeCategory(product.category || product.kategorija || product.material),
+    material: product.material || '',
     price: product.price || product.cena || '',
     image: product.image || product.slika || '',
     description: product.description || product.shortDescription || product.opis || ''
@@ -49,9 +77,13 @@
   const renderFilters = () => {
     const filters = [
       ['all', CATEGORY_LABELS.all],
-      ['wood', CATEGORY_LABELS.wood],
-      ['k9-crystal', CATEGORY_LABELS['k9-crystal']],
-      ['metal', CATEGORY_LABELS.metal],
+      ['kamen', CATEGORY_LABELS.kamen],
+      ['obeski', CATEGORY_LABELS.obeski],
+      ['nakit', CATEGORY_LABELS.nakit],
+      ['dodatki', CATEGORY_LABELS.dodatki],
+      ['kristali', CATEGORY_LABELS.kristali],
+      ['leseni-izdelki', CATEGORY_LABELS['leseni-izdelki']],
+      ['kovinski-izdelki', CATEGORY_LABELS['kovinski-izdelki']],
       ['custom', CATEGORY_LABELS.custom]
     ];
 
@@ -86,7 +118,10 @@
   const renderProducts = () => {
     const filtered = products
       .filter((p) => currentCategory === 'all' || p.category === currentCategory)
-      .filter((p) => p.name.toLowerCase().includes(currentSearch));
+      .filter((p) => [p.name, p.description, p.material, CATEGORY_LABELS[p.category]]
+        .join(' ')
+        .toLowerCase()
+        .includes(currentSearch));
 
     if (currentSort === 'asc') filtered.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
     if (currentSort === 'desc') filtered.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
