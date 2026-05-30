@@ -46,9 +46,9 @@
         <h3>${product.ime}</h3>
         <p>${product.opis}</p>
         <div class="price">${product.cena}</div>
-        <button class="btn btn-primary" type="button">Poglej izdelek</button>
+        <span class="cart-item-hint">Kliknite sliko ali okvir za ogled izdelka</span>
       </div>`;
-    article.querySelector("button").addEventListener("click", () => openModal(product));
+    article.addEventListener("click", () => openModal(product));
     return article;
   };
 

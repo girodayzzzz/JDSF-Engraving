@@ -125,12 +125,20 @@
         <input type="number" min="1" step="1" value="1" data-cart-quantity-input aria-label="Količina za ${product.name}" />
       </label>
       <button class="btn btn-primary" type="button" data-add-to-cart>Dodaj v košarico</button>
-      <a class="btn btn-ghost" href="izdelek.html?id=${encodeURIComponent(product.id)}">Poglej izdelek</a>
       <span class="cart-action-message" data-cart-action-message aria-live="polite"></span>
     </div>`;
 
+    const productUrl = `izdelek.html?id=${encodeURIComponent(product.id)}`;
     const quantityInput = article.querySelector('[data-cart-quantity-input]');
     const actionMessage = article.querySelector('[data-cart-action-message]');
+
+    article.dataset.productUrl = productUrl;
+
+    article.addEventListener('click', (event) => {
+      if (event.target.closest('button, input, label, a')) return;
+      window.location.href = productUrl;
+    });
+
 
     article.querySelector('[data-add-to-cart]').addEventListener('click', () => {
       const quantity = normalizeQuantity(quantityInput.value);

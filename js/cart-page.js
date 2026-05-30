@@ -5,27 +5,29 @@
   const emptyState = document.getElementById('cartEmpty');
   const itemCount = document.getElementById('cartItemCount');
   const total = document.getElementById('cartTotal');
-  const inquiryLink = document.getElementById('cartInquiryLink');
+  const checkoutButton = document.getElementById('cartCheckoutButton');
+  const checkoutStatus = document.getElementById('cartCheckoutStatus');
   const clearCartButton = document.getElementById('clearCart');
 
-  const createInquiryHref = (items) => {
-    if (!items.length) return 'kontakt.html';
+  const getProductUrl = (productId) => `izdelek.html?id=${encodeURIComponent(productId)}`;
 
-    const lines = items.map((item) => `- ${item.name} | količina: ${item.quantity} | cena: ${item.price || 'po ponudbi'}`);
-    const body = [
-      'Pozdravljeni,',
-      '',
-      'zanima me naročilo oziroma ponudba za naslednje izdelke:',
-      '',
-      ...lines,
-      '',
-      'Opomba za personalizacijo:',
-      '',
-      'Hvala.'
-    ].join('\n');
-
-    return `mailto:info@jdsf-lasercraft.com?subject=${encodeURIComponent('Povpraševanje iz košarice')}&body=${encodeURIComponent(body)}`;
+  const setCheckoutStatus = (message, type = 'info') => {
+    if (!checkoutStatus) return;
+    checkoutStatus.textContent = message;
+    checkoutStatus.dataset.status = type;
   };
+
+  const setCheckoutLoading = (isLoading) => {
+    if (!checkoutButton) return;
+    checkoutButton.disabled = isLoading;
+    checkoutButton.setAttribute('aria-busy', String(isLoading));
+    checkoutButton.textContent = isLoading ? 'Preusmerjam na plačilo ...' : 'Nadaljuj na varno plačilo';
+  };
+
+  const getCheckoutItems = () => (window.JDSFCart?.getItems() || []).map((item) => ({
+    id: item.id,
+    quantity: Math.max(1, Math.floor(Number(item.quantity) || 1))
+  }));
 
   const renderCart = () => {
     const items = window.JDSFCart?.getItems() || [];
@@ -36,20 +38,25 @@
     emptyState.hidden = items.length > 0;
     itemCount.textContent = String(count);
     total.textContent = window.JDSFCart?.formatTotal(cartTotal) || '0,00 €';
-    inquiryLink.href = createInquiryHref(items);
-    inquiryLink.classList.toggle('is-disabled', items.length === 0);
+    checkoutButton.disabled = items.length === 0;
+    checkoutButton.classList.toggle('is-disabled', items.length === 0);
     clearCartButton.hidden = items.length === 0;
+    setCheckoutStatus(items.length ? 'Plačilo bo izvedeno prek Stripe Checkout varne povezave.' : '', 'info');
 
     items.forEach((item) => {
+      const productUrl = getProductUrl(item.id);
       const article = document.createElement('article');
       article.className = 'cart-item';
+      article.dataset.productUrl = productUrl;
       article.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" loading="lazy" />
-        <div class="cart-item-main">
+        <a class="cart-item-image-link" href="${productUrl}" aria-label="Odpri izdelek ${item.name}">
+          <img src="${item.image}" alt="${item.name}" loading="lazy" />
+        </a>
+        <a class="cart-item-main" href="${productUrl}">
           <h3>${item.name}</h3>
-          <p>${item.price || 'Cena po ponudbi'}</p>
-          <a href="izdelek.html?id=${encodeURIComponent(item.id)}">Poglej izdelek</a>
-        </div>
+          <p>${item.price || 'Cena ni nastavljena'}</p>
+          <span class="cart-item-hint">Kliknite sliko ali okvir za ogled izdelka</span>
+        </a>
         <div class="cart-quantity">
           <label for="qty-${item.id}">Količina</label>
           <input id="qty-${item.id}" type="number" min="1" value="${Number(item.quantity) || 1}" data-cart-quantity="${item.id}" />
@@ -68,9 +75,45 @@
 
   cartItems.addEventListener('click', (event) => {
     const button = event.target.closest('[data-remove-from-cart]');
-    if (!button) return;
-    window.JDSFCart?.removeItem(button.dataset.removeFromCart);
-    renderCart();
+    if (button) {
+      window.JDSFCart?.removeItem(button.dataset.removeFromCart);
+      renderCart();
+      return;
+    }
+
+    if (event.target.closest('button, input, label, a')) return;
+
+    const cartItem = event.target.closest('[data-product-url]');
+    if (cartItem?.dataset.productUrl) {
+      window.location.href = cartItem.dataset.productUrl;
+    }
+  });
+
+
+  checkoutButton.addEventListener('click', async () => {
+    const items = getCheckoutItems();
+    if (!items.length) return;
+
+    setCheckoutLoading(true);
+    setCheckoutStatus('Ustvarjam varno Stripe povezavo ...', 'info');
+
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items })
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.url) {
+        throw new Error(data.error || 'Plačila trenutno ni mogoče začeti.');
+      }
+
+      window.location.href = data.url;
+    } catch (error) {
+      setCheckoutStatus(error.message || 'Plačila trenutno ni mogoče začeti.', 'error');
+      setCheckoutLoading(false);
+    }
   });
 
   clearCartButton.addEventListener('click', () => {
