@@ -100,6 +100,15 @@
     });
   };
 
+  const normalizeQuantity = (value) => Math.max(1, Math.floor(Number(value) || 1));
+
+  const showAddedState = (message, quantity) => {
+    message.textContent = `Dodano ${quantity} × v košarico ✓`;
+    setTimeout(() => {
+      message.textContent = '';
+    }, 1600);
+  };
+
   const createCard = (product) => {
     const article = document.createElement('article');
     article.className = 'shop-card';
@@ -109,9 +118,27 @@
         <h3>${product.name}</h3>
         <p>${product.description}</p>
         <div class="price">${product.price}</div>
-        <span class="btn btn-primary">Poglej izdelek</span>
       </div>
-    </a>`;
+    </a>
+    <div class="shop-card-actions">
+      <label class="quantity-field">Količina
+        <input type="number" min="1" step="1" value="1" data-cart-quantity-input aria-label="Količina za ${product.name}" />
+      </label>
+      <button class="btn btn-primary" type="button" data-add-to-cart>Dodaj v košarico</button>
+      <a class="btn btn-ghost" href="izdelek.html?id=${encodeURIComponent(product.id)}">Poglej izdelek</a>
+      <span class="cart-action-message" data-cart-action-message aria-live="polite"></span>
+    </div>`;
+
+    const quantityInput = article.querySelector('[data-cart-quantity-input]');
+    const actionMessage = article.querySelector('[data-cart-action-message]');
+
+    article.querySelector('[data-add-to-cart]').addEventListener('click', () => {
+      const quantity = normalizeQuantity(quantityInput.value);
+      quantityInput.value = quantity;
+      window.JDSFCart?.addItem(product, quantity);
+      showAddedState(actionMessage, quantity);
+    });
+
     return article;
   };
 

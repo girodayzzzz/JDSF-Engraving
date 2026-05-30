@@ -2,6 +2,107 @@ const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
 if (navToggle && navMenu) navToggle.addEventListener("click", () => navMenu.classList.toggle("open"));
 
+const CART_STORAGE_KEY = "jdsfCart";
+
+const parseCartPrice = (price) => Number(String(price || "").replace(/[^\d,.-]/g, "").replace(",", ".")) || 0;
+
+const readCart = () => {
+  try {
+    const stored = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
+    return Array.isArray(stored) ? stored : [];
+  } catch (_) {
+    return [];
+  }
+};
+
+const saveCart = (items) => {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+  window.dispatchEvent(new CustomEvent("jdsf-cart-updated", { detail: { items } }));
+};
+
+const normalizeCartQuantity = (quantity) => Math.max(1, Math.floor(Number(quantity) || 1));
+
+const getCartCount = () => readCart().reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
+
+const updateCartBadges = () => {
+  const count = getCartCount();
+  document.querySelectorAll("[data-cart-count]").forEach((badge) => {
+    badge.textContent = String(count);
+    badge.hidden = count === 0;
+  });
+  document.querySelectorAll("[data-cart-label]").forEach((label) => {
+    label.setAttribute("aria-label", count ? `Košarica, ${count} izdelkov` : "Košarica je prazna");
+  });
+};
+
+const addHeaderCartLink = () => {
+  const nav = document.getElementById("navMenu");
+  if (!nav || nav.querySelector("[data-cart-label]")) return;
+
+  const link = document.createElement("a");
+  link.href = "kosarica.html";
+  link.className = `cart-nav-link${window.location.pathname.endsWith("kosarica.html") ? " active" : ""}`;
+  link.setAttribute("data-cart-label", "");
+  link.innerHTML = 'Košarica <span class="cart-count" data-cart-count hidden>0</span>';
+  nav.appendChild(link);
+  updateCartBadges();
+};
+
+window.JDSFCart = {
+  getItems: readCart,
+  addItem(product, quantity = 1) {
+    if (!product || !product.id) return [];
+
+    const quantityToAdd = normalizeCartQuantity(quantity);
+    const items = readCart();
+    const existing = items.find((item) => item.id === product.id);
+    if (existing) {
+      existing.quantity = (Number(existing.quantity) || 1) + quantityToAdd;
+    } else {
+      items.push({
+        id: product.id,
+        name: product.name || product.title || product.ime || "Izdelek",
+        price: product.price || product.cena || "",
+        image: product.image || product.slika || "",
+        category: product.category || product.kategorija || "",
+        quantity: quantityToAdd
+      });
+    }
+
+    saveCart(items);
+    return items;
+  },
+  updateQuantity(productId, quantity) {
+    const normalizedQuantity = Math.max(0, Math.floor(Number(quantity) || 0));
+    const items = readCart()
+      .map((item) => (item.id === productId ? { ...item, quantity: normalizedQuantity } : item))
+      .filter((item) => item.quantity > 0);
+    saveCart(items);
+    return items;
+  },
+  removeItem(productId) {
+    const items = readCart().filter((item) => item.id !== productId);
+    saveCart(items);
+    return items;
+  },
+  clear() {
+    saveCart([]);
+  },
+  getCount: getCartCount,
+  getTotal() {
+    return readCart().reduce((sum, item) => sum + parseCartPrice(item.price) * (Number(item.quantity) || 0), 0);
+  },
+  formatTotal(value) {
+    return `${Number(value || 0).toFixed(2).replace(".", ",")} €`;
+  }
+};
+
+window.addEventListener("jdsf-cart-updated", updateCartBadges);
+document.addEventListener("DOMContentLoaded", () => {
+  addHeaderCartLink();
+  updateCartBadges();
+});
+
 window.addEventListener("load", () => {
   const loader = document.getElementById("pageLoader");
   if (loader) setTimeout(() => loader.classList.add("hidden"), 600);
