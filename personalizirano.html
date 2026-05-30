@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="sl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personalizirano | JDSF Laser Craft</title>
+    <meta name="description" content="Oddajte povpraševanje za personaliziran lasersko graviran izdelek. Dodajte sliko, kontakt, material, količino in dodatne informacije za izdelavo po meri." />
+    <meta name="keywords" content="personalizirano, izdelki po meri, lasersko graviranje po meri, personalizirana darila, Formspree povpraševanje" />
+    <meta property="og:title" content="Personalizirano | JDSF Laser Craft" />
+    <meta property="og:description" content="Ločena stran za naročila po meri: naložite sliko, izberite material in pošljite informacije za personaliziran izdelek." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.jdsf-lasercraft.com/personalizirano.html" />
+    <meta property="og:image" content="https://www.jdsf-lasercraft.com/assets/homepage%20image.png" />
+    <meta property="og:locale" content="sl_SI" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Personalizirano | JDSF Laser Craft" />
+    <meta name="twitter:description" content="Pošljite idejo, sliko in material za personaliziran lasersko graviran izdelek." />
+    <meta name="twitter:image" content="https://www.jdsf-lasercraft.com/assets/homepage%20image.png" />
+    <link rel="canonical" href="https://www.jdsf-lasercraft.com/personalizirano.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="assets/brand/jdsf-lasercraft-favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-wrap">
+        <a class="logo" href="https://www.jdsf-lasercraft.com/" aria-label="JDSF Laser Craft domov"><img src="assets/brand/jdsf-lasercraft-logo.png" alt="JDSF Laser Craft" /></a>
+        <button class="nav-toggle" id="navToggle" aria-label="Preklopi navigacijo">☰</button>
+        <nav class="nav" id="navMenu" aria-label="Glavna navigacija">
+          <a href="index.html">Domov</a>
+          <a href="trgovina.html">Trgovina</a>
+          <a href="o-nas.html">O nas</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a class="btn btn-primary btn-nav active" href="personalizirano.html">Personalizirano</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="subpage-main personalized-page">
+      <section class="personalized-hero section section-tight">
+        <div class="container personalized-hero-grid">
+          <div class="reveal">
+            <p class="eyebrow">Izdelki po meri</p>
+            <h1>Personalizirano</h1>
+            <p class="subheadline">Tukaj oddate idejo za izdelek, ki ni del pripravljene trgovine: naložite fotografijo ali skico, izberite material in napišite želje. Na podlagi podatkov pripravimo predlog in ponudbo.</p>
+            <div class="personalized-steps" aria-label="Postopek personaliziranega naročila">
+              <article>
+                <span>01</span>
+                <strong>Pošljete idejo</strong>
+                <p>Slika, logotip, tekst, mere ali namen darila.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <strong>Uskladimo izvedbo</strong>
+                <p>Preverimo material, gravuro, rok in okvirno ceno.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <strong>Izdelava po potrditvi</strong>
+                <p>Po potrditvi pripravimo personaliziran izdelek.</p>
+              </article>
+            </div>
+          </div>
+          <aside class="card personalized-info reveal" aria-label="Kaj lahko priložite">
+            <h2>Kaj lahko naročite?</h2>
+            <ul>
+              <li>Personalizirana darila za rojstne dneve, poroke ali obletnice.</li>
+              <li>Graviranje fotografij, imen, datumov, logotipov ali sporočil.</li>
+              <li>Lesene, kovinske, kristalne in druge posebne izdelke po dogovoru.</li>
+            </ul>
+            <p>Več informacij kot dodate, hitreje lahko pripravimo natančen odgovor.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-compact" aria-labelledby="personalized-form-title">
+        <div class="container personalized-form-grid">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Povpraševanje</p>
+            <h2 id="personalized-form-title">Oddajte personalizirano naročilo</h2>
+            <p>Obrazec je ločen od trgovine s pripravljenimi izdelki, zato ga uporabite za posebne želje, unikatne materiale ali naročila, kjer želite predhodno ponudbo.</p>
+          </div>
+
+          <form class="contact-form personalized-form card reveal" action="https://formspree.io/f/xwvzyekk" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="form_name" value="Personalizirano naročilo" />
+
+            <div class="form-two-col">
+              <label for="custom-name">Ime in priimek
+                <input id="custom-name" name="name" type="text" placeholder="Vaše ime" required />
+              </label>
+              <label for="custom-email">E-pošta
+                <input id="custom-email" name="email" type="email" placeholder="vi@primer.si" required />
+              </label>
+            </div>
+
+            <div class="form-two-col">
+              <label for="custom-phone">Telefon
+                <input id="custom-phone" name="phone" type="tel" placeholder="+386 ..." />
+              </label>
+              <label for="custom-quantity">Količina
+                <input id="custom-quantity" name="quantity" type="number" min="1" step="1" value="1" />
+              </label>
+            </div>
+
+            <div class="form-two-col">
+              <label for="custom-material">Material
+                <select id="custom-material" name="material" required>
+                  <option value="">Izberite material</option>
+                  <option value="Les">Les</option>
+                  <option value="Kovina">Kovina</option>
+                  <option value="K9 kristal / steklo">K9 kristal / steklo</option>
+                  <option value="Akril">Akril</option>
+                  <option value="Usnje">Usnje</option>
+                  <option value="Drugo / po dogovoru">Drugo / po dogovoru</option>
+                </select>
+              </label>
+              <label for="custom-deadline">Želeni rok
+                <input id="custom-deadline" name="deadline" type="text" placeholder="Npr. do 15. junija" />
+              </label>
+            </div>
+
+            <label for="custom-product-type">Tip izdelka
+              <input id="custom-product-type" name="product_type" type="text" placeholder="Npr. obesek, plaketa, darilo, tabla, kristal ..." required />
+            </label>
+
+            <label for="custom-file">Dodajte sliko, logotip ali skico
+              <input id="custom-file" name="attachment" type="file" accept="image/*,.pdf,.svg,.ai,.eps" />
+              <span class="form-hint">Podprte so slike in dokumenti. Če imate več datotek, jih lahko omenite v opisu.</span>
+            </label>
+
+            <label for="custom-message">Dodatne informacije
+              <textarea id="custom-message" name="message" rows="7" placeholder="Opišite idejo, tekst za gravuro, mere, barve, namen darila ali posebne želje ..." required></textarea>
+            </label>
+
+            <label class="consent-line" for="custom-consent">
+              <input id="custom-consent" name="consent" type="checkbox" required />
+              <span>Strinjam se, da JDSF Laser Craft uporabi poslane podatke za pripravo odgovora in ponudbe.</span>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Pošlji personalizirano povpraševanje</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="logo" href="https://www.jdsf-lasercraft.com/" aria-label="JDSF Laser Craft domov"><img src="assets/brand/jdsf-lasercraft-logo.png" alt="JDSF Laser Craft" /></a>
+          <p>JDSF Laser Craft ustvarja kakovostne gravirane izdelke po meri za posebne trenutke, darila in poslovne namene.</p>
+        </div>
+        <div>
+          <h4>Povezave</h4>
+          <ul>
+            <li><a href="index.html">Domov</a></li>
+            <li><a href="trgovina.html">Trgovina</a></li>
+            <li><a href="personalizirano.html">Personalizirano</a></li>
+            <li><a href="o-nas.html">O nas</a></li>
+            <li><a href="b2b.html">B2B</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+          <h4>Pravno</h4>
+          <ul>
+            <li><a href="politika-zasebnosti.html">Politika zasebnosti</a></li>
+            <li><a href="pogoji-poslovanja.html">Pogoji poslovanja</a></li>
+            <li><a href="politika-piskotkov.html">Politika piškotkov</a></li>
+            <li><a href="omejitev-odgovornosti.html">Omejitev odgovornosti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <p>E-pošta: <a href="mailto:info@jdsf-lasercraft.com">info@jdsf-lasercraft.com</a></p>
+          <p>Telefon: <a href="tel:+38651653423">+386 51 653 423</a></p>
+        </div>
+        <div>
+          <h4>Podjetje</h4>
+          <p><strong>JDSF, Primož Sreš s.p.</strong></p>
+          <p>Matična: 9144889000</p>
+          <p>Davčna številka: SI62532642</p>
+          <p>Ribiška ulica 14, Bakovci, 9000 Murska Sobota</p>
+        </div>
+      </div>
+      <div class="copyright">© JDSF, Primož Sreš s.p. – Vse pravice pridržane</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
