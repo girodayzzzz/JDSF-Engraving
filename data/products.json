@@ -1,111 +1,416 @@
 [
   {
-    "id": "wood-plaketa-001",
-    "title": "Lesena plaketa z graviranim napisom",
-    "category": "wood",
-    "material": "Les",
-    "price": "$79.00",
-    "personalized": true,
-    "featured": true,
-    "new": false,
-    "shortDescription": "Ročno obdelana lesena plaketa za gravirane napise, simbole in posvetila.",
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80",
-    "gallery": [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80"
-    ],
-    "checkoutUrl": "https://buy.stripe.com/test_wood_plaque",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": true
-    }
-  },
-
-  {
-    "id": "k9-kristalna-kocka-001",
-    "title": "K9 kristalna nagrada",
-    "category": "k9-crystal",
-    "material": "K9 Kristal",
-    "price": "$129.00",
-    "personalized": true,
-    "featured": true,
-    "new": true,
-    "shortDescription": "Poliran K9 kristal z lasersko graviranimi logotipi in imeni.",
-    "image": "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=700&q=80",
-    "gallery": [
-      "https://images.unsplash.com/photo-1577937927133-66ef06acdf18?auto=format&fit=crop&w=700&q=80"
-    ],
-    "checkoutUrl": "https://buy.stripe.com/test_crystal_award",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": true
-    }
-  },
-
-  {
-    "id": "metal-tablica-001",
-    "title": "Kovinska tablica z imenom",
-    "category": "metal",
-    "material": "Kovina",
-    "price": "$39.00",
-    "personalized": true,
-    "featured": false,
-    "new": false,
-    "shortDescription": "Natančno gravirana kovinska tablica za imena in tehnične napise.",
-    "image": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=700&q=80",
-    "gallery": [
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=700&q=80"
-    ],
-    "checkoutUrl": "https://buy.stripe.com/test_metal_nameplate",
-    "customizationOptions": {
-      "imageUpload": false,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": true
-    }
-  },
-
-  {
-    "id": "stone-podstavki-001",
-    "title": "Komplet podstavkov iz skrilavca",
-    "category": "stone",
-    "material": "Skrilavec",
-    "price": "$59.00",
-    "personalized": true,
-    "featured": false,
-    "new": true,
-    "shortDescription": "Naravni podstavki iz skrilavca z obstojnim laserskim graviranjem.",
-    "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=700&q=80",
-    "gallery": [
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=700&q=80"
-    ],
-    "checkoutUrl": "https://buy.stripe.com/test_slate_coasters",
-    "customizationOptions": {
-      "imageUpload": false,
-      "customText": true,
-      "fontSelection": false,
-      "sizeSelection": false
-    }
-  },
-
-  {
     "id": "obesek-lovebear-k9",
-    "title": "Obesek Love Bear",
-    "category": "k9-crystal",
-    "material": "K9 Kristal",
-    "price": "15.00 €",
-    "personalized": true,
+    "title": "Personaliziran K9 kristal Love Bear",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "image": "assets/products/k9-crystal/obesek-lovebear-k9-01.jpg",
     "featured": true,
     "new": true,
-    "shortDescription": "K9 Kristal z gravuro ljubezenskega medvedka.",
-    "image": "assets/products/k9-crystal/obesek-lovebear-k9-01.jpg",
+    "price": "18,90 €",
+    "personalized": true,
+    "shortDescription": "Prozoren K9 kristal z osvetljenim motivom medvedka in srčki; eleganten spominek za ljubezensko posvetilo.",
     "gallery": [
       "assets/products/k9-crystal/obesek-lovebear-k9-01.jpg"
     ],
-    "checkoutUrl": "#",
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "k9-verizica-my-person",
+    "title": "K9 kristalna verižica Moja oseba",
+    "category": "nakit",
+    "material": "K9 kristal",
+    "image": "assets/products/k9-crystal/k9-verizica-my-person-01.png",
+    "featured": true,
+    "new": true,
+    "price": "24,90 €",
+    "personalized": true,
+    "shortDescription": "Srčna kristalna verižica z nežnim ljubezenskim motivom, ustvarjena za partnerja ali osebo, ki pomeni največ.",
+    "gallery": [
+      "assets/products/k9-crystal/k9-verizica-my-person-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "k9-kristal-verizica-you-always-forever",
+    "title": "K9 kristalna verižica Vedno in za vedno",
+    "category": "nakit",
+    "material": "K9 kristal",
+    "image": "assets/products/k9-crystal/k9-kristal-verizica-you-always-forever-01.png",
+    "featured": true,
+    "new": true,
+    "price": "24,90 €",
+    "personalized": true,
+    "shortDescription": "Romantična K9 verižica z motivom večne ljubezni; popolna izbira za obletnico, valentinovo ali posebno presenečenje.",
+    "gallery": [
+      "assets/products/k9-crystal/k9-kristal-verizica-you-always-forever-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "spominska-k9-verizica-forever-in-my-heart",
+    "title": "Spominska K9 verižica Vedno v srcu",
+    "category": "nakit",
+    "material": "K9 kristal",
+    "image": "assets/products/k9-crystal/spominska-k9-verizica-forever-in-my-heart-01.png",
+    "featured": false,
+    "new": true,
+    "price": "24,90 €",
+    "personalized": true,
+    "shortDescription": "Nežna spominska kristalna verižica za osebno posvetilo in trajen spomin na ljubljeno osebo.",
+    "gallery": [
+      "assets/products/k9-crystal/spominska-k9-verizica-forever-in-my-heart-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kristalno-srce-druzinsko-drevo",
+    "title": "K9 kristalno srce Družinsko drevo",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "image": "assets/products/k9-crystal/kristalno-srce-druzinsko-drevo-01.png",
+    "featured": true,
+    "new": true,
+    "price": "34,90 €",
+    "personalized": true,
+    "shortDescription": "Kristalno srce z motivom družinskega drevesa, pripravljeno za imena, datume in posvetilo najbližjim.",
+    "gallery": [
+      "assets/products/k9-crystal/kristalno-srce-druzinsko-drevo-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kristalna-krogla-true-north",
+    "title": "K9 kristalna krogla Kompas True North",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "image": "assets/products/k9-crystal/kristalna-krogla-true-north-01.png",
+    "featured": false,
+    "new": true,
+    "price": "39,90 €",
+    "personalized": true,
+    "shortDescription": "Prestižna kristalna krogla z motivom kompasa; simbol smeri, zaupanja in osebnega ali poslovnega uspeha.",
+    "gallery": [
+      "assets/products/k9-crystal/kristalna-krogla-true-north-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "k9-obesek-gorska-noc",
+    "title": "K9 kristalni obesek Gorska noč",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "image": "assets/products/k9-crystal/k9-obesek-gorska-noc-01.png",
+    "featured": false,
+    "new": true,
+    "price": "19,90 €",
+    "personalized": true,
+    "shortDescription": "Kristalni obesek z motivom gora, lune in zvezd za ljubitelje narave, mirnih trenutkov in pustolovščin.",
+    "gallery": [
+      "assets/products/k9-crystal/k9-obesek-gorska-noc-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kovinski-obesek-lisica-gravura",
+    "title": "Kovinski obesek Lisica z gravuro",
+    "category": "kovinski-izdelki",
+    "material": "Kovina",
+    "image": "assets/products/metal/kovinski-obesek-lisica-gravura-01.png",
+    "featured": true,
+    "new": true,
+    "price": "14,90 €",
+    "personalized": true,
+    "shortDescription": "Elegantno graviran kovinski obesek z motivom lisice; trpežen dodatek za ključe, torbo ali unikatno darilo.",
+    "gallery": [
+      "assets/products/metal/kovinski-obesek-lisica-gravura-01.png",
+      "assets/products/keychains/kovinski-obesek-lisica-gravura-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kovinski-obesek-forever-in-my-heart",
+    "title": "Spominski kovinski obesek Vedno v srcu",
+    "category": "obeski",
+    "material": "Kovina",
+    "image": "assets/products/keychains/kovinski-obesek-forever-in-my-heart-01.png",
+    "featured": false,
+    "new": true,
+    "price": "12,90 €",
+    "personalized": true,
+    "shortDescription": "Kovinski obesek z ljubezenskim sporočilom in možnostjo dodatne osebne gravure za dragocen spomin.",
+    "gallery": [
+      "assets/products/keychains/kovinski-obesek-forever-in-my-heart-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kristalni-obesek-vrtnica-srce",
+    "title": "Kristalni obesek Srce z vrtnico",
+    "category": "obeski",
+    "material": "Kristal",
+    "image": "assets/products/keychains/kristalni-obesek-vrtnica-srce-01.png",
+    "featured": true,
+    "new": true,
+    "price": "16,90 €",
+    "personalized": true,
+    "shortDescription": "Kristalni obesek v obliki srca z motivom vrtnice; nežno, romantično darilo za posebne trenutke.",
+    "gallery": [
+      "assets/products/keychains/kristalni-obesek-vrtnica-srce-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "premium-usnjen-obesek-harrington",
+    "title": "Premium usnjen obesek Harrington",
+    "category": "obeski",
+    "material": "Usnje in kovina",
+    "image": "assets/products/keychains/premium-usnjen-obesek-harrington-01.png",
+    "featured": false,
+    "new": true,
+    "price": "18,90 €",
+    "personalized": true,
+    "shortDescription": "Premium obesek za ključe iz usnja in kovine z dovršenim videzom ter personaliziranim graviranim detajlom.",
+    "gallery": [
+      "assets/products/keychains/premium-usnjen-obesek-harrington-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "lesen-obesek-you-are-my-today",
+    "title": "Lesen obesek Ti si moj danes",
+    "category": "obeski",
+    "material": "Les",
+    "image": "assets/products/keychains/lesen-obesek-you-are-my-today-01.png",
+    "featured": false,
+    "new": true,
+    "price": "9,90 €",
+    "personalized": true,
+    "shortDescription": "Topel lesen obesek z ljubezenskim sporočilom; naraven, lahek in prijeten dodatek za vsakodnevno uporabo.",
+    "gallery": [
+      "assets/products/keychains/lesen-obesek-you-are-my-today-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "leseni-odpirac-beer-oclock-medved",
+    "title": "Leseni odpirač Beer O'Clock z medvedom",
+    "category": "leseni-izdelki",
+    "material": "Les in kovina",
+    "image": "assets/products/wood/leseni-odpirac-beer-oclock-medved-01.png",
+    "featured": true,
+    "new": true,
+    "price": "17,90 €",
+    "personalized": true,
+    "shortDescription": "Leseni odpirač z zabavno gravuro medveda; praktično darilo za piknike, praznovanja in ljubitelje dobrega vzdušja.",
+    "gallery": [
+      "assets/products/wood/leseni-odpirac-beer-oclock-medved-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kamen-skrilavec-sonce-in-luna",
+    "title": "Graviran skrilavec Sonce in luna",
+    "category": "kamen",
+    "material": "Skrilavec",
+    "image": "assets/products/stone/kamen-skrilavec-sonce-in-luna-01.png",
+    "featured": true,
+    "new": true,
+    "price": "22,90 €",
+    "personalized": true,
+    "shortDescription": "Naravni skrilavec z motivom sonca in lune; dekorativen kos za dom z možnostjo osebnega posvetila.",
+    "gallery": [
+      "assets/products/stone/kamen-skrilavec-sonce-in-luna-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kamen-skrilavec-kompas-gore",
+    "title": "Graviran skrilavec Kompas med gorami",
+    "category": "kamen",
+    "material": "Skrilavec",
+    "image": "assets/products/stone/kamen-skrilavec-kompas-gore-01.png",
+    "featured": false,
+    "new": true,
+    "price": "22,90 €",
+    "personalized": true,
+    "shortDescription": "Skrilavec z motivom kompasa in gora za ljubitelje narave, potovanj in osebnih življenjskih poti.",
+    "gallery": [
+      "assets/products/stone/kamen-skrilavec-kompas-gore-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kamen-skrilavec-morning-coffee",
+    "title": "Graviran skrilavec Morning Coffee",
+    "category": "kamen",
+    "material": "Skrilavec",
+    "image": "assets/products/stone/kamen-skrilavec-morning-coffee-01.png",
+    "featured": false,
+    "new": true,
+    "price": "22,90 €",
+    "personalized": true,
+    "shortDescription": "Dekorativni skrilavec z motivom jutranje kave; odlična izbira za kuhinjo, kavarno ali darilo kavoljubom.",
+    "gallery": [
+      "assets/products/stone/kamen-skrilavec-morning-coffee-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "srce-kamen-skrilavec-coffee-love",
+    "title": "Srce iz skrilavca Coffee Love",
+    "category": "kamen",
+    "material": "Skrilavec",
+    "image": "assets/products/stone/srce-kamen-skrilavec-coffee-love-01.png",
+    "featured": true,
+    "new": true,
+    "price": "19,90 €",
+    "personalized": true,
+    "shortDescription": "Srce iz naravnega skrilavca z motivom Coffee Love; prikupno darilo za ljubitelje kave in toplih trenutkov.",
+    "gallery": [
+      "assets/products/stone/srce-kamen-skrilavec-coffee-love-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "kristalni-okrasek-gorska-noc",
+    "title": "Kristalni okrasek Gorska noč",
+    "category": "dodatki",
+    "material": "Kristal",
+    "image": "assets/products/ornaments/kristalni-okrasek-gorska-noc-01.png",
+    "featured": false,
+    "new": true,
+    "price": "14,90 €",
+    "personalized": true,
+    "shortDescription": "Kristalni okrasek z gorskim motivom, luno in zvezdami; eleganten dodatek za praznično ali celoletno dekoracijo.",
+    "gallery": [
+      "assets/products/ornaments/kristalni-okrasek-gorska-noc-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": true,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "srce-paris-2026-kristalni-okras",
+    "title": "Kristalni okras Srce Paris 2026",
+    "category": "dodatki",
+    "material": "Kristal",
+    "image": "assets/products/ornaments/srce-paris-2026-kristalni-okras-01.png",
+    "featured": false,
+    "new": true,
+    "price": "16,90 €",
+    "personalized": true,
+    "shortDescription": "Kristalni srčni okras z motivom Paris 2026; spominsko darilo za dogodek, potovanje ali osebno posvetilo.",
+    "gallery": [
+      "assets/products/ornaments/srce-paris-2026-kristalni-okras-01.png"
+    ],
+    "checkoutUrl": "kontakt.html",
     "customizationOptions": {
       "imageUpload": true,
       "customText": true,

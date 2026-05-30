@@ -3,10 +3,13 @@
 
   const normalizeCategory = (category) => {
     const key = String(category || '').toLowerCase();
-    if (key === 'wood' || key === 'les') return 'Les';
-    if (key === 'k9-crystal' || key === 'crystal' || key === 'kristal') return 'K9 Kristal';
-    if (key === 'metal' || key === 'kovina') return 'Kovina';
-    if (key === 'stone' || key === 'kamen') return 'Kamen';
+    if (key === 'kamen' || key === 'stone' || key === 'skrilavec') return 'Kamen';
+    if (key === 'obeski' || key === 'obesek' || key === 'keychains' || key === 'keychain') return 'Obeski';
+    if (key === 'nakit' || key === 'verizice' || key === 'verižice' || key === 'jewelry') return 'Nakit';
+    if (key === 'dodatki' || key === 'dodatek' || key === 'accessories' || key === 'accessory' || key === 'ornaments' || key === 'ornament' || key === 'okraski' || key === 'okrasek') return 'Dodatki';
+    if (key === 'kristali' || key === 'kristal' || key === 'k9-crystal' || key === 'crystal') return 'Kristali';
+    if (key === 'leseni-izdelki' || key === 'wood' || key === 'les') return 'Leseni izdelki';
+    if (key === 'kovinski-izdelki' || key === 'metal' || key === 'kovina' || key === 'kovine') return 'Kovinski izdelki';
     return 'Personalizirano';
   };
 
