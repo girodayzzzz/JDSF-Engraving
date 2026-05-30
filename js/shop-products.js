@@ -16,7 +16,7 @@
     kristali: 'Kristali',
     'leseni-izdelki': 'Leseni izdelki',
     'kovinski-izdelki': 'Kovinski izdelki',
-    custom: 'Personalizirano'
+    personalizirano: 'Personalizirano'
   };
 
   const CATEGORY_ALIASES = {
@@ -50,10 +50,10 @@
     kovine: 'kovinski-izdelki',
     metal: 'kovinski-izdelki',
     'kovinski-izdelki': 'kovinski-izdelki',
-    custom: 'custom',
-    personalized: 'custom',
-    personalizirano: 'custom',
-    darila: 'custom'
+    custom: 'personalizirano',
+    personalized: 'personalizirano',
+    personalizirano: 'personalizirano',
+    darila: 'personalizirano'
   };
 
   let currentCategory = 'all';
@@ -62,7 +62,7 @@
   let products = [];
 
   const parsePrice = (price) => Number(String(price || '').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
-  const normalizeCategory = (raw) => CATEGORY_ALIASES[String(raw || '').trim().toLowerCase()] || 'custom';
+  const normalizeCategory = (raw) => CATEGORY_ALIASES[String(raw || '').trim().toLowerCase()] || 'personalizirano';
 
   const normalizeProduct = (product, index) => ({
     id: product.id || `izdelek-${index + 1}`,
@@ -84,7 +84,7 @@
       ['kristali', CATEGORY_LABELS.kristali],
       ['leseni-izdelki', CATEGORY_LABELS['leseni-izdelki']],
       ['kovinski-izdelki', CATEGORY_LABELS['kovinski-izdelki']],
-      ['custom', CATEGORY_LABELS.custom]
+      ['personalizirano', CATEGORY_LABELS.personalizirano]
     ];
 
     categoryWrap.innerHTML = filters
