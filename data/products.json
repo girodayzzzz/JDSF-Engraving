@@ -1,27 +1,5 @@
 [
   {
-    "id": "obesek-lovebear-k9",
-    "title": "K9 kristalni obesek Love Bear",
-    "category": "kristali",
-    "material": "K9 kristal",
-    "price": "24,90 €",
-    "personalized": true,
-    "featured": true,
-    "new": true,
-    "shortDescription": "Prozoren K9 kristal z nežnim motivom medvedka, pripravljen za osebno posvetilo ali ime.",
-    "image": "assets/products/k9-crystal/obesek-lovebear-k9-01.jpg",
-    "gallery": [
-      "assets/products/k9-crystal/obesek-lovebear-k9-01.jpg"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "k9-verizica-my-person",
     "title": "K9 kristalna verižica My Person",
     "category": "nakit",
