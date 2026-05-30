@@ -132,28 +132,6 @@
     }
   },
   {
-    "id": "kovinski-obesek-lisica-gravura",
-    "title": "Kovinski obesek Lisica",
-    "category": "kovinski-izdelki",
-    "material": "Kovina",
-    "price": "18,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": true,
-    "shortDescription": "Trpežen kovinski obesek z natančno lasersko gravuro lisice in možnostjo osebnega napisa.",
-    "image": "assets/products/metal/kovinski-obesek-lisica-gravura-01.png",
-    "gallery": [
-      "assets/products/metal/kovinski-obesek-lisica-gravura-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "obesek-lisica-kovinski",
     "title": "Obesek za ključe Lisica",
     "category": "obeski",
