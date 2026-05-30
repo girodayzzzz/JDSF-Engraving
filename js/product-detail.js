@@ -67,6 +67,9 @@
     const mainImage = document.getElementById('productMainImage');
     const galleryWrap = document.getElementById('productGallery');
     const checkoutLink = document.getElementById('productCheckoutLink');
+    const addToCartButton = document.getElementById('productAddToCart');
+    const quantityInput = document.getElementById('productQuantity');
+    const cartMessage = document.getElementById('productCartMessage');
 
     document.title = `${product.name} | JDSF Graviranje`;
     document.getElementById('productName').textContent = product.name;
@@ -74,7 +77,20 @@
     document.getElementById('productPrice').textContent = product.price;
     document.getElementById('productCategory').textContent = getCategoryLabel(product.category);
 
-    if (checkoutLink) checkoutLink.href = product.checkoutUrl;
+    if (checkoutLink) checkoutLink.href = 'kosarica.html';
+    if (addToCartButton) {
+      addToCartButton.addEventListener('click', () => {
+        const quantity = Math.max(1, Math.floor(Number(quantityInput?.value) || 1));
+        if (quantityInput) quantityInput.value = quantity;
+        window.JDSFCart?.addItem(product, quantity);
+        if (cartMessage) {
+          cartMessage.textContent = `Dodano ${quantity} × v košarico ✓`;
+          setTimeout(() => {
+            cartMessage.textContent = '';
+          }, 1600);
+        }
+      });
+    }
 
     const gallery = [product.image, ...product.gallery].filter(Boolean);
     const uniqueGallery = [...new Set(gallery)];

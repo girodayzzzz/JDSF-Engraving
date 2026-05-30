@@ -25,7 +25,7 @@
             <p id="productDescription"></p>
             <p class="modal-price" id="productPrice"></p>
             <div id="productGallery" style="display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); margin: 1rem 0;"></div>
-            <a id="productCheckoutLink" class="btn btn-primary" href="kontakt.html">Pošlji povpraševanje</a>
+            <div class="product-detail-actions"><label class="quantity-field">Količina<input id="productQuantity" type="number" min="1" step="1" value="1" /></label><button id="productAddToCart" class="btn btn-primary" type="button">Dodaj v košarico</button><a id="productCheckoutLink" class="btn btn-ghost" href="kosarica.html">Pojdi v košarico</a><span id="productCartMessage" class="cart-action-message" aria-live="polite"></span></div>
           </div>
         </article>
         <p id="productError" class="empty-state" hidden>Izdelek ni bil najden.</p>
