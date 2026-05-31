@@ -85,6 +85,7 @@ export async function onRequestPost({ request, env }) {
 
   const form = new URLSearchParams();
   form.append('mode', 'payment');
+  form.append('payment_method_types[0]', 'card');
   form.append('success_url', `${siteUrl}/uspesno.html?session_id={CHECKOUT_SESSION_ID}`);
   form.append('cancel_url', `${siteUrl}/kosarica.html?canceled=1`);
   form.append('billing_address_collection', 'auto');
