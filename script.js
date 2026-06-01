@@ -121,8 +121,19 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
 
-const contactForm = document.querySelector(".contact-form");
-if (contactForm)
+document.querySelectorAll(".contact-form").forEach((contactForm) => {
+  const fileInput = contactForm.querySelector("input[type='file']");
+  const fileStatus = contactForm.querySelector("[data-file-status]");
+
+  if (fileInput && fileStatus) {
+    fileInput.addEventListener("change", () => {
+      const selectedFiles = Array.from(fileInput.files || []).map((file) => file.name);
+      fileStatus.textContent = selectedFiles.length
+        ? `Izbrano: ${selectedFiles.join(", ")}`
+        : "Datoteka ni obvezna, vendar zelo pomaga pri pripravi predloga.";
+    });
+  }
+
   contactForm.addEventListener("submit", () => {
     const method = (contactForm.getAttribute("method") || "GET").toUpperCase();
     const action = (contactForm.getAttribute("action") || "").trim();
@@ -137,3 +148,4 @@ if (contactForm)
       button.setAttribute("aria-disabled", "true");
     }
   });
+});

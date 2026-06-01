@@ -44,7 +44,7 @@
           <div class="reveal">
             <p class="eyebrow">Izdelki po meri</p>
             <h1>Personalizirano</h1>
-            <p class="subheadline">Tukaj oddate idejo za izdelek, ki ni del pripravljene trgovine: naložite fotografijo ali skico, izberite material in napišite želje. Na podlagi podatkov pripravimo predlog in ponudbo.</p>
+            <p class="subheadline">Ustvarimo premium graviran izdelek po vaši zgodbi: izberite material, dodajte fotografijo ali logotip, zapišite mere in želje, mi pa pripravimo predlog izvedbe ter ponudbo.</p>
             <div class="personalized-steps" aria-label="Postopek personaliziranega naročila">
               <article>
                 <span>01</span>
@@ -64,13 +64,13 @@
             </div>
           </div>
           <aside class="card personalized-info reveal" aria-label="Kaj lahko priložite">
-            <h2>Kaj lahko naročite?</h2>
+            <h2>Premium možnosti</h2>
             <ul>
-              <li>Personalizirana darila za rojstne dneve, poroke ali obletnice.</li>
-              <li>Graviranje fotografij, imen, datumov, logotipov ali sporočil.</li>
-              <li>Lesene, kovinske, kristalne in druge posebne izdelke po dogovoru.</li>
+              <li>Les, kovina, K9 kristal/steklo, akril, usnje ali material po dogovoru.</li>
+              <li>Graviranje fotografij, imen, datumov, logotipov, posvetil ali unikatnih vzorcev.</li>
+              <li>Darila za obletnice, poroke, podjetja, priznanja in posebne osebne trenutke.</li>
             </ul>
-            <p>Več informacij kot dodate, hitreje lahko pripravimo natančen odgovor.</p>
+            <p>Priložite kakovostno sliko ali logotip in dopišite željen stil – tako lažje dosežemo vrhunski rezultat.</p>
           </aside>
         </div>
       </section>
@@ -80,66 +80,127 @@
           <div class="section-heading reveal">
             <p class="eyebrow">Povpraševanje</p>
             <h2 id="personalized-form-title">Oddajte personalizirano naročilo</h2>
-            <p>Obrazec je ločen od trgovine s pripravljenimi izdelki, zato ga uporabite za posebne želje, unikatne materiale ali naročila, kjer želite predhodno ponudbo.</p>
+            <p>Premium obrazec je zasnovan kot kratek kreativni brief: zbere material, namen, količino, mere, slog in priponke, da lahko pripravimo čim bolj natančen odgovor.</p>
           </div>
 
-          <form class="contact-form personalized-form card reveal" action="https://formspree.io/f/xwvzyekk" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="form_name" value="Personalizirano naročilo" />
+          <form class="contact-form personalized-form card reveal" action="https://formspree.io/f/mykvqldp" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="form_name" value="Premium personalizirano naročilo" />
+            <input type="hidden" name="_subject" value="Novo premium personalizirano povpraševanje - JDSF Laser Craft" />
+
+            <div class="form-intro">
+              <span class="form-badge">Premium brief</span>
+              <h3>Podrobnosti za popolno izvedbo</h3>
+              <p>Izpolnite čim več polj – tako lahko hitreje preverimo izvedljivost, svetujemo najboljši material in pripravimo natančno ponudbo.</p>
+            </div>
 
             <div class="form-two-col">
               <label for="custom-name">Ime in priimek
-                <input id="custom-name" name="name" type="text" placeholder="Vaše ime" required />
+                <input id="custom-name" name="name" type="text" placeholder="Vaše ime" autocomplete="name" required />
               </label>
               <label for="custom-email">E-pošta
-                <input id="custom-email" name="email" type="email" placeholder="vi@primer.si" required />
+                <input id="custom-email" name="email" type="email" placeholder="vi@primer.si" autocomplete="email" required />
               </label>
             </div>
 
             <div class="form-two-col">
               <label for="custom-phone">Telefon
-                <input id="custom-phone" name="phone" type="tel" placeholder="+386 ..." />
-              </label>
-              <label for="custom-quantity">Količina
-                <input id="custom-quantity" name="quantity" type="number" min="1" step="1" value="1" />
-              </label>
-            </div>
-
-            <div class="form-two-col">
-              <label for="custom-material">Material
-                <select id="custom-material" name="material" required>
-                  <option value="">Izberite material</option>
-                  <option value="Les">Les</option>
-                  <option value="Kovina">Kovina</option>
-                  <option value="K9 kristal / steklo">K9 kristal / steklo</option>
-                  <option value="Akril">Akril</option>
-                  <option value="Usnje">Usnje</option>
-                  <option value="Drugo / po dogovoru">Drugo / po dogovoru</option>
-                </select>
+                <input id="custom-phone" name="phone" type="tel" placeholder="+386 ..." autocomplete="tel" />
               </label>
               <label for="custom-deadline">Želeni rok
                 <input id="custom-deadline" name="deadline" type="text" placeholder="Npr. do 15. junija" />
               </label>
             </div>
 
-            <label for="custom-product-type">Tip izdelka
-              <input id="custom-product-type" name="product_type" type="text" placeholder="Npr. obesek, plaketa, darilo, tabla, kristal ..." required />
-            </label>
+            <fieldset class="premium-fieldset">
+              <legend>Izberite material</legend>
+              <div class="material-choice-grid">
+                <label class="material-choice">
+                  <input name="material" type="radio" value="Les" required />
+                  <span><strong>Les</strong><small>Topel videz za plakete, darila in dekor.</small></span>
+                </label>
+                <label class="material-choice">
+                  <input name="material" type="radio" value="Kovina" />
+                  <span><strong>Kovina</strong><small>Premium tablice, poslovna darila in oznake.</small></span>
+                </label>
+                <label class="material-choice">
+                  <input name="material" type="radio" value="K9 kristal / steklo" />
+                  <span><strong>K9 kristal / steklo</strong><small>Eleganten izbor za posebne spomine.</small></span>
+                </label>
+                <label class="material-choice">
+                  <input name="material" type="radio" value="Akril" />
+                  <span><strong>Akril</strong><small>Moderen videz, napisi in dekorativni elementi.</small></span>
+                </label>
+                <label class="material-choice">
+                  <input name="material" type="radio" value="Usnje" />
+                  <span><strong>Usnje</strong><small>Obeski, dodatki in poslovni izdelki.</small></span>
+                </label>
+                <label class="material-choice">
+                  <input name="material" type="radio" value="Drugo / svetovanje" />
+                  <span><strong>Nisem prepričan/a</strong><small>Predlagamo najboljšo rešitev glede na idejo.</small></span>
+                </label>
+              </div>
+            </fieldset>
 
-            <label for="custom-file">Dodajte sliko, logotip ali skico
-              <input id="custom-file" name="attachment" type="file" accept="image/*,.pdf,.svg,.ai,.eps" />
-              <span class="form-hint">Podprte so slike in dokumenti. Če imate več datotek, jih lahko omenite v opisu.</span>
+            <div class="form-two-col">
+              <label for="custom-product-type">Tip izdelka
+                <input id="custom-product-type" name="product_type" type="text" placeholder="Npr. obesek, plaketa, darilo, tabla, kristal ..." required />
+              </label>
+              <label for="custom-quantity">Količina
+                <input id="custom-quantity" name="quantity" type="number" min="1" step="1" value="1" required />
+              </label>
+            </div>
+
+            <div class="form-two-col">
+              <label for="custom-dimensions">Želene mere
+                <input id="custom-dimensions" name="dimensions" type="text" placeholder="Npr. 20 × 15 cm ali po predlogu" />
+              </label>
+              <label for="custom-budget">Okvirni proračun
+                <select id="custom-budget" name="budget">
+                  <option value="">Izberite okvirno</option>
+                  <option value="Do 30 €">Do 30 €</option>
+                  <option value="30–60 €">30–60 €</option>
+                  <option value="60–120 €">60–120 €</option>
+                  <option value="120 €+">120 €+</option>
+                  <option value="Po dogovoru">Po dogovoru</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="form-two-col">
+              <label for="custom-finish">Želeni stil izvedbe
+                <select id="custom-finish" name="finish">
+                  <option value="">Izberite stil</option>
+                  <option value="Minimalistično in elegantno">Minimalistično in elegantno</option>
+                  <option value="Luksuzno / premium">Luksuzno / premium</option>
+                  <option value="Rustikalno / naravno">Rustikalno / naravno</option>
+                  <option value="Fotorealistična gravura">Fotorealistična gravura</option>
+                  <option value="Poslovno / z logotipom">Poslovno / z logotipom</option>
+                </select>
+              </label>
+              <label for="custom-engraving">Kaj graviramo?
+                <input id="custom-engraving" name="engraving_content" type="text" placeholder="Ime, datum, posvetilo, logo, fotografija ..." required />
+              </label>
+            </div>
+
+            <label class="file-drop" for="custom-file">Dodajte sliko, logotip ali skico
+              <input id="custom-file" name="attachment" type="file" accept="image/*,.pdf,.svg,.ai,.eps" multiple />
+              <span class="file-drop-content">
+                <strong>Naložite reference za gravuro</strong>
+                <small>Fotografije, logotipi, skice, PDF/SVG/AI/EPS. Za več datotek jih izberite hkrati.</small>
+              </span>
+              <span class="form-hint" data-file-status>Datoteka ni obvezna, vendar zelo pomaga pri pripravi predloga.</span>
             </label>
 
             <label for="custom-message">Dodatne informacije
-              <textarea id="custom-message" name="message" rows="7" placeholder="Opišite idejo, tekst za gravuro, mere, barve, namen darila ali posebne želje ..." required></textarea>
+              <textarea id="custom-message" name="message" rows="7" placeholder="Opišite idejo, tekst za gravuro, posebne želje, namen darila, barve, materiale ali primer izdelka, ki vam je všeč ..." required></textarea>
             </label>
 
             <label class="consent-line" for="custom-consent">
-              <input id="custom-consent" name="consent" type="checkbox" required />
-              <span>Strinjam se, da JDSF Laser Craft uporabi poslane podatke za pripravo odgovora in ponudbe.</span>
+              <input id="custom-consent" name="consent" type="checkbox" value="Da" required />
+              <span>Strinjam se, da JDSF Laser Craft uporabi poslane podatke in priponke za pripravo odgovora, predloga izvedbe in ponudbe.</span>
             </label>
 
-            <button class="btn btn-primary" type="submit">Pošlji personalizirano povpraševanje</button>
+            <button class="btn btn-primary" type="submit">Pošlji premium povpraševanje</button>
           </form>
         </div>
       </section>
