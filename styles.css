@@ -1081,6 +1081,14 @@ input[type="range"] {
   50% { opacity: 0.95; transform: scaleX(1); }
 }
 
+.process-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
 .process-card h3,
 .trust-card h3 {
   margin: 0;
