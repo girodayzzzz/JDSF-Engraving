@@ -48,9 +48,13 @@
             <p><strong>Telefon:</strong> +386 51 653 423</p>
           </div>
 
-          <form class="contact-form card reveal" action="https://formspree.io/f/xvzygnko" method="POST">
+          <form id="b2b-form" class="contact-form card reveal" action="https://formspree.io/f/xvzygnko" method="POST" data-managed-form data-form-id="b2b" data-submitting-text="Pošiljanje B2B povpraševanja ...">
             <h2>B2B Obrazec</h2>
             <input type="hidden" name="form_name" value="B2B Obrazec" />
+            <input type="hidden" name="form_id" value="b2b" />
+            <input type="hidden" name="form_type" value="B2B povpraševanje" />
+            <input type="hidden" name="source_page" value="b2b.html" />
+            <input type="hidden" name="_subject" value="Novo B2B povpraševanje - JDSF Laser Craft" />
             <label for="company">Podjetje</label>
             <input id="company" name="company" type="text" placeholder="Ime podjetja" required />
 
