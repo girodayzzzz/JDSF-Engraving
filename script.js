@@ -144,6 +144,9 @@ const resetSubmitButton = (button) => {
 };
 
 document.querySelectorAll("form[data-managed-form], form[action*='formspree.io']").forEach((contactForm) => {
+  if (contactForm.dataset.formHandlerBound === "true") return;
+  contactForm.dataset.formHandlerBound = "true";
+
   const fileInput = contactForm.querySelector("input[type='file']");
   const fileStatus = contactForm.querySelector("[data-file-status]");
   const button = contactForm.querySelector("button[type='submit']");
