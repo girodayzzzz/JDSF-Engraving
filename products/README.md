@@ -1,21 +1,15 @@
-# Sistem izdelkov (Trgovina)
+# Starejši zapisi izdelkov
 
-Za dodajanje novega izdelka ni treba spreminjati glavne kode trgovine.
+Ta mapa vsebuje starejše ločene `.json` zapise in predlogo izdelka.
 
-## Struktura
-- `products/les/`
-- `products/kovina/`
-- `products/darila/`
+Trenutna trgovina, stran posameznega izdelka in Stripe checkout uporabljajo glavni katalog:
 
-Vsak izdelek je ločena `.json` datoteka s polji:
-- `ime`
-- `opis`
-- `cena`
-- `slika`
-- `kategorija` (`Les`, `Kovina`, `Darila`)
+- `data/products.json`
 
-## GitHub Pages
-Na produkciji (`*.github.io`) trgovina samodejno prebere vse `.json` datoteke iz map `les`, `kovina`, `darila` preko GitHub API.
+Za dodajanje ali urejanje aktivnih izdelkov zato najprej posodobite `data/products.json`, nato zaženite:
 
-## Lokalni razvoj
-Za lokalni predogled se uporablja `products/index.json` kot rezervni manifest.
+```bash
+node scripts/validate-products.mjs
+```
+
+Validacija preveri obvezna polja, podprte kategorije, veljavne cene, podvojene ID-je in obstoj slik.
