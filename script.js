@@ -121,7 +121,7 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
 
-document.querySelectorAll(".contact-form").forEach((contactForm) => {
+document.querySelectorAll("form[data-managed-form]").forEach((contactForm) => {
   const fileInput = contactForm.querySelector("input[type='file']");
   const fileStatus = contactForm.querySelector("[data-file-status]");
 
@@ -143,7 +143,7 @@ document.querySelectorAll(".contact-form").forEach((contactForm) => {
 
     const button = contactForm.querySelector("button[type='submit']");
     if (button) {
-      button.textContent = "Pošiljanje ...";
+      button.textContent = contactForm.dataset.submittingText || "Pošiljanje ...";
       button.disabled = true;
       button.setAttribute("aria-disabled", "true");
     }

@@ -83,8 +83,11 @@
             <p>Premium obrazec je zasnovan kot kratek kreativni brief: zbere material, namen, količino, mere, slog in priponke, da lahko pripravimo čim bolj natančen odgovor.</p>
           </div>
 
-          <form class="contact-form personalized-form card reveal" action="https://formspree.io/f/mykvqldp" method="POST" enctype="multipart/form-data">
+          <form id="personalized-premium-form" class="contact-form personalized-form card reveal" action="https://formspree.io/f/mykvqldp" method="POST" enctype="multipart/form-data" data-managed-form data-form-id="personalized-premium" data-submitting-text="Pošiljanje premium povpraševanja ...">
             <input type="hidden" name="form_name" value="Premium personalizirano naročilo" />
+            <input type="hidden" name="form_id" value="personalized-premium" />
+            <input type="hidden" name="form_type" value="Premium personalizirano povpraševanje" />
+            <input type="hidden" name="source_page" value="personalizirano.html" />
             <input type="hidden" name="_subject" value="Novo premium personalizirano povpraševanje - JDSF Laser Craft" />
 
             <div class="form-intro">
