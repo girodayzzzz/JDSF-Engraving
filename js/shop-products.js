@@ -62,6 +62,13 @@
   let products = [];
 
   const parsePrice = (price) => Number(String(price || '').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
+  const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
   const normalizeCategory = (raw) => CATEGORY_ALIASES[String(raw || '').trim().toLowerCase()] || 'personalizirano';
 
   const normalizeProduct = (product, index) => ({
@@ -112,17 +119,17 @@
   const createCard = (product) => {
     const article = document.createElement('article');
     article.className = 'shop-card';
-    article.innerHTML = `<a class="shop-card-link" href="izdelek.html?id=${encodeURIComponent(product.id)}" aria-label="Odpri izdelek ${product.name}">
-      <img src="${product.image}" alt="${product.name}" loading="lazy" />
+    article.innerHTML = `<a class="shop-card-link" href="izdelek.html?id=${encodeURIComponent(product.id)}" aria-label="Odpri izdelek ${escapeHtml(product.name)}">
+      <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />
       <div class="shop-card-body">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-        <div class="price">${product.price}</div>
+        <h3>${escapeHtml(product.name)}</h3>
+        <p>${escapeHtml(product.description)}</p>
+        <div class="price">${escapeHtml(product.price)}</div>
       </div>
     </a>
     <div class="shop-card-actions">
       <label class="quantity-field">Količina
-        <input type="number" min="1" step="1" value="1" data-cart-quantity-input aria-label="Količina za ${product.name}" />
+        <input type="number" min="1" step="1" value="1" data-cart-quantity-input aria-label="Količina za ${escapeHtml(product.name)}" />
       </label>
       <button class="btn btn-primary" type="button" data-add-to-cart>Dodaj v košarico</button>
       <span class="cart-action-message" data-cart-action-message aria-live="polite"></span>
