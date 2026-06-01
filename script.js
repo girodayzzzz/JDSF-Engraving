@@ -27,8 +27,10 @@ const getCartCount = () => readCart().reduce((sum, item) => sum + (Number(item.q
 const updateCartBadges = () => {
   const count = getCartCount();
   document.querySelectorAll("[data-cart-count]").forEach((badge) => {
+    const isEmpty = count === 0;
     badge.textContent = String(count);
-    badge.hidden = count === 0;
+    badge.classList.toggle("is-empty", isEmpty);
+    badge.setAttribute("aria-hidden", String(isEmpty));
   });
   document.querySelectorAll("[data-cart-label]").forEach((label) => {
     label.setAttribute("aria-label", count ? `Košarica, ${count} izdelkov` : "Košarica je prazna");
@@ -43,7 +45,7 @@ const addHeaderCartLink = () => {
   link.href = "kosarica.html";
   link.className = `cart-nav-link${window.location.pathname.endsWith("kosarica.html") ? " active" : ""}`;
   link.setAttribute("data-cart-label", "");
-  link.innerHTML = 'Košarica <span class="cart-count" data-cart-count hidden>0</span>';
+  link.innerHTML = 'Košarica <span class="cart-count is-empty" data-cart-count aria-hidden="true">0</span>';
   nav.appendChild(link);
   updateCartBadges();
 };
