@@ -973,6 +973,58 @@ input[type="range"] {
 .shop-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 18px 38px rgba(0, 0, 0, 0.38); }
 .shop-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 0; }
 
+.shop-card-media {
+  position: relative;
+}
+
+.product-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.shop-card-media .product-badges {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  right: 0.7rem;
+}
+
+.product-badges span {
+  border: 1px solid rgba(201, 169, 106, 0.55);
+  border-radius: 999px;
+  background: rgba(16, 19, 25, 0.84);
+  color: var(--gold-strong);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.38rem 0.58rem;
+}
+
+.product-detail-badges {
+  margin: 0 0 0.75rem;
+}
+
+.product-customization {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  margin: 1rem 0;
+  padding: 0.9rem 1rem;
+}
+
+.product-customization h2 {
+  font-size: 1rem;
+  margin: 0 0 0.55rem;
+}
+
+.product-customization ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+
 .shop-card-link {
   display: block;
   color: inherit;

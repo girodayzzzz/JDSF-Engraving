@@ -1,67 +1,12 @@
 (() => {
   const getProductId = () => new URLSearchParams(window.location.search).get('id');
 
-  const CATEGORY_LABELS = {
-    kamen: 'Kamen',
-    obeski: 'Obeski',
-    nakit: 'Nakit',
-    dodatki: 'Dodatki',
-    kristali: 'Kristali',
-    'leseni-izdelki': 'Leseni izdelki',
-    'kovinski-izdelki': 'Kovinski izdelki',
-    personalizirano: 'Personalizirano'
-  };
-
-  const CATEGORY_ALIASES = {
-    kamen: 'kamen',
-    stone: 'kamen',
-    skrilavec: 'kamen',
-    obeski: 'obeski',
-    obesek: 'obeski',
-    keychains: 'obeski',
-    keychain: 'obeski',
-    nakit: 'nakit',
-    verizice: 'nakit',
-    verižice: 'nakit',
-    jewelry: 'nakit',
-    dodatki: 'dodatki',
-    dodatek: 'dodatki',
-    accessories: 'dodatki',
-    accessory: 'dodatki',
-    okraski: 'dodatki',
-    okrasek: 'dodatki',
-    ornaments: 'dodatki',
-    ornament: 'dodatki',
-    kristali: 'kristali',
-    kristal: 'kristali',
-    crystal: 'kristali',
-    'k9-crystal': 'kristali',
-    les: 'leseni-izdelki',
-    wood: 'leseni-izdelki',
-    'leseni-izdelki': 'leseni-izdelki',
-    kovina: 'kovinski-izdelki',
-    kovine: 'kovinski-izdelki',
-    metal: 'kovinski-izdelki',
-    'kovinski-izdelki': 'kovinski-izdelki',
-    custom: 'personalizirano',
-    personalized: 'personalizirano',
-    personalizirano: 'personalizirano',
-    darila: 'personalizirano'
-  };
-
-  const normalizeCategory = (category) => CATEGORY_ALIASES[String(category || '').trim().toLowerCase()] || 'personalizirano';
-  const getCategoryLabel = (category) => CATEGORY_LABELS[normalizeCategory(category)] || CATEGORY_LABELS.personalizirano;
-
-  const normalizeProduct = (product) => ({
-    id: product.id,
-    name: product.name || product.title || product.ime || 'Izdelek',
-    description: product.description || product.shortDescription || product.opis || '',
-    price: product.price || product.cena || '',
-    image: product.image || product.slika || '',
-    gallery: Array.isArray(product.gallery) ? product.gallery : [],
-    category: normalizeCategory(product.category || product.kategorija || product.material),
-    checkoutUrl: product.checkoutUrl || 'kontakt.html'
-  });
+  const {
+    normalizeProduct,
+    getCategoryLabel,
+    getCustomizationLabels,
+    getProductBadges
+  } = window.JDSFProducts;
 
   const renderProduct = (product) => {
     const mainImage = document.getElementById('productMainImage');
@@ -70,12 +15,36 @@
     const addToCartButton = document.getElementById('productAddToCart');
     const quantityInput = document.getElementById('productQuantity');
     const cartMessage = document.getElementById('productCartMessage');
+    const productBadges = document.getElementById('productBadges');
+    const customizationList = document.getElementById('productCustomizationList');
+    const customizationWrap = document.getElementById('productCustomization');
 
     document.title = `${product.name} | JDSF Graviranje`;
     document.getElementById('productName').textContent = product.name;
     document.getElementById('productDescription').textContent = product.description;
     document.getElementById('productPrice').textContent = product.price;
     document.getElementById('productCategory').textContent = getCategoryLabel(product.category);
+
+    if (productBadges) {
+      productBadges.innerHTML = '';
+      getProductBadges(product).forEach((badge) => {
+        const item = document.createElement('span');
+        item.textContent = badge;
+        productBadges.appendChild(item);
+      });
+      productBadges.hidden = productBadges.children.length === 0;
+    }
+
+    if (customizationList && customizationWrap) {
+      const options = getCustomizationLabels(product.customizationOptions);
+      customizationList.innerHTML = '';
+      options.forEach((option) => {
+        const item = document.createElement('li');
+        item.textContent = option;
+        customizationList.appendChild(item);
+      });
+      customizationWrap.hidden = options.length === 0;
+    }
 
     if (checkoutLink) checkoutLink.href = 'kosarica.html';
     if (addToCartButton) {
