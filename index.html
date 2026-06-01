@@ -50,16 +50,12 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="page-loader" id="pageLoader" aria-hidden="true">
-      <div class="loader-mark">JDSF</div>
-    </div>
-
     <header class="site-header" id="siteHeader">
       <div class="container nav-wrap">
         <a class="logo" href="https://www.jdsf-lasercraft.com/" aria-label="JDSF Laser Craft domov"><img src="assets/brand/jdsf-lasercraft-logo.png" alt="JDSF Laser Craft"></a>
         <button type="button" class="nav-toggle" id="navToggle" aria-label="Preklopi navigacijo">☰</button>
         <nav class="nav" id="navMenu" aria-label="Glavna navigacija">
-          <a href="index.html">Domov</a>
+          <a href="index.html" class="active">Domov</a>
           <a href="trgovina.html">Trgovina</a>
           <a href="o-nas.html">O nas</a>
           <a href="kontakt.html">Kontakt</a>
@@ -68,28 +64,62 @@
       </div>
     </header>
 
-    <main>
-      <section class="hero" id="home" aria-labelledby="hero-title">
-        <div class="hero-overlay"></div>
+    <main class="subpage-main home-page">
+      <section class="section section-tight home-hero" id="home" aria-labelledby="hero-title">
         <div class="engraving-bg" aria-hidden="true">
           <span class="engraving-line"></span>
           <span class="engraving-line"></span>
           <span class="engraving-line"></span>
           <span class="engraving-line"></span>
         </div>
-        <div class="container hero-content reveal">
-          <p class="eyebrow">Personalizirana gravura iz Slovenije</p>
-          <h1 id="hero-title">Lasersko gravirani izdelki za darila, spomine in podjetja</h1>
-          <p class="subheadline">Na les, kovino, skrilavec in K9 kristal graviramo fotografije, imena, datume, logotipe in posvetila. Izberite izdelek v trgovini ali pošljite svojo idejo.</p>
-          <div class="hero-actions">
-            <a href="trgovina.html" class="btn btn-primary">Poglej izdelke</a>
-            <a href="personalizirano.html" class="btn btn-ghost">Pošlji svojo idejo</a>
+        <div class="container home-hero-grid">
+          <div class="hero-content reveal">
+            <p class="eyebrow">Personalizirana gravura iz Slovenije</p>
+            <h1 id="hero-title">Lasersko gravirani izdelki za darila, spomine in podjetja</h1>
+            <p class="subheadline">Na les, kovino, skrilavec in K9 kristal graviramo fotografije, imena, datume, logotipe in posvetila. Pomagamo pri darilih, spominskih izdelkih, označbah in poslovnih naročilih.</p>
+            <div class="hero-actions">
+              <a href="trgovina.html" class="btn btn-primary">Poglej izdelke</a>
+              <a href="personalizirano.html" class="btn btn-ghost">Pošlji svojo idejo</a>
+            </div>
+            <ul class="hero-badges">
+              <li>✓ Predlog postavitve pred izdelavo</li>
+              <li>✓ Les, kovina, skrilavec in K9 kristal</li>
+              <li>✓ Prevzem ali varna dostava</li>
+            </ul>
           </div>
-          <ul class="hero-badges">
-            <li>✓ Gravura fotografij in besedil</li>
-            <li>✓ Les, kovina, skrilavec in K9 kristal</li>
-            <li>✓ Darila in poslovna naročila</li>
-          </ul>
+          <aside class="card home-hero-card reveal" aria-label="Hitra pot do naročila">
+            <img src="assets/homepage image.png" alt="Primer lasersko graviranega izdelka JDSF Laser Craft">
+            <div class="home-hero-card-body">
+              <p class="eyebrow">Hiter začetek</p>
+              <h2>Kaj potrebujemo za dobro ponudbo?</h2>
+              <ul>
+                <li>Fotografijo izdelka, materiala ali želenega motiva.</li>
+                <li>Tekst, ime, datum, logotip ali posvetilo za gravuro.</li>
+                <li>Okvirno količino, dimenzije in želeni rok izdelave.</li>
+              </ul>
+              <a class="btn btn-ghost" href="kontakt.html">Vprašaj za nasvet</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-compact home-trust" aria-label="Prednosti naročila pri JDSF Laser Craft">
+        <div class="container home-trust-grid">
+          <article class="home-trust-item reveal">
+            <strong>01</strong>
+            <span>Jasen predlog pred izdelavo</span>
+            <p>Pred gravuro uskladimo motiv, material in postavitev, da je končni izdelek čim bližje vaši ideji.</p>
+          </article>
+          <article class="home-trust-item reveal">
+            <strong>02</strong>
+            <span>Darila z osebno zgodbo</span>
+            <p>Dodamo ime, datum, fotografijo, posvetilo ali logotip — primerno za obletnice, zahvale in spomine.</p>
+          </article>
+          <article class="home-trust-item reveal">
+            <strong>03</strong>
+            <span>Posamezni kosi ali serije</span>
+            <p>Izdelamo unikaten kos po meri ali več enakih izdelkov za podjetja, dogodke in posebne priložnosti.</p>
+          </article>
         </div>
       </section>
 
@@ -133,14 +163,15 @@
           <div class="section-heading reveal">
             <p class="eyebrow">Pregled ponudbe</p>
             <h2 id="featured-title">Kaj najpogosteje graviramo?</h2>
+            <p>Najlažje je začeti z materialom ali priložnostjo. Če niste prepričani, nam pošljite idejo in predlagamo najprimernejšo izvedbo.</p>
           </div>
           <div class="grid featured-grid">
-            <article class="card reveal featured-card"><h3>Gravura na les</h3><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
-            <article class="card reveal featured-card"><h3>K9 kristal in steklo</h3><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
-            <article class="card reveal featured-card"><h3>Obeski za ključe</h3><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
-            <article class="card reveal featured-card"><h3>Gravura na skrilavec</h3><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
-            <article class="card reveal featured-card"><h3>Poslovna darila</h3><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
-            <article class="card reveal featured-card"><h3>Izdelki po meri</h3><a href="personalizirano.html" class="btn btn-ghost">Pošlji idejo</a></article>
+            <article class="card reveal featured-card"><h3>Gravura na les</h3><p>Topla izbira za plakete, odpirala, dekor in darila z naravnim videzom.</p><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
+            <article class="card reveal featured-card"><h3>K9 kristal in steklo</h3><p>Elegantno za fotografije, priznanja, spominske motive in posebne priložnosti.</p><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
+            <article class="card reveal featured-card"><h3>Obeski za ključe</h3><p>Praktično osebno darilo z imenom, datumom, kratkim posvetilom ali simbolom.</p><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
+            <article class="card reveal featured-card"><h3>Gravura na skrilavec</h3><p>Močan kontrast za fotografije, motive živali, dom in trajne spomine.</p><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
+            <article class="card reveal featured-card"><h3>Poslovna darila</h3><p>Logotipi, zahvale, označbe in serije izdelkov za zaposlene, stranke ali dogodke.</p><a href="trgovina.html" class="btn btn-ghost">Preveri več</a></article>
+            <article class="card reveal featured-card"><h3>Izdelki po meri</h3><p>Za lasten material, posebno dimenzijo ali idejo, ki je ni v standardni ponudbi.</p><a href="personalizirano.html" class="btn btn-ghost">Pošlji idejo</a></article>
           </div>
         </div>
       </section>
@@ -192,7 +223,7 @@
         <div class="container">
           <div class="section-heading reveal">
             <h2>Zakaj izbrati JDSF Laser Craft?</h2>
-            <p>Vsak izdelek obravnavamo posebej — od izbire materiala do postavitve motiva. Graviramo osebna darila, spominske izdelke in poslovna naročila, pri čemer pazimo na čitljivost, kontrast in končni izgled.</p>
+            <p>Vsak izdelek obravnavamo posebej — od izbire materiala do postavitve motiva. Graviramo osebna darila, spominske izdelke in poslovna naročila, pri čemer pazimo na čitljivost, kontrast, obstojnost in končni izgled.</p>
           </div>
           <div class="grid three-col">
             <article class="card reveal feature-check">✔ Natančna laserska gravura</article>
@@ -210,10 +241,10 @@
             <h2>Vrhunski rezultati, vsakič</h2>
           </div>
           <div class="grid feature-grid">
-            <div class="feature-item reveal">Predlog pred izdelavo</div>
-            <div class="feature-item reveal">Gravura na več materialov</div>
-            <div class="feature-item reveal">Možnost prevzema ali pošiljanja</div>
-            <div class="feature-item reveal">Primerno za posameznike in podjetja</div>
+            <div class="feature-item reveal"><strong>Predlog pred izdelavo</strong><span>Pomagamo uskladiti motiv, velikost in položaj gravure.</span></div>
+            <div class="feature-item reveal"><strong>Gravura na več materialov</strong><span>Les, kovina, skrilavec, steklo, K9 kristal, usnje in materiali po dogovoru.</span></div>
+            <div class="feature-item reveal"><strong>Možnost prevzema ali pošiljanja</strong><span>Končan izdelek pripravimo za prevzem ali varno dostavo.</span></div>
+            <div class="feature-item reveal"><strong>Primerno za posameznike in podjetja</strong><span>Od enega unikatnega darila do večjih poslovnih naročil.</span></div>
           </div>
         </div>
       </section>

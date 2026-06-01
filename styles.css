@@ -1855,3 +1855,137 @@ input[type="range"] {
   background: rgba(255, 180, 169, 0.12);
   color: #ffb4a9;
 }
+
+/* Home page layout aligned with subpages */
+.home-page .subheadline {
+  color: var(--muted);
+  max-width: 720px;
+}
+
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(201, 169, 106, 0.16), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+}
+
+.home-hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.home-hero .hero-content {
+  max-width: none;
+  padding: 0;
+}
+
+.home-hero-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.home-hero-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.home-hero-card-body {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.35rem;
+}
+
+.home-hero-card-body h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.home-hero-card-body ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+}
+
+.home-hero-card-body .btn {
+  width: fit-content;
+}
+
+@media (max-width: 900px) {
+  .home-hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-hero-card-body .btn {
+    width: 100%;
+  }
+}
+
+/* Home content updates */
+.home-trust {
+  padding-top: 0;
+}
+
+.home-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.home-trust-item {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.15rem;
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.home-trust-item strong {
+  display: inline-flex;
+  margin-bottom: 0.55rem;
+  color: var(--gold-strong);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.home-trust-item span,
+.feature-item strong {
+  display: block;
+  color: var(--text);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.home-trust-item p,
+.featured-card p,
+.feature-item span {
+  color: var(--muted);
+}
+
+.home-trust-item p,
+.featured-card p {
+  margin: 0;
+}
+
+.feature-item {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.feature-item span {
+  font-size: 0.94rem;
+}
+
+@media (max-width: 900px) {
+  .home-trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
