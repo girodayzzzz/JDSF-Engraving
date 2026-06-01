@@ -10,6 +10,43 @@
   const clearCartButton = document.getElementById('clearCart');
 
   const getProductUrl = (productId) => `izdelek.html?id=${encodeURIComponent(productId)}`;
+  const catalogProducts = new Map();
+  let catalogLoaded = false;
+
+  const parseCartPrice = (price) => Number(String(price || '').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
+  const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
+
+  const normalizeCatalogProduct = (product) => ({
+    id: product.id,
+    name: product.name || product.title || product.ime || 'Izdelek',
+    price: product.price || product.cena || '',
+    image: product.image || product.slika || ''
+  });
+
+  const getCurrentCartItem = (item) => {
+    const product = catalogProducts.get(item.id);
+    if (!product) return { ...item, unavailable: catalogLoaded };
+    return { ...item, ...product, quantity: item.quantity, unavailable: false };
+  };
+
+  const loadCatalogProducts = async () => {
+    const response = await fetch('data/products.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error('Kataloga izdelkov ni mogoče naložiti.');
+
+    const products = await response.json();
+    if (!Array.isArray(products)) throw new Error('Katalog izdelkov ni veljaven.');
+
+    products.map(normalizeCatalogProduct).forEach((product) => {
+      if (product.id) catalogProducts.set(product.id, product);
+    });
+    catalogLoaded = true;
+  };
 
   const setCheckoutStatus = (message, type = 'info') => {
     if (!checkoutStatus) return;
@@ -31,37 +68,46 @@
 
   const renderCart = () => {
     const items = window.JDSFCart?.getItems() || [];
+    const displayItems = items.map(getCurrentCartItem);
     const count = items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
-    const cartTotal = window.JDSFCart?.getTotal() || 0;
+    const cartTotal = displayItems.reduce((sum, item) => sum + parseCartPrice(item.price) * (Number(item.quantity) || 0), 0);
+    const hasUnavailableItems = displayItems.some((item) => item.unavailable);
 
     cartItems.innerHTML = '';
     emptyState.hidden = items.length > 0;
     itemCount.textContent = String(count);
     total.textContent = window.JDSFCart?.formatTotal(cartTotal) || '0,00 €';
-    checkoutButton.disabled = items.length === 0;
-    checkoutButton.classList.toggle('is-disabled', items.length === 0);
+    checkoutButton.disabled = items.length === 0 || hasUnavailableItems;
+    checkoutButton.classList.toggle('is-disabled', items.length === 0 || hasUnavailableItems);
     clearCartButton.hidden = items.length === 0;
-    setCheckoutStatus(items.length ? 'Plačilo bo izvedeno prek Stripe Checkout varne povezave.' : '', 'info');
+    setCheckoutStatus(
+      hasUnavailableItems
+        ? 'Nekateri izdelki niso več na voljo. Odstranite jih pred plačilom.'
+        : (items.length ? 'Plačilo bo izvedeno prek Stripe Checkout varne povezave.' : ''),
+      hasUnavailableItems ? 'error' : 'info'
+    );
 
-    items.forEach((item) => {
+    displayItems.forEach((item) => {
       const productUrl = getProductUrl(item.id);
+      const safeId = encodeURIComponent(item.id);
+      const quantity = Number(item.quantity) || 1;
       const article = document.createElement('article');
       article.className = 'cart-item';
       article.dataset.productUrl = productUrl;
       article.innerHTML = `
-        <a class="cart-item-image-link" href="${productUrl}" aria-label="Odpri izdelek ${item.name}">
-          <img src="${item.image}" alt="${item.name}" loading="lazy" />
+        <a class="cart-item-image-link" href="${productUrl}" aria-label="Odpri izdelek ${escapeHtml(item.name)}">
+          <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" />
         </a>
         <a class="cart-item-main" href="${productUrl}">
-          <h3>${item.name}</h3>
-          <p>${item.price || 'Cena ni nastavljena'}</p>
+          <h3>${escapeHtml(item.name)}</h3>
+          <p>${escapeHtml(item.unavailable ? 'Izdelek ni več na voljo' : (item.price || 'Cena ni nastavljena'))}</p>
           <span class="cart-item-hint">Kliknite sliko ali okvir za ogled izdelka</span>
         </a>
         <div class="cart-quantity">
-          <label for="qty-${item.id}">Količina</label>
-          <input id="qty-${item.id}" type="number" min="1" value="${Number(item.quantity) || 1}" data-cart-quantity="${item.id}" />
+          <label for="qty-${safeId}">Količina</label>
+          <input id="qty-${safeId}" type="number" min="1" value="${quantity}" data-cart-quantity="${escapeHtml(item.id)}" />
         </div>
-        <button class="btn btn-ghost cart-remove" type="button" data-remove-from-cart="${item.id}">Odstrani</button>`;
+        <button class="btn btn-ghost cart-remove" type="button" data-remove-from-cart="${escapeHtml(item.id)}">Odstrani</button>`;
       cartItems.appendChild(article);
     });
   };
@@ -123,4 +169,9 @@
 
   window.addEventListener('jdsf-cart-updated', renderCart);
   renderCart();
+  loadCatalogProducts()
+    .then(renderCart)
+    .catch((error) => {
+      setCheckoutStatus(error.message || 'Kataloga izdelkov ni mogoče osvežiti.', 'error');
+    });
 })();
