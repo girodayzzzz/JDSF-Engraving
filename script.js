@@ -121,19 +121,76 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
 
-const contactForm = document.querySelector(".contact-form");
-if (contactForm)
-  contactForm.addEventListener("submit", () => {
+const setFormStatus = (form, message, type = "info") => {
+  let status = form.querySelector("[data-form-status]");
+  if (!status) {
+    status = document.createElement("p");
+    status.className = "form-status";
+    status.setAttribute("data-form-status", "");
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+    form.appendChild(status);
+  }
+
+  status.textContent = message;
+  status.dataset.status = type;
+};
+
+const resetSubmitButton = (button) => {
+  if (!button) return;
+  button.textContent = button.dataset.originalText || button.textContent;
+  button.disabled = false;
+  button.removeAttribute("aria-disabled");
+};
+
+document.querySelectorAll("form[data-managed-form], form[action*='formspree.io']").forEach((contactForm) => {
+  const fileInput = contactForm.querySelector("input[type='file']");
+  const fileStatus = contactForm.querySelector("[data-file-status]");
+  const button = contactForm.querySelector("button[type='submit']");
+
+  if (button) button.dataset.originalText = button.textContent;
+
+  if (fileInput && fileStatus) {
+    fileInput.addEventListener("change", () => {
+      const selectedFiles = Array.from(fileInput.files || []).map((file) => file.name);
+      fileStatus.textContent = selectedFiles.length
+        ? `Izbrano: ${selectedFiles.join(", ")}`
+        : "Datoteka ni obvezna, vendar zelo pomaga pri pripravi predloga.";
+    });
+  }
+
+  contactForm.addEventListener("submit", async (event) => {
     const method = (contactForm.getAttribute("method") || "GET").toUpperCase();
     const action = (contactForm.getAttribute("action") || "").trim();
     const isRemotePostForm = action.length > 0 && method === "POST";
 
     if (!isRemotePostForm) return;
 
-    const button = contactForm.querySelector("button[type='submit']");
+    event.preventDefault();
+    setFormStatus(contactForm, "Pošiljanje ...", "info");
+
     if (button) {
-      button.textContent = "Pošiljanje ...";
+      button.textContent = contactForm.dataset.submittingText || "Pošiljanje ...";
       button.disabled = true;
       button.setAttribute("aria-disabled", "true");
     }
+
+    try {
+      const response = await fetch(action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" }
+      });
+
+      if (!response.ok) throw new Error("Form submission failed");
+
+      contactForm.reset();
+      if (fileStatus) fileStatus.textContent = "Datoteka ni obvezna, vendar zelo pomaga pri pripravi predloga.";
+      setFormStatus(contactForm, "Hvala! Sporočilo je bilo poslano. Odgovorimo vam v najkrajšem možnem času.", "success");
+    } catch (_) {
+      setFormStatus(contactForm, "Pošiljanje ni uspelo. Poskusite znova ali nam pišite na info@jdsf-lasercraft.com.", "error");
+    } finally {
+      resetSubmitButton(button);
+    }
   });
+});

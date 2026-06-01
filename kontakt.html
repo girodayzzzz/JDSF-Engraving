@@ -38,8 +38,12 @@
             <p>Telefon: +386 51 653 423</p>
             <div class="map-placeholder">Nadomestni zemljevid</div>
           </div>
-          <form class="contact-form card reveal" action="https://formspree.io/f/xwvzyekk" method="POST">
+          <form id="contact-form" class="contact-form card reveal" action="https://formspree.io/f/xwvzyekk" method="POST" data-managed-form data-form-id="contact" data-submitting-text="Pošiljanje sporočila ...">
             <input type="hidden" name="form_name" value="Kontaktni obrazec" />
+            <input type="hidden" name="form_id" value="contact" />
+            <input type="hidden" name="form_type" value="Splošni kontakt" />
+            <input type="hidden" name="source_page" value="kontakt.html" />
+            <input type="hidden" name="_subject" value="Novo kontaktno sporočilo - JDSF Laser Craft" />
             <label for="name">Ime</label>
             <input id="name" name="name" type="text" placeholder="Vaše polno ime" required />
 
