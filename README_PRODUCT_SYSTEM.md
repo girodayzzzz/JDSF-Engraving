@@ -1,27 +1,30 @@
-# JDSF Product System (GitHub Pages)
+# JDSF Product System
 
-## File structure
-- `products/index.json` (manifest of product JSON files)
-- `products/product.template.json` (copy this for every new item)
-- `products/wood/*.json`
-- `products/k9-crystal/*.json`
-- `products/metal/*.json`
-- `assets/products/wood/*`
-- `assets/products/k9-crystal/*`
-- `assets/products/metal/*`
-- `js/products-loader.js` (auto render + filter + sorting)
+## Glavni katalog
+- `data/products.json` je glavni vir izdelkov za trgovino, stran posameznega izdelka in Stripe checkout.
+- `js/shop-products.js` bere katalog za prikaz na `trgovina.html`.
+- `js/product-detail.js` bere isti katalog za `izdelek.html`.
+- `functions/api/create-checkout-session.js` uporablja isti katalog za preverjanje izdelkov in cen pred Stripe plačilom.
 
-## Add product in 3 steps
-1. Upload product images to `assets/products/<material>/`.
-2. Duplicate `products/product.template.json`, fill product data, and save into the correct material folder.
-3. Add the JSON path to `products/index.json`.
+## Dodaj izdelek v 3 korakih
+1. Naloži slike v ustrezno mapo znotraj `assets/products/`.
+2. Dodaj izdelek v `data/products.json` z unikatnim `id`, imenom, opisom, kategorijo, materialom, ceno, glavno sliko in galerijo.
+3. Zaženi validacijo:
+   ```bash
+   node scripts/validate-products.mjs
+   ```
 
-Done. Product appears automatically on `trgovina.html`.
+Če validacija uspe, se izdelek prikaže v trgovini in je pripravljen za dodajanje v košarico.
 
-## Supported filtering
-- Material: All, Wood, K9 Crystal, Metal
-- Category: All, Gifts, Business Gifts, Memorial, Decoration, Custom
+## Podprte kategorije
+- `kamen`
+- `obeski`
+- `nakit`
+- `dodatki`
+- `kristali`
+- `leseni-izdelki`
+- `kovinski-izdelki`
+- `personalizirano`
 
-## Sorting
-- Featured products are listed first automatically.
-- Non-featured products follow.
+## Opomba o mapi `products/`
+Mapa `products/` ostaja v repozitoriju zaradi starejših zapisov in primerov, vendar je za trenutno trgovino glavni katalog `data/products.json`.
