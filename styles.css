@@ -179,8 +179,14 @@ img {
 }
 
 .btn-ghost {
+  background: transparent;
   border-color: var(--border);
   color: var(--text);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(201, 169, 106, 0.45);
 }
 
 .hero {
