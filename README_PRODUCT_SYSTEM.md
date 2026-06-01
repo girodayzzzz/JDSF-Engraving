@@ -2,6 +2,7 @@
 
 ## Glavni katalog
 - `data/products.json` je glavni vir izdelkov za trgovino, stran posameznega izdelka in Stripe checkout.
+- `js/product-config.js` vsebuje skupne kategorije, oznake in normalizacijo izdelkov.
 - `js/shop-products.js` bere katalog za prikaz na `trgovina.html`.
 - `js/product-detail.js` bere isti katalog za `izdelek.html`.
 - `functions/api/create-checkout-session.js` uporablja isti katalog za preverjanje izdelkov in cen pred Stripe plačilom.
@@ -27,4 +28,4 @@
 - `personalizirano`
 
 ## Opomba o mapi `products/`
-Mapa `products/` ostaja v repozitoriju zaradi starejših zapisov in primerov, vendar je za trenutno trgovino glavni katalog `data/products.json`.
+Mapa `products/` ostaja v repozitoriju zaradi starejših zapisov in primerov, vendar je za trenutno trgovino glavni katalog `data/products.json`. Stari brskalniški loader za ločene JSON zapise je odstranjen, zato nove spremembe izdelkov urejajte v glavnem katalogu.

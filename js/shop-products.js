@@ -7,54 +7,12 @@
   const sortSelect = document.getElementById('sortSelect');
   const emptyState = document.getElementById('emptyState');
 
-  const CATEGORY_LABELS = {
-    all: 'Vsi izdelki',
-    kamen: 'Kamen',
-    obeski: 'Obeski',
-    nakit: 'Nakit',
-    dodatki: 'Dodatki',
-    kristali: 'Kristali',
-    'leseni-izdelki': 'Leseni izdelki',
-    'kovinski-izdelki': 'Kovinski izdelki',
-    personalizirano: 'Personalizirano'
-  };
-
-  const CATEGORY_ALIASES = {
-    kamen: 'kamen',
-    stone: 'kamen',
-    skrilavec: 'kamen',
-    obeski: 'obeski',
-    obesek: 'obeski',
-    keychains: 'obeski',
-    keychain: 'obeski',
-    nakit: 'nakit',
-    verizice: 'nakit',
-    verižice: 'nakit',
-    jewelry: 'nakit',
-    dodatki: 'dodatki',
-    dodatek: 'dodatki',
-    accessories: 'dodatki',
-    accessory: 'dodatki',
-    okraski: 'dodatki',
-    okrasek: 'dodatki',
-    ornaments: 'dodatki',
-    ornament: 'dodatki',
-    kristali: 'kristali',
-    kristal: 'kristali',
-    crystal: 'kristali',
-    'k9-crystal': 'kristali',
-    les: 'leseni-izdelki',
-    wood: 'leseni-izdelki',
-    'leseni-izdelki': 'leseni-izdelki',
-    kovina: 'kovinski-izdelki',
-    kovine: 'kovinski-izdelki',
-    metal: 'kovinski-izdelki',
-    'kovinski-izdelki': 'kovinski-izdelki',
-    custom: 'personalizirano',
-    personalized: 'personalizirano',
-    personalizirano: 'personalizirano',
-    darila: 'personalizirano'
-  };
+  const {
+    CATEGORY_LABELS,
+    CATEGORY_ORDER,
+    normalizeProduct,
+    getProductBadges
+  } = window.JDSFProducts;
 
   let currentCategory = 'all';
   let currentSearch = '';
@@ -69,30 +27,9 @@
     '"': '&quot;',
     "'": '&#39;'
   }[char]));
-  const normalizeCategory = (raw) => CATEGORY_ALIASES[String(raw || '').trim().toLowerCase()] || 'personalizirano';
-
-  const normalizeProduct = (product, index) => ({
-    id: product.id || `izdelek-${index + 1}`,
-    name: product.name || product.title || product.ime || 'Izdelek',
-    category: normalizeCategory(product.category || product.kategorija || product.material),
-    material: product.material || '',
-    price: product.price || product.cena || '',
-    image: product.image || product.slika || '',
-    description: product.description || product.shortDescription || product.opis || ''
-  });
 
   const renderFilters = () => {
-    const filters = [
-      ['all', CATEGORY_LABELS.all],
-      ['kamen', CATEGORY_LABELS.kamen],
-      ['obeski', CATEGORY_LABELS.obeski],
-      ['nakit', CATEGORY_LABELS.nakit],
-      ['dodatki', CATEGORY_LABELS.dodatki],
-      ['kristali', CATEGORY_LABELS.kristali],
-      ['leseni-izdelki', CATEGORY_LABELS['leseni-izdelki']],
-      ['kovinski-izdelki', CATEGORY_LABELS['kovinski-izdelki']],
-      ['personalizirano', CATEGORY_LABELS.personalizirano]
-    ];
+    const filters = CATEGORY_ORDER.map((key) => [key, CATEGORY_LABELS[key]]);
 
     categoryWrap.innerHTML = filters
       .map(([key, label]) => `<button class="btn btn-filter ${key === currentCategory ? 'active' : ''}" data-category="${key}" type="button">${label}</button>`)
@@ -116,11 +53,18 @@
     }, 1600);
   };
 
+  const createBadgeList = (product) => getProductBadges(product)
+    .map((badge) => `<span>${escapeHtml(badge)}</span>`)
+    .join('');
+
   const createCard = (product) => {
     const article = document.createElement('article');
     article.className = 'shop-card';
     article.innerHTML = `<a class="shop-card-link" href="izdelek.html?id=${encodeURIComponent(product.id)}" aria-label="Odpri izdelek ${escapeHtml(product.name)}">
-      <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />
+      <div class="shop-card-media">
+        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" />
+        <div class="product-badges">${createBadgeList(product)}</div>
+      </div>
       <div class="shop-card-body">
         <h3>${escapeHtml(product.name)}</h3>
         <p>${escapeHtml(product.description)}</p>
