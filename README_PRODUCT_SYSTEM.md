@@ -7,6 +7,12 @@
 - `js/product-detail.js` bere isti katalog za `izdelek.html`.
 - `functions/api/create-checkout-session.js` uporablja isti katalog za preverjanje izdelkov in cen pred Stripe plačilom.
 
+
+## Stripe Checkout in poštnina
+- Stripe Checkout sejo pripravi `functions/api/create-checkout-session.js`.
+- Vsako naročilo v košarici dobi fiksno postavko poštnine `Poštnina` v znesku 4,90 €.
+- Znesek lahko v Cloudflare Pages okolju spremeniš z okoljsko spremenljivko `SHIPPING_AMOUNT_CENTS` (npr. `590` za 5,90 € ali `0` za brez poštnine).
+
 ## Dodaj izdelek v 3 korakih
 1. Naloži slike v ustrezno mapo znotraj `assets/products/`.
 2. Dodaj izdelek v `data/products.json` z unikatnim `id`, imenom, opisom, kategorijo, materialom, ceno, glavno sliko in galerijo.
