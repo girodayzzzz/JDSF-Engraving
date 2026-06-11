@@ -1,6 +1,8 @@
 import { CURRENCY, SHIPPING_RATE_NAME, getShippingAmountCents } from '../_lib/shipping.js';
 
 const DEFAULT_SITE_URL = 'https://www.jdsf-lasercraft.com';
+const DEFAULT_SHIPPING_AMOUNT_CENTS = 490;
+const SHIPPING_RATE_NAME = 'Poštnina';
 
 const jsonResponse = (body, init = {}) => Response.json(body, {
   headers: {
@@ -17,6 +19,13 @@ const parsePriceToCents = (price) => {
 };
 
 const normalizeQuantity = (quantity) => Math.max(1, Math.min(99, Math.floor(Number(quantity) || 1)));
+
+const getShippingAmountCents = (env) => {
+  const configuredAmount = Number(env.SHIPPING_AMOUNT_CENTS);
+  return Number.isFinite(configuredAmount) && configuredAmount >= 0
+    ? Math.round(configuredAmount)
+    : DEFAULT_SHIPPING_AMOUNT_CENTS;
+};
 
 const loadProducts = async (request, env) => {
   const productsUrl = new URL('/data/products.json', request.url);
