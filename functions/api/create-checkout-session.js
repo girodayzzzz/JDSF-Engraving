@@ -1,4 +1,5 @@
-const CURRENCY = 'eur';
+import { CURRENCY, SHIPPING_RATE_NAME, getShippingAmountCents } from '../_lib/shipping.js';
+
 const DEFAULT_SITE_URL = 'https://www.jdsf-lasercraft.com';
 
 const jsonResponse = (body, init = {}) => Response.json(body, {
@@ -51,6 +52,16 @@ const getAbsoluteUrl = (url, siteUrl) => {
   return new URL(url, siteUrl).href;
 };
 
+const appendShippingOption = (form, env) => {
+  const shippingAmount = getShippingAmountCents(env);
+  if (shippingAmount <= 0) return;
+
+  form.append('shipping_options[0][shipping_rate_data][type]', 'fixed_amount');
+  form.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', String(shippingAmount));
+  form.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', CURRENCY);
+  form.append('shipping_options[0][shipping_rate_data][display_name]', SHIPPING_RATE_NAME);
+};
+
 const appendLineItems = (form, lineItems, siteUrl) => {
   lineItems.forEach((item, index) => {
     form.append(`line_items[${index}][quantity]`, String(item.quantity));
@@ -91,6 +102,10 @@ export async function onRequestPost({ request, env }) {
   form.append('billing_address_collection', 'auto');
   form.append('shipping_address_collection[allowed_countries][0]', 'SI');
   form.append('metadata[source]', 'jdsf-cart');
+  const shippingAmountCents = getShippingAmountCents(env);
+  form.append('metadata[shipping_amount_cents]', String(shippingAmountCents));
+  form.append('payment_intent_data[metadata][shipping_amount_cents]', String(shippingAmountCents));
+  appendShippingOption(form, env);
   form.append('metadata[cart_items]', JSON.stringify(lineItems.map((item) => ({ id: item.productId, quantity: item.quantity }))));
   appendLineItems(form, lineItems, siteUrl);
 
