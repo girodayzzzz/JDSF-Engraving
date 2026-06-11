@@ -19,12 +19,23 @@ const parsePriceToCents = (price) => {
 
 const normalizeQuantity = (quantity) => Math.max(1, Math.min(99, Math.floor(Number(quantity) || 1)));
 
-const getShippingAmountCents = (env) => {
-  const configuredAmount = Number(env.SHIPPING_AMOUNT_CENTS);
+const getShippingAmountCents = (env = {}) => {
+  const rawAmount = env.SHIPPING_AMOUNT_CENTS;
+  if (rawAmount === undefined || rawAmount === null || String(rawAmount).trim() === '') {
+    return DEFAULT_SHIPPING_AMOUNT_CENTS;
+  }
+
+  const configuredAmount = Number(rawAmount);
   return Number.isFinite(configuredAmount) && configuredAmount >= 0
     ? Math.round(configuredAmount)
     : DEFAULT_SHIPPING_AMOUNT_CENTS;
 };
+
+const getShippingConfig = (env) => ({
+  amount_cents: getShippingAmountCents(env),
+  currency: CURRENCY,
+  display_name: SHIPPING_RATE_NAME
+});
 
 const loadProducts = async (request, env) => {
   const productsUrl = new URL('/data/products.json', request.url);
@@ -131,6 +142,6 @@ export async function onRequestPost({ request, env }) {
   return jsonResponse({ url: session.url });
 }
 
-export function onRequestGet() {
-  return jsonResponse({ error: 'Uporabite POST zahtevo za začetek plačila.' }, { status: 405 });
+export function onRequestGet({ env } = {}) {
+  return jsonResponse({ shipping: getShippingConfig(env) });
 }

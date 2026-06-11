@@ -13,10 +13,12 @@
   const getProductUrl = (productId) => `izdelek.html?id=${encodeURIComponent(productId)}`;
   const catalogProducts = new Map();
   let catalogLoaded = false;
-  const SHIPPING_AMOUNT = 4.90;
+  const DEFAULT_SHIPPING_AMOUNT_CENTS = 490;
+  let shippingAmountCents = DEFAULT_SHIPPING_AMOUNT_CENTS;
 
   const parseCartPrice = (price) => Number(String(price || '').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
   const formatPrice = (amount) => window.JDSFCart?.formatTotal(amount) || `${amount.toFixed(2).replace('.', ',')} €`;
+  const formatCents = (amountCents) => formatPrice((Number(amountCents) || 0) / 100);
   const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
     '&': '&amp;',
     '<': '&lt;',
@@ -36,6 +38,21 @@
     const product = catalogProducts.get(item.id);
     if (!product) return { ...item, unavailable: catalogLoaded };
     return { ...item, ...product, quantity: item.quantity, unavailable: false };
+  };
+
+  const loadShippingConfig = async () => {
+    try {
+      const response = await fetch('/api/create-checkout-session', { cache: 'no-store' });
+      if (!response.ok) return;
+
+      const config = await response.json().catch(() => null);
+      const amountCents = Number(config?.shipping?.amount_cents);
+      if (Number.isFinite(amountCents) && amountCents >= 0) {
+        shippingAmountCents = Math.round(amountCents);
+      }
+    } catch (error) {
+      shippingAmountCents = DEFAULT_SHIPPING_AMOUNT_CENTS;
+    }
   };
 
   const loadCatalogProducts = async () => {
@@ -74,14 +91,18 @@
     const displayItems = items.map(getCurrentCartItem);
     const count = items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
     const cartTotal = displayItems.reduce((sum, item) => sum + parseCartPrice(item.price) * (Number(item.quantity) || 0), 0);
-    const shippingTotal = items.length ? SHIPPING_AMOUNT : 0;
+    const shippingTotal = items.length ? shippingAmountCents / 100 : 0;
     const hasUnavailableItems = displayItems.some((item) => item.unavailable);
 
     cartItems.innerHTML = '';
     emptyState.hidden = items.length > 0;
     itemCount.textContent = String(count);
     total.textContent = formatPrice(cartTotal + shippingTotal);
-    if (shippingRow) shippingRow.hidden = items.length === 0;
+    if (shippingRow) {
+      shippingRow.hidden = items.length === 0;
+      const shippingAmount = shippingRow.querySelector('[data-cart-shipping-amount]');
+      if (shippingAmount) shippingAmount.textContent = formatCents(shippingAmountCents);
+    }
     checkoutButton.disabled = items.length === 0 || hasUnavailableItems;
     checkoutButton.classList.toggle('is-disabled', items.length === 0 || hasUnavailableItems);
     clearCartButton.hidden = items.length === 0;
@@ -174,7 +195,7 @@
 
   window.addEventListener('jdsf-cart-updated', renderCart);
   renderCart();
-  loadCatalogProducts()
+  Promise.all([loadShippingConfig(), loadCatalogProducts()])
     .then(renderCart)
     .catch((error) => {
       setCheckoutStatus(error.message || 'Kataloga izdelkov ni mogoče osvežiti.', 'error');
