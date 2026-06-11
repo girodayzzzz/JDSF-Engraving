@@ -10,8 +10,8 @@
 
 ## Stripe Checkout in poštnina
 - Stripe Checkout sejo pripravi `functions/api/create-checkout-session.js`.
-- Vsako naročilo v košarici dobi fiksno postavko poštnine `Poštnina` v znesku 4,90 €.
-- Znesek lahko v Cloudflare Pages okolju spremeniš z okoljsko spremenljivko `SHIPPING_AMOUNT_CENTS` (npr. `590` za 5,90 € ali `0` za brez poštnine).
+- Vsako naročilo v košarici dobi Stripe postavko poštnine `Poštnina` v znesku 4,90 €; to ni dodaten izdelek v katalogu, ampak Stripe shipping option.
+- Če v Cloudflare Pages ni nastavljene okoljske spremenljivke, se samodejno uporabi 4,90 €. Znesek lahko po želji spremeniš z `SHIPPING_AMOUNT_CENTS` (npr. `590` za 5,90 € ali `0` za brez poštnine). Košarica vrednost prebere prek `/api/cart-config`, zato prikaz v košarici ostane usklajen s Stripe Checkoutom.
 
 ## Dodaj izdelek v 3 korakih
 1. Naloži slike v ustrezno mapo znotraj `assets/products/`.

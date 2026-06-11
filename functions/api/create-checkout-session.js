@@ -1,4 +1,5 @@
-const CURRENCY = 'eur';
+import { CURRENCY, SHIPPING_RATE_NAME, getShippingAmountCents } from '../_lib/shipping.js';
+
 const DEFAULT_SITE_URL = 'https://www.jdsf-lasercraft.com';
 const DEFAULT_SHIPPING_AMOUNT_CENTS = 490;
 const SHIPPING_RATE_NAME = 'Poštnina';
@@ -110,6 +111,9 @@ export async function onRequestPost({ request, env }) {
   form.append('billing_address_collection', 'auto');
   form.append('shipping_address_collection[allowed_countries][0]', 'SI');
   form.append('metadata[source]', 'jdsf-cart');
+  const shippingAmountCents = getShippingAmountCents(env);
+  form.append('metadata[shipping_amount_cents]', String(shippingAmountCents));
+  form.append('payment_intent_data[metadata][shipping_amount_cents]', String(shippingAmountCents));
   appendShippingOption(form, env);
   form.append('metadata[cart_items]', JSON.stringify(lineItems.map((item) => ({ id: item.productId, quantity: item.quantity }))));
   appendLineItems(form, lineItems, siteUrl);

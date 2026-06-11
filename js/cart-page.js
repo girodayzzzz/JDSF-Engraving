@@ -6,6 +6,7 @@
   const itemCount = document.getElementById('cartItemCount');
   const total = document.getElementById('cartTotal');
   const shippingRow = document.getElementById('cartShippingRow');
+  const shippingAmountLabel = document.getElementById('cartShippingAmount');
   const checkoutButton = document.getElementById('cartCheckoutButton');
   const checkoutStatus = document.getElementById('cartCheckoutStatus');
   const clearCartButton = document.getElementById('clearCart');
@@ -13,10 +14,22 @@
   const getProductUrl = (productId) => `izdelek.html?id=${encodeURIComponent(productId)}`;
   const catalogProducts = new Map();
   let catalogLoaded = false;
-  const SHIPPING_AMOUNT = 4.90;
+  let shippingAmount = 4.90;
 
   const parseCartPrice = (price) => Number(String(price || '').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
   const formatPrice = (amount) => window.JDSFCart?.formatTotal(amount) || `${amount.toFixed(2).replace('.', ',')} €`;
+
+  const loadCartConfig = async () => {
+    const response = await fetch('/api/cart-config', { cache: 'no-store' });
+    if (!response.ok) return;
+
+    const config = await response.json().catch(() => ({}));
+    const configuredShipping = Number(config?.shipping?.amount);
+    if (Number.isFinite(configuredShipping) && configuredShipping >= 0) {
+      shippingAmount = configuredShipping;
+      if (shippingAmountLabel) shippingAmountLabel.textContent = formatPrice(shippingAmount);
+    }
+  };
   const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
     '&': '&amp;',
     '<': '&lt;',
@@ -74,7 +87,7 @@
     const displayItems = items.map(getCurrentCartItem);
     const count = items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
     const cartTotal = displayItems.reduce((sum, item) => sum + parseCartPrice(item.price) * (Number(item.quantity) || 0), 0);
-    const shippingTotal = items.length ? SHIPPING_AMOUNT : 0;
+    const shippingTotal = items.length ? shippingAmount : 0;
     const hasUnavailableItems = displayItems.some((item) => item.unavailable);
 
     cartItems.innerHTML = '';
@@ -174,8 +187,14 @@
 
   window.addEventListener('jdsf-cart-updated', renderCart);
   renderCart();
-  loadCatalogProducts()
-    .then(renderCart)
+  Promise.allSettled([loadCatalogProducts(), loadCartConfig()])
+    .then((results) => {
+      renderCart();
+      const catalogResult = results[0];
+      if (catalogResult.status === 'rejected') {
+        throw catalogResult.reason;
+      }
+    })
     .catch((error) => {
       setCheckoutStatus(error.message || 'Kataloga izdelkov ni mogoče osvežiti.', 'error');
     });
