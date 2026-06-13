@@ -112,6 +112,7 @@ window.JDSFCart = {
 };
 
 window.addEventListener("jdsf-cart-updated", updateCartBadges);
+
 document.addEventListener("DOMContentLoaded", () => {
   addGalleryNavLink();
   addHeaderCartLink();
