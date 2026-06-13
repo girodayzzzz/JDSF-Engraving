@@ -35,6 +35,20 @@ const updateCartBadges = () => {
   });
 };
 
+
+const addGalleryNavLink = () => {
+  const nav = document.getElementById("navMenu");
+  if (!nav || nav.querySelector('a[href="gallery.html"]')) return;
+
+  const link = document.createElement("a");
+  link.href = "gallery.html";
+  link.textContent = "Galerija";
+  if (window.location.pathname.endsWith("gallery.html")) link.classList.add("active");
+
+  const contactLink = Array.from(nav.querySelectorAll("a")).find((item) => item.getAttribute("href") === "kontakt.html");
+  nav.insertBefore(link, contactLink || nav.querySelector(".btn-nav") || null);
+};
+
 const addHeaderCartLink = () => {
   const nav = document.getElementById("navMenu");
   if (!nav || nav.querySelector("[data-cart-label]")) return;
@@ -99,6 +113,7 @@ window.JDSFCart = {
 
 window.addEventListener("jdsf-cart-updated", updateCartBadges);
 document.addEventListener("DOMContentLoaded", () => {
+  addGalleryNavLink();
   addHeaderCartLink();
   updateCartBadges();
 });
