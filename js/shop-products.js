@@ -57,6 +57,9 @@
     .map((badge) => `<span>${escapeHtml(badge)}</span>`)
     .join('');
 
+  const productRequiresDetailSelection = (product) => Array.isArray(product.selectionOptions)
+    && product.selectionOptions.some((option) => option.required);
+
   const createCard = (product) => {
     const article = document.createElement('article');
     article.className = 'shop-card';
@@ -80,7 +83,9 @@
     </div>`;
 
     const productUrl = `izdelek.html?id=${encodeURIComponent(product.id)}`;
+    const requiresDetailSelection = productRequiresDetailSelection(product);
     const quantityInput = article.querySelector('[data-cart-quantity-input]');
+    const addToCartButton = article.querySelector('[data-add-to-cart]');
     const actionMessage = article.querySelector('[data-cart-action-message]');
 
     article.dataset.productUrl = productUrl;
@@ -91,12 +96,19 @@
     });
 
 
-    article.querySelector('[data-add-to-cart]').addEventListener('click', () => {
-      const quantity = normalizeQuantity(quantityInput.value);
-      quantityInput.value = quantity;
-      window.JDSFCart?.addItem(product, quantity);
-      showAddedState(actionMessage, quantity);
-    });
+    if (requiresDetailSelection) {
+      addToCartButton.textContent = 'Izberi možnosti';
+      addToCartButton.addEventListener('click', () => {
+        window.location.href = productUrl;
+      });
+    } else {
+      addToCartButton.addEventListener('click', () => {
+        const quantity = normalizeQuantity(quantityInput.value);
+        quantityInput.value = quantity;
+        window.JDSFCart?.addItem(product, quantity);
+        showAddedState(actionMessage, quantity);
+      });
+    }
 
     return article;
   };
