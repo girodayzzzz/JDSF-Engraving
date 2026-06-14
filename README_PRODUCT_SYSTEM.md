@@ -49,7 +49,6 @@ Primer:
 - `dodatki`
 - `kristali`
 - `leseni-izdelki`
-- `kovinski-izdelki`
 - `personalizirano`
 
 ## Opomba o mapi `products/`
