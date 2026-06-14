@@ -7,7 +7,6 @@
     dodatki: 'Dodatki',
     kristali: 'Kristali',
     'leseni-izdelki': 'Leseni izdelki',
-    'kovinski-izdelki': 'Kovinski izdelki',
     personalizirano: 'Personalizirano'
   };
 
@@ -19,7 +18,6 @@
     'dodatki',
     'kristali',
     'leseni-izdelki',
-    'kovinski-izdelki',
     'personalizirano'
   ];
 
@@ -50,10 +48,6 @@
     les: 'leseni-izdelki',
     wood: 'leseni-izdelki',
     'leseni-izdelki': 'leseni-izdelki',
-    kovina: 'kovinski-izdelki',
-    kovine: 'kovinski-izdelki',
-    metal: 'kovinski-izdelki',
-    'kovinski-izdelki': 'kovinski-izdelki',
     custom: 'personalizirano',
     personalized: 'personalizirano',
     personalizirano: 'personalizirano',

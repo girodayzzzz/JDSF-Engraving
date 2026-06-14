@@ -9,7 +9,6 @@ const ALLOWED_CATEGORIES = new Set([
   'dodatki',
   'kristali',
   'leseni-izdelki',
-  'kovinski-izdelki',
   'personalizirano'
 ]);
 
