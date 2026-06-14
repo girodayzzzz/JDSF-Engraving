@@ -88,28 +88,6 @@
     }
   },
   {
-    "id": "kristalna-krogla-true-north",
-    "title": "K9 kristalna krogla True North",
-    "category": "kristali",
-    "material": "K9 kristal",
-    "price": "44,90 €",
-    "personalized": true,
-    "featured": true,
-    "new": true,
-    "shortDescription": "Premium kristalna krogla z motivom kompasa za simbolično darilo ali poslovno priznanje.",
-    "image": "assets/products/k9-crystal/kristalna-krogla-true-north-01.png",
-    "gallery": [
-      "assets/products/k9-crystal/kristalna-krogla-true-north-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "k9-obesek-gorska-noc",
     "title": "K9 kristalni obesek Gorska noč",
     "category": "kristali",
