@@ -394,5 +394,314 @@
       "fontSelection": true,
       "sizeSelection": false
     }
+  },
+  {
+    "id": "k9-kristalna-svetilka-medvedek",
+    "title": "K9 kristalna svetilka Medvedek",
+    "category": "kristali",
+    "material": "K9 kristal in LED podstavek",
+    "price": "34,90 €",
+    "personalized": true,
+    "featured": true,
+    "new": true,
+    "shortDescription": "Prisrčna K9 kristalna LED svetilka z motivom medvedka in možnostjo osebnega posvetila.",
+    "image": "assets/products/k9-crystal/ChatGPT Image Jun 14, 2026, 06_17_50 PM.png",
+    "gallery": [
+      "assets/products/k9-crystal/ChatGPT Image Jun 14, 2026, 06_17_50 PM.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "k9-kristalna-svetilka-vrtnica",
+    "title": "K9 kristalna svetilka Vrtnica",
+    "category": "kristali",
+    "material": "K9 kristal in LED podstavek",
+    "price": "36,90 €",
+    "personalized": true,
+    "featured": true,
+    "new": true,
+    "shortDescription": "Elegantna K9 kristalna LED svetilka z vrtnico in izbiro barve osvetlitve.",
+    "image": "assets/products/k9-crystal/ChatGPT Image Jun 14, 2026, 12_05_36 AM.png",
+    "gallery": [
+      "assets/products/k9-crystal/ChatGPT Image Jun 14, 2026, 12_05_36 AM.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    },
+    "selectionOptions": [
+      {
+        "id": "barva-svetlobe",
+        "label": "Barva svetlobe",
+        "required": true,
+        "choices": [
+          {
+            "value": "rdeca",
+            "label": "Rdeča"
+          },
+          {
+            "value": "modra",
+            "label": "Modra"
+          },
+          {
+            "value": "vijolicna",
+            "label": "Vijolična"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "k9-kristalna-krogla-galaksija",
+    "title": "K9 kristalna krogla Galaksija",
+    "category": "kristali",
+    "material": "K9 kristal in LED podstavek",
+    "price": "39,90 €",
+    "personalized": false,
+    "featured": true,
+    "new": true,
+    "shortDescription": "Dekorativna K9 kristalna krogla z motivom galaksije in osvetljenim podstavkom.",
+    "image": "assets/products/k9-crystal/galaxy-k9-krogla.png",
+    "gallery": [
+      "assets/products/k9-crystal/galaxy-k9-krogla.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "k9-kristalni-obesek-izbira-modela",
+    "title": "K9 kristalni obesek - izbira modela",
+    "category": "obeski",
+    "material": "K9 kristal in kovinski obesek",
+    "price": "24,90 €",
+    "personalized": true,
+    "featured": true,
+    "new": true,
+    "shortDescription": "K9 kristalni obesek z izbiro modela: medvedek, medvedek s srčki ali vrtnica.",
+    "image": "assets/products/keychains/Komplet-izbira-k9-obesek.png",
+    "gallery": [
+      "assets/products/keychains/Komplet-izbira-k9-obesek.png",
+      "assets/products/keychains/ChatGPT Image Jun 13, 2026, 11_57_04 PM.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    },
+    "selectionOptions": [
+      {
+        "id": "model",
+        "label": "Model obeska",
+        "required": true,
+        "choices": [
+          {
+            "value": "a-medvedek",
+            "label": "A - medvedek"
+          },
+          {
+            "value": "b-medvedek-srcki",
+            "label": "B - medvedek s srčki"
+          },
+          {
+            "value": "c-vrtnica",
+            "label": "C - vrtnica"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "skrilavec-cvetlicni-motivi",
+    "title": "Skrilavec - cvetlični motivi",
+    "category": "kamen",
+    "material": "Skrilavec",
+    "price": "18,90 €",
+    "personalized": true,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Skrilavčeva ploščica z izbiro cvetličnega ali naravnega motiva od A do J.",
+    "image": "assets/products/stone/ChatGPT Image Jun 14, 2026, 12_01_20 AM.png",
+    "gallery": [
+      "assets/products/stone/ChatGPT Image Jun 14, 2026, 12_01_20 AM.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    },
+    "selectionOptions": [
+      {
+        "id": "motiv",
+        "label": "Motiv",
+        "required": true,
+        "choices": [
+          {
+            "value": "a",
+            "label": "A"
+          },
+          {
+            "value": "b",
+            "label": "B"
+          },
+          {
+            "value": "c",
+            "label": "C"
+          },
+          {
+            "value": "d",
+            "label": "D"
+          },
+          {
+            "value": "e",
+            "label": "E"
+          },
+          {
+            "value": "f",
+            "label": "F"
+          },
+          {
+            "value": "g",
+            "label": "G"
+          },
+          {
+            "value": "h",
+            "label": "H"
+          },
+          {
+            "value": "i",
+            "label": "I"
+          },
+          {
+            "value": "j",
+            "label": "J"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "skrilavec-narava-praznicni-motivi",
+    "title": "Skrilavec - narava in praznični motivi",
+    "category": "kamen",
+    "material": "Skrilavec",
+    "price": "18,90 €",
+    "personalized": true,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Skrilavčeva ploščica z izbiro gorskega, zimskega, družinskega ali prazničnega motiva od A do H.",
+    "image": "assets/products/stone/ChatGPT Image Jun 14, 2026, 12_10_05 AM.png",
+    "gallery": [
+      "assets/products/stone/ChatGPT Image Jun 14, 2026, 12_10_05 AM.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    },
+    "selectionOptions": [
+      {
+        "id": "motiv",
+        "label": "Motiv",
+        "required": true,
+        "choices": [
+          {
+            "value": "a",
+            "label": "A"
+          },
+          {
+            "value": "b",
+            "label": "B"
+          },
+          {
+            "value": "c",
+            "label": "C"
+          },
+          {
+            "value": "d",
+            "label": "D"
+          },
+          {
+            "value": "e",
+            "label": "E"
+          },
+          {
+            "value": "f",
+            "label": "F"
+          },
+          {
+            "value": "g",
+            "label": "G"
+          },
+          {
+            "value": "h",
+            "label": "H"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lesena-3d-cerkev",
+    "title": "Lesena 3D cerkev",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "49,90 €",
+    "personalized": true,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Sestavljena lesena 3D cerkev za dekoracijo, spomin ali darilo z možnostjo gravure.",
+    "image": "assets/products/wood/5373 cerkev iz lesa.png",
+    "gallery": [
+      "assets/products/wood/5373 cerkev iz lesa.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "leseno-srce-i-love-you",
+    "title": "Leseno srce I Love You",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "24,90 €",
+    "personalized": true,
+    "featured": true,
+    "new": true,
+    "shortDescription": "Romantično leseno srce z dekorativno gravuro, primerno za obletnice in osebna darila.",
+    "image": "assets/products/wood/ChatGPT Image Jun 14, 2026, 06_19_41 PM.png",
+    "gallery": [
+      "assets/products/wood/ChatGPT Image Jun 14, 2026, 06_19_41 PM.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": true,
+      "fontSelection": true,
+      "sizeSelection": false
+    }
   }
 ]
