@@ -71,6 +71,20 @@
 
   const getCategoryLabel = (category) => CATEGORY_LABELS[normalizeCategory(category)] || CATEGORY_LABELS.personalizirano;
 
+  const normalizeSelectionOptions = (options = []) => (Array.isArray(options) ? options : [])
+    .map((option) => ({
+      id: String(option.id || option.name || '').trim(),
+      label: String(option.label || option.name || option.id || '').trim(),
+      required: option.required !== false,
+      choices: (Array.isArray(option.choices) ? option.choices : [])
+        .map((choice) => ({
+          value: String(choice.value || choice.id || choice.label || '').trim(),
+          label: String(choice.label || choice.value || choice.id || '').trim()
+        }))
+        .filter((choice) => choice.value && choice.label)
+    }))
+    .filter((option) => option.id && option.label && option.choices.length);
+
   const normalizeProduct = (product, index = 0) => {
     const category = normalizeCategory(product.category || product.kategorija || product.material);
 
@@ -88,7 +102,8 @@
       personalized: Boolean(product.personalized),
       customizationOptions: product.customizationOptions && typeof product.customizationOptions === 'object'
         ? product.customizationOptions
-        : {}
+        : {},
+      selectionOptions: normalizeSelectionOptions(product.selectionOptions || product.options || product.choices)
     };
   };
 

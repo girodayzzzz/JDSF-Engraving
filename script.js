@@ -24,6 +24,23 @@ const normalizeCartQuantity = (quantity) => Math.max(1, Math.floor(Number(quanti
 
 const getCartCount = () => readCart().reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
 
+const normalizeSelectedOptions = (selectedOptions = []) => (Array.isArray(selectedOptions) ? selectedOptions : [])
+  .map((option) => ({
+    id: String(option.id || '').trim(),
+    label: String(option.label || option.id || '').trim(),
+    value: String(option.value || '').trim(),
+    valueLabel: String(option.valueLabel || option.value || '').trim()
+  }))
+  .filter((option) => option.id && option.value);
+
+const getCartItemKey = (productId, selectedOptions = []) => {
+  const optionKey = normalizeSelectedOptions(selectedOptions)
+    .map((option) => `${option.id}:${option.value}`)
+    .sort()
+    .join('|');
+  return optionKey ? `${productId}::${optionKey}` : productId;
+};
+
 const updateCartBadges = () => {
   const count = getCartCount();
   document.querySelectorAll("[data-cart-count]").forEach((badge) => {
@@ -64,12 +81,14 @@ const addHeaderCartLink = () => {
 
 window.JDSFCart = {
   getItems: readCart,
-  addItem(product, quantity = 1) {
+  addItem(product, quantity = 1, options = {}) {
     if (!product || !product.id) return [];
 
     const quantityToAdd = normalizeCartQuantity(quantity);
+    const selectedOptions = normalizeSelectedOptions(options.selectedOptions);
+    const itemKey = getCartItemKey(product.id, selectedOptions);
     const items = readCart();
-    const existing = items.find((item) => item.id === product.id);
+    const existing = items.find((item) => (item.itemKey || item.id) === itemKey);
     if (existing) {
       existing.quantity = (Number(existing.quantity) || 1) + quantityToAdd;
     } else {
@@ -79,6 +98,8 @@ window.JDSFCart = {
         price: product.price || product.cena || "",
         image: product.image || product.slika || "",
         category: product.category || product.kategorija || "",
+        selectedOptions,
+        itemKey,
         quantity: quantityToAdd
       });
     }
@@ -86,16 +107,16 @@ window.JDSFCart = {
     saveCart(items);
     return items;
   },
-  updateQuantity(productId, quantity) {
+  updateQuantity(itemKey, quantity) {
     const normalizedQuantity = Math.max(0, Math.floor(Number(quantity) || 0));
     const items = readCart()
-      .map((item) => (item.id === productId ? { ...item, quantity: normalizedQuantity } : item))
+      .map((item) => ((item.itemKey || item.id) === itemKey ? { ...item, quantity: normalizedQuantity } : item))
       .filter((item) => item.quantity > 0);
     saveCart(items);
     return items;
   },
-  removeItem(productId) {
-    const items = readCart().filter((item) => item.id !== productId);
+  removeItem(itemKey) {
+    const items = readCart().filter((item) => (item.itemKey || item.id) !== itemKey);
     saveCart(items);
     return items;
   },

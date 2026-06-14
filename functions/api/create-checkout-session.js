@@ -19,6 +19,51 @@ const parsePriceToCents = (price) => {
 
 const normalizeQuantity = (quantity) => Math.max(1, Math.min(99, Math.floor(Number(quantity) || 1)));
 
+const normalizeSelectionOptions = (options = []) => (Array.isArray(options) ? options : [])
+  .map((option) => ({
+    id: String(option.id || '').trim(),
+    label: String(option.label || option.id || '').trim(),
+    value: String(option.value || '').trim(),
+    valueLabel: String(option.valueLabel || option.value || '').trim()
+  }))
+  .filter((option) => option.id && option.value);
+
+const getProductSelectionOptions = (product) => (Array.isArray(product.selectionOptions) ? product.selectionOptions : [])
+  .map((option) => ({
+    id: String(option.id || option.name || '').trim(),
+    label: String(option.label || option.name || option.id || '').trim(),
+    required: option.required !== false,
+    choices: (Array.isArray(option.choices) ? option.choices : [])
+      .map((choice) => ({
+        value: String(choice.value || choice.id || choice.label || '').trim(),
+        label: String(choice.label || choice.value || choice.id || '').trim()
+      }))
+      .filter((choice) => choice.value && choice.label)
+  }))
+  .filter((option) => option.id && option.label && option.choices.length);
+
+const validateSelectedOptions = (product, selectedOptions = []) => {
+  const configuredOptions = getProductSelectionOptions(product);
+  const selected = normalizeSelectionOptions(selectedOptions);
+
+  configuredOptions.forEach((option) => {
+    const match = selected.find((item) => item.id === option.id);
+    if (option.required && !match) throw new Error(`Izberi možnost "${option.label}" za izdelek "${product.title || product.name || product.id}".`);
+    if (!match) return;
+
+    const choice = option.choices.find((item) => item.value === match.value);
+    if (!choice) throw new Error(`Možnost "${match.value}" ni veljavna za izdelek "${product.title || product.name || product.id}".`);
+    match.label = option.label;
+    match.valueLabel = choice.label;
+  });
+
+  return selected.filter((item) => configuredOptions.some((option) => option.id === item.id));
+};
+
+const formatSelectedOptions = (selectedOptions = []) => selectedOptions
+  .map((option) => `${option.label}: ${option.valueLabel}`)
+  .join(', ');
+
 const getShippingAmountCents = (env = {}) => {
   const rawAmount = env.SHIPPING_AMOUNT_CENTS;
   if (rawAmount === undefined || rawAmount === null || String(rawAmount).trim() === '') {
@@ -57,11 +102,16 @@ const createLineItems = (cartItems, productMap) => cartItems.map((cartItem, inde
   const unitAmount = parsePriceToCents(product.price || product.cena);
   if (!unitAmount) throw new Error(`Izdelek "${product.title || product.name || product.id}" nima veljavne cene za plačilo.`);
 
+  const selectedOptions = validateSelectedOptions(product, cartItem.selectedOptions);
+  const optionSummary = formatSelectedOptions(selectedOptions);
+  const baseName = product.title || product.name || product.ime || 'Izdelek';
+
   return {
-    name: product.title || product.name || product.ime || 'Izdelek',
+    name: optionSummary ? `${baseName} (${optionSummary})` : baseName,
     image: product.image || product.slika || '',
     productId: product.id,
     quantity: normalizeQuantity(cartItem.quantity),
+    selectedOptions,
     unitAmount
   };
 });
@@ -88,6 +138,9 @@ const appendLineItems = (form, lineItems, siteUrl) => {
     form.append(`line_items[${index}][price_data][unit_amount]`, String(item.unitAmount));
     form.append(`line_items[${index}][price_data][product_data][name]`, item.name);
     form.append(`line_items[${index}][price_data][product_data][metadata][product_id]`, item.productId);
+    if (item.selectedOptions?.length) {
+      form.append(`line_items[${index}][price_data][product_data][metadata][selected_options]`, JSON.stringify(item.selectedOptions));
+    }
     if (item.image) form.append(`line_items[${index}][price_data][product_data][images][0]`, getAbsoluteUrl(item.image, siteUrl));
   });
 };
@@ -122,7 +175,11 @@ export async function onRequestPost({ request, env }) {
   form.append('shipping_address_collection[allowed_countries][0]', 'SI');
   form.append('metadata[source]', 'jdsf-cart');
   appendShippingOption(form, env);
-  form.append('metadata[cart_items]', JSON.stringify(lineItems.map((item) => ({ id: item.productId, quantity: item.quantity }))));
+  form.append('metadata[cart_items]', JSON.stringify(lineItems.map((item) => ({
+    id: item.productId,
+    quantity: item.quantity,
+    selectedOptions: item.selectedOptions
+  }))));
   appendLineItems(form, lineItems, siteUrl);
 
   const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {

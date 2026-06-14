@@ -1937,3 +1937,48 @@ input[type="range"] {
     min-height: 320px;
   }
 }
+
+.product-selection-options {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1rem 0;
+}
+
+.product-option-field {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.product-option-field select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #101217;
+  color: var(--text);
+  padding: 0.8rem 0.9rem;
+}
+
+.cart-item-options {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.15rem 0 0.45rem;
+  color: var(--text);
+}
+
+.cart-item-options div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.cart-item-options dt {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.cart-item-options dd {
+  margin: 0;
+  color: var(--text);
+}

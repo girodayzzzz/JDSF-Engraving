@@ -8,6 +8,23 @@
     getProductBadges
   } = window.JDSFProducts;
 
+  const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[char]));
+
+  const getSelectedOptions = (wrap) => Array.from(wrap?.querySelectorAll('[data-product-option]') || [])
+    .map((select) => ({
+      id: select.dataset.productOption,
+      label: select.dataset.productOptionLabel,
+      value: select.value,
+      valueLabel: select.options[select.selectedIndex]?.textContent || select.value
+    }))
+    .filter((option) => option.id && option.value);
+
   const renderProduct = (product) => {
     const mainImage = document.getElementById('productMainImage');
     const galleryWrap = document.getElementById('productGallery');
@@ -18,6 +35,7 @@
     const productBadges = document.getElementById('productBadges');
     const customizationList = document.getElementById('productCustomizationList');
     const customizationWrap = document.getElementById('productCustomization');
+    const selectionOptionsWrap = document.getElementById('productSelectionOptions');
 
     document.title = `${product.name} | JDSF Graviranje`;
     document.getElementById('productName').textContent = product.name;
@@ -46,12 +64,30 @@
       customizationWrap.hidden = options.length === 0;
     }
 
+    if (selectionOptionsWrap) {
+      selectionOptionsWrap.innerHTML = '';
+      const options = Array.isArray(product.selectionOptions) ? product.selectionOptions : [];
+      options.forEach((option) => {
+        const field = document.createElement('label');
+        field.className = 'product-option-field';
+        field.innerHTML = `<span>${escapeHtml(option.label)}</span><select data-product-option="${escapeHtml(option.id)}" data-product-option-label="${escapeHtml(option.label)}" ${option.required ? 'required' : ''}>${option.required ? '<option value="">Izberi možnost</option>' : ''}${option.choices.map((choice) => `<option value="${escapeHtml(choice.value)}">${escapeHtml(choice.label)}</option>`).join('')}</select>`;
+        selectionOptionsWrap.appendChild(field);
+      });
+      selectionOptionsWrap.hidden = options.length === 0;
+    }
+
     if (checkoutLink) checkoutLink.href = 'kosarica.html';
     if (addToCartButton) {
       addToCartButton.addEventListener('click', () => {
         const quantity = Math.max(1, Math.floor(Number(quantityInput?.value) || 1));
         if (quantityInput) quantityInput.value = quantity;
-        window.JDSFCart?.addItem(product, quantity);
+        const selectedOptions = getSelectedOptions(selectionOptionsWrap);
+        const requiredOptionCount = (product.selectionOptions || []).filter((option) => option.required).length;
+        if (selectedOptions.length < requiredOptionCount) {
+          if (cartMessage) cartMessage.textContent = 'Najprej izberi označbo izdelka.';
+          return;
+        }
+        window.JDSFCart?.addItem(product, quantity, { selectedOptions });
         if (cartMessage) {
           cartMessage.textContent = `Dodano ${quantity} × v košarico ✓`;
           setTimeout(() => {
