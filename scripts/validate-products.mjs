@@ -89,6 +89,35 @@ if (!Array.isArray(products)) {
         }
       });
     }
+
+    if (product.selectionOptions !== undefined && !Array.isArray(product.selectionOptions)) {
+      addError(`${label}: "selectionOptions" mora biti tabela možnosti.`);
+    }
+
+    if (Array.isArray(product.selectionOptions)) {
+      product.selectionOptions.forEach((option, optionIndex) => {
+        const optionLabel = `${label}: možnost #${optionIndex + 1}`;
+        if (!option || typeof option !== 'object' || Array.isArray(option)) {
+          addError(`${optionLabel} mora biti objekt.`);
+          return;
+        }
+        if (!option.id || typeof option.id !== 'string') addError(`${optionLabel}: manjka "id".`);
+        if (!option.label || typeof option.label !== 'string') addError(`${optionLabel}: manjka "label".`);
+        if (!Array.isArray(option.choices) || option.choices.length === 0) {
+          addError(`${optionLabel}: "choices" mora vsebovati vsaj eno izbiro.`);
+          return;
+        }
+        option.choices.forEach((choice, choiceIndex) => {
+          const choiceLabel = `${optionLabel}, izbira #${choiceIndex + 1}`;
+          if (!choice || typeof choice !== 'object' || Array.isArray(choice)) {
+            addError(`${choiceLabel} mora biti objekt.`);
+            return;
+          }
+          if (!choice.value || typeof choice.value !== 'string') addError(`${choiceLabel}: manjka "value".`);
+          if (!choice.label || typeof choice.label !== 'string') addError(`${choiceLabel}: manjka "label".`);
+        });
+      });
+    }
   });
 }
 

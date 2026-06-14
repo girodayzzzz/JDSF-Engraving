@@ -83,8 +83,15 @@
 
   const getCheckoutItems = () => (window.JDSFCart?.getItems() || []).map((item) => ({
     id: item.id,
-    quantity: Math.max(1, Math.floor(Number(item.quantity) || 1))
+    quantity: Math.max(1, Math.floor(Number(item.quantity) || 1)),
+    selectedOptions: Array.isArray(item.selectedOptions) ? item.selectedOptions : []
   }));
+
+  const renderSelectedOptions = (selectedOptions = []) => {
+    const options = Array.isArray(selectedOptions) ? selectedOptions : [];
+    if (!options.length) return '';
+    return `<dl class="cart-item-options">${options.map((option) => `<div><dt>${escapeHtml(option.label || option.id)}</dt><dd>${escapeHtml(option.valueLabel || option.value)}</dd></div>`).join('')}</dl>`;
+  };
 
   const renderCart = () => {
     const items = window.JDSFCart?.getItems() || [];
@@ -115,7 +122,8 @@
 
     displayItems.forEach((item) => {
       const productUrl = getProductUrl(item.id);
-      const safeId = encodeURIComponent(item.id);
+      const itemKey = item.itemKey || item.id;
+      const safeId = encodeURIComponent(itemKey);
       const quantity = Number(item.quantity) || 1;
       const article = document.createElement('article');
       article.className = 'cart-item';
@@ -127,13 +135,14 @@
         <a class="cart-item-main" href="${productUrl}">
           <h3>${escapeHtml(item.name)}</h3>
           <p>${escapeHtml(item.unavailable ? 'Izdelek ni več na voljo' : (item.price || 'Cena ni nastavljena'))}</p>
+          ${renderSelectedOptions(item.selectedOptions)}
           <span class="cart-item-hint">Kliknite sliko ali okvir za ogled izdelka</span>
         </a>
         <div class="cart-quantity">
           <label for="qty-${safeId}">Količina</label>
-          <input id="qty-${safeId}" type="number" min="1" value="${quantity}" data-cart-quantity="${escapeHtml(item.id)}" />
+          <input id="qty-${safeId}" type="number" min="1" value="${quantity}" data-cart-quantity="${escapeHtml(itemKey)}" />
         </div>
-        <button class="btn btn-ghost cart-remove" type="button" data-remove-from-cart="${escapeHtml(item.id)}">Odstrani</button>`;
+        <button class="btn btn-ghost cart-remove" type="button" data-remove-from-cart="${escapeHtml(itemKey)}">Odstrani</button>`;
       cartItems.appendChild(article);
     });
   };

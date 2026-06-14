@@ -24,6 +24,24 @@
 
 Če validacija uspe, se izdelek prikaže v trgovini in je pripravljen za dodajanje v košarico.
 
+## Izbire na strani izdelka
+Če ima en izdelek več označb ali izvedb, dodaj polje `selectionOptions` v zapis izdelka v `data/products.json`. Kupec izbiro vidi na strani izdelka, izbrana označba se shrani v košarico in pošlje v Stripe naročilo.
+
+Primer:
+```json
+"selectionOptions": [
+  {
+    "id": "oznacba",
+    "label": "Označba",
+    "required": true,
+    "choices": [
+      { "value": "mama", "label": "Mama" },
+      { "value": "ata", "label": "Ata" }
+    ]
+  }
+]
+```
+
 ## Podprte kategorije
 - `kamen`
 - `obeski`
