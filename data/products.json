@@ -691,28 +691,6 @@
     }
   },
   {
-    "id": "kamen-skrilavec-morning-coffee",
-    "title": "Skrilavec Morning Coffee",
-    "category": "kamen",
-    "material": "Naravni skrilavec",
-    "price": "18,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": false,
-    "shortDescription": "Elegantna skrilavčeva podloga z motivom kave za kuhinjo, pisarno ali darilni set.",
-    "image": "assets/products/stone/kamen-skrilavec-morning-coffee-01.png",
-    "gallery": [
-      "assets/products/stone/kamen-skrilavec-morning-coffee-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "rozice",
     "title": "Rožice",
     "category": "leseni-izdelki",
