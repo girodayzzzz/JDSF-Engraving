@@ -669,28 +669,6 @@
     ]
   },
   {
-    "id": "kamen-skrilavec-kompas-gore",
-    "title": "Skrilavec Kompas in gore",
-    "category": "kamen",
-    "material": "Naravni skrilavec",
-    "price": "27,90 €",
-    "personalized": true,
-    "featured": true,
-    "new": true,
-    "shortDescription": "Robusten kamnit izdelek z motivom gora in kompasa za ljubitelje narave in avantur.",
-    "image": "assets/products/stone/kamen-skrilavec-kompas-gore-01.png",
-    "gallery": [
-      "assets/products/stone/kamen-skrilavec-kompas-gore-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "rozice",
     "title": "Rožice",
     "category": "leseni-izdelki",
