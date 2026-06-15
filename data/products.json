@@ -353,6 +353,28 @@
     }
   },
   {
+    "id": "darilna-skatla-knjiga",
+    "title": "Darilna škatla knjiga",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "24,90 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Elegantna lesena darilna škatla v obliki knjige za posebna darila, pripravljena brez personalizacije.",
+    "image": "assets/products/wood/darilna-skatlica.png",
+    "gallery": [
+      "assets/products/wood/darilna-skatlica.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "i-f-loveyou",
     "title": "I-F Love You",
     "category": "leseni-izdelki",
