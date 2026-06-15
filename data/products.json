@@ -22,6 +22,50 @@
     }
   },
   {
+    "id": "k9-kristal-thor-style",
+    "title": "K9 Kristal Thor Style",
+    "category": "kristali",
+    "material": "K9 kristal in LED podstavek",
+    "price": "80,00 €",
+    "personalized": false,
+    "featured": true,
+    "new": true,
+    "shortDescription": "K9 kristalni dekor Thor Style z dovršeno 3D gravuro in priloženim LED podstavkom, pripravljen za darilo brez personalizacije.",
+    "image": "assets/products/k9-crystal/k9-thor.png",
+    "gallery": [
+      "assets/products/k9-crystal/k9-thor.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "k9-kristal-paris",
+    "title": "K9 Kristal Paris",
+    "category": "kristali",
+    "material": "K9 kristal in LED podstavek",
+    "price": "80,00 €",
+    "personalized": false,
+    "featured": true,
+    "new": true,
+    "shortDescription": "Eleganten K9 kristalni dekor Paris z motivom Eifflovega stolpa in priloženim LED podstavkom, pripravljen za darilo brez personalizacije.",
+    "image": "assets/products/k9-crystal/paris-k9-kristal.png",
+    "gallery": [
+      "assets/products/k9-crystal/paris-k9-kristal.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "k9-kristalna-svetilka-vrtnica",
     "title": "K9 Kristal Vrtnica",
     "category": "kristali",
