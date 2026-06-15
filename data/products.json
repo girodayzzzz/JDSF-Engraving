@@ -287,6 +287,28 @@
     }
   },
   {
+    "id": "led-svetilka-you-and-me",
+    "title": "LED svetilka You & Me",
+    "category": "leseni-izdelki",
+    "material": "Les in LED osvetlitev",
+    "price": "37,50 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativna LED svetilka z napisom You & Me, pripravljena kot samostojen izdelek brez personalizacije.",
+    "image": "assets/products/wood/ledsvetilka-youme.png",
+    "gallery": [
+      "assets/products/wood/ledsvetilka-youme.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "lesena-hiska-za-noc-carovnic",
     "title": "Lesena hiška za noč čarovnic",
     "category": "leseni-izdelki",
