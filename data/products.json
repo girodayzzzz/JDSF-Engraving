@@ -525,28 +525,6 @@
     }
   },
   {
-    "id": "kristalno-srce-druzinsko-drevo",
-    "title": "K9 kristalno srce Družinsko drevo",
-    "category": "kristali",
-    "material": "K9 kristal",
-    "price": "39,90 €",
-    "personalized": true,
-    "featured": true,
-    "new": true,
-    "shortDescription": "Bleščeče kristalno srce z motivom družinskega drevesa za imena, datume ali posvetilo.",
-    "image": "assets/products/k9-crystal/kristalno-srce-druzinsko-drevo-01.png",
-    "gallery": [
-      "assets/products/k9-crystal/kristalno-srce-druzinsko-drevo-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "k9-kristal-verski-motiv",
     "title": "K9 kristal z verskim motivom",
     "category": "kristali",
@@ -565,50 +543,6 @@
       "imageUpload": false,
       "customText": false,
       "fontSelection": false,
-      "sizeSelection": false
-    }
-  },
-  {
-    "id": "kristalni-obesek-vrtnica-srce",
-    "title": "Kristalni obesek Vrtnica v srcu",
-    "category": "obeski",
-    "material": "K9 kristal",
-    "price": "22,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": true,
-    "shortDescription": "Nežen kristalni obesek z vrtnico v srcu za romantično in osebno darilo.",
-    "image": "assets/products/keychains/kristalni-obesek-vrtnica-srce-01.png",
-    "gallery": [
-      "assets/products/keychains/kristalni-obesek-vrtnica-srce-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
-    "id": "lesen-obesek-you-are-my-today",
-    "title": "Lesen obesek You Are My Today",
-    "category": "obeski",
-    "material": "Les",
-    "price": "14,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": false,
-    "shortDescription": "Topel lesen obesek z ljubezenskim sporočilom in možnostjo dodatne personalizacije.",
-    "image": "assets/products/keychains/lesen-obesek-you-are-my-today-01.png",
-    "gallery": [
-      "assets/products/keychains/lesen-obesek-you-are-my-today-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
       "sizeSelection": false
     }
   },
@@ -654,94 +588,6 @@
         ]
       }
     ]
-  },
-  {
-    "id": "kamen-skrilavec-sonce-in-luna",
-    "title": "Skrilavec Sonce in luna",
-    "category": "kamen",
-    "material": "Naravni skrilavec",
-    "price": "26,90 €",
-    "personalized": true,
-    "featured": true,
-    "new": false,
-    "shortDescription": "Dekorativna plošča iz skrilavca z motivom sonca in lune za dom s posebnim pomenom.",
-    "image": "assets/products/stone/kamen-skrilavec-sonce-in-luna-01.png",
-    "gallery": [
-      "assets/products/stone/kamen-skrilavec-sonce-in-luna-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
-    "id": "kamen-skrilavec-kompas-gore",
-    "title": "Skrilavec Kompas in gore",
-    "category": "kamen",
-    "material": "Naravni skrilavec",
-    "price": "27,90 €",
-    "personalized": true,
-    "featured": true,
-    "new": true,
-    "shortDescription": "Robusten kamnit izdelek z motivom gora in kompasa za ljubitelje narave in avantur.",
-    "image": "assets/products/stone/kamen-skrilavec-kompas-gore-01.png",
-    "gallery": [
-      "assets/products/stone/kamen-skrilavec-kompas-gore-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
-    "id": "kamen-skrilavec-morning-coffee",
-    "title": "Skrilavec Morning Coffee",
-    "category": "kamen",
-    "material": "Naravni skrilavec",
-    "price": "18,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": false,
-    "shortDescription": "Elegantna skrilavčeva podloga z motivom kave za kuhinjo, pisarno ali darilni set.",
-    "image": "assets/products/stone/kamen-skrilavec-morning-coffee-01.png",
-    "gallery": [
-      "assets/products/stone/kamen-skrilavec-morning-coffee-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
-    "id": "srce-kamen-skrilavec-coffee-love",
-    "title": "Skrilavčevo srce Coffee Love",
-    "category": "kamen",
-    "material": "Naravni skrilavec",
-    "price": "23,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": true,
-    "shortDescription": "Kamnito srce s toplim kavnim motivom za ljubitelje kave in osebnih dekoracij.",
-    "image": "assets/products/stone/srce-kamen-skrilavec-coffee-love-01.png",
-    "gallery": [
-      "assets/products/stone/srce-kamen-skrilavec-coffee-love-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
   },
   {
     "id": "rozice",
