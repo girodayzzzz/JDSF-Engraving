@@ -309,6 +309,28 @@
     }
   },
   {
+    "id": "led-svetilka-srce-za-valentinovo",
+    "title": "LED svetilka Srce za Valentinovo",
+    "category": "leseni-izdelki",
+    "material": "Les in LED osvetlitev",
+    "price": "37,50 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativna LED svetilka v obliki srca z napisom Happy Valentine's Day, pripravljena kot samostojen valentinov izdelek brez personalizacije.",
+    "image": "assets/products/wood/happy-valentines-day.srce.png",
+    "gallery": [
+      "assets/products/wood/happy-valentines-day.srce.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "lesena-hiska-za-noc-carovnic",
     "title": "Lesena hiška za noč čarovnic",
     "category": "leseni-izdelki",
