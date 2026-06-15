@@ -41,28 +41,7 @@
       "customText": true,
       "fontSelection": true,
       "sizeSelection": false
-    },
-    "selectionOptions": [
-      {
-        "id": "barva-svetlobe",
-        "label": "Barva svetlobe",
-        "required": true,
-        "choices": [
-          {
-            "value": "rdeca",
-            "label": "Rdeča"
-          },
-          {
-            "value": "modra",
-            "label": "Modra"
-          },
-          {
-            "value": "vijolicna",
-            "label": "Vijolična"
-          }
-        ]
-      }
-    ]
+    }
   },
   {
     "id": "k9-kristalna-krogla-galaksija",
