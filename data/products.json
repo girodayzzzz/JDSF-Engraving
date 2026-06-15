@@ -547,6 +547,28 @@
     }
   },
   {
+    "id": "k9-kristal-verski-motiv",
+    "title": "K9 kristal z verskim motivom",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "price": "80,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Eleganten K9 kristal z vnaprej pripravljeno versko gravuro, primeren kot spominsko ali praznično darilo brez personalizacije.",
+    "image": "assets/products/k9-crystal/verska gravura na k9 kristal.png",
+    "gallery": [
+      "assets/products/k9-crystal/verska gravura na k9 kristal.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "kristalni-obesek-vrtnica-srce",
     "title": "Kristalni obesek Vrtnica v srcu",
     "category": "obeski",
