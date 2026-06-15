@@ -656,6 +656,85 @@
     ]
   },
   {
+    "id": "romanticni-obeski-po-izbiri",
+    "title": "Romantični obeski po izbiri",
+    "category": "obeski",
+    "material": "K9 kristal in LED obesek",
+    "price": "20,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Romantični svetleči obeski z izbiro motiva od A do L, brez personalizacije.",
+    "image": "assets/products/keychains/komplet obeskov.png",
+    "gallery": [
+      "assets/products/keychains/komplet obeskov.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    },
+    "selectionOptions": [
+      {
+        "id": "motiv",
+        "label": "Motiv",
+        "required": true,
+        "choices": [
+          {
+            "value": "a",
+            "label": "A"
+          },
+          {
+            "value": "b",
+            "label": "B"
+          },
+          {
+            "value": "c",
+            "label": "C"
+          },
+          {
+            "value": "d",
+            "label": "D"
+          },
+          {
+            "value": "e",
+            "label": "E"
+          },
+          {
+            "value": "f",
+            "label": "F"
+          },
+          {
+            "value": "g",
+            "label": "G"
+          },
+          {
+            "value": "h",
+            "label": "H"
+          },
+          {
+            "value": "i",
+            "label": "I"
+          },
+          {
+            "value": "j",
+            "label": "J"
+          },
+          {
+            "value": "k",
+            "label": "K"
+          },
+          {
+            "value": "l",
+            "label": "L"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "kamen-skrilavec-sonce-in-luna",
     "title": "Skrilavec Sonce in luna",
     "category": "kamen",
