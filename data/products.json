@@ -331,6 +331,45 @@
     }
   },
   {
+    "id": "i-f-loveyou",
+    "title": "I-F Love You",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "20,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativni lesen izdelek I-F Love You z izbiro izvedbe A ali B, pripravljen brez personalizacije.",
+    "image": "assets/products/wood/I-F-loveyou.png",
+    "gallery": [
+      "assets/products/wood/I-F-loveyou.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    },
+    "selectionOptions": [
+      {
+        "id": "izvedba",
+        "label": "Izvedba",
+        "required": true,
+        "choices": [
+          {
+            "value": "a",
+            "label": "A"
+          },
+          {
+            "value": "b",
+            "label": "B"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "leseno-srce-i-love-you",
     "title": "Leseno srce I Love You",
     "category": "leseni-izdelki",
