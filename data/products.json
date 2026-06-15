@@ -287,6 +287,28 @@
     }
   },
   {
+    "id": "darilna-skatlica",
+    "title": "Darilna škatlica",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "30,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Elegantna lesena darilna škatlica za posebna darila, pripravljena brez personalizacije.",
+    "image": "assets/products/wood/darilna-skatlica.png",
+    "gallery": [
+      "assets/products/wood/darilna-skatlica.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "leseno-srce-i-love-you",
     "title": "Leseno srce I Love You",
     "category": "leseni-izdelki",
