@@ -676,5 +676,76 @@
       "fontSelection": true,
       "sizeSelection": false
     }
+  },
+  {
+    "id": "rozice",
+    "title": "Rožice",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "15,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativne lesene rožice z izbiro motiva po oznakah A, B, C in naprej.",
+    "image": "assets/products/wood/kolekcija-roz.png",
+    "gallery": [
+      "assets/products/wood/kolekcija-roz.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    },
+    "selectionOptions": [
+      {
+        "id": "motiv",
+        "label": "Izbira rožice",
+        "required": true,
+        "choices": [
+          {
+            "value": "a",
+            "label": "A"
+          },
+          {
+            "value": "b",
+            "label": "B"
+          },
+          {
+            "value": "c",
+            "label": "C"
+          },
+          {
+            "value": "d",
+            "label": "D"
+          },
+          {
+            "value": "e",
+            "label": "E"
+          },
+          {
+            "value": "f",
+            "label": "F"
+          },
+          {
+            "value": "g",
+            "label": "G"
+          },
+          {
+            "value": "h",
+            "label": "H"
+          },
+          {
+            "value": "i",
+            "label": "I"
+          },
+          {
+            "value": "j",
+            "label": "J"
+          }
+        ]
+      }
+    ]
   }
 ]
