@@ -769,5 +769,27 @@
       "fontSelection": false,
       "sizeSelection": false
     }
+  },
+  {
+    "id": "sopek-roz-2",
+    "title": "Šopek Rož 2",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "35,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativni lesen šopek rož 2, pripravljen kot samostojen izdelek brez personalizacije.",
+    "image": "assets/products/wood/sopekroz-2.png",
+    "gallery": [
+      "assets/products/wood/sopekroz-2.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
   }
 ]
