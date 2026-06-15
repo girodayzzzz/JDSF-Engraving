@@ -331,28 +331,6 @@
     }
   },
   {
-    "id": "k9-obesek-gorska-noc",
-    "title": "K9 kristalni obesek Gorska noč",
-    "category": "kristali",
-    "material": "K9 kristal",
-    "price": "24,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": true,
-    "shortDescription": "Kristalni obesek z gorskim motivom za ljubitelje narave, potovanj in spominov.",
-    "image": "assets/products/k9-crystal/k9-obesek-gorska-noc-01.png",
-    "gallery": [
-      "assets/products/k9-crystal/k9-obesek-gorska-noc-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "kristalni-obesek-vrtnica-srce",
     "title": "Kristalni obesek Vrtnica v srcu",
     "category": "obeski",
@@ -475,28 +453,6 @@
     "image": "assets/products/stone/srce-kamen-skrilavec-coffee-love-01.png",
     "gallery": [
       "assets/products/stone/srce-kamen-skrilavec-coffee-love-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
-    "id": "kristalni-okrasek-gorska-noc",
-    "title": "Kristalni okrasek Gorska noč",
-    "category": "dodatki",
-    "material": "K9 kristal",
-    "price": "24,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": true,
-    "shortDescription": "Bleščeč okrasek z gorskim motivom za praznično dekoracijo ali personaliziran spomin.",
-    "image": "assets/products/ornaments/kristalni-okrasek-gorska-noc-01.png",
-    "gallery": [
-      "assets/products/ornaments/kristalni-okrasek-gorska-noc-01.png"
     ],
     "checkoutUrl": "kontakt.html",
     "customizationOptions": {
