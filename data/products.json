@@ -226,10 +226,10 @@
     "category": "leseni-izdelki",
     "material": "Les",
     "price": "80,00 €",
-    "personalized": true,
+    "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Sestavljena lesena 3D cerkev za dekoracijo, spomin ali darilo z možnostjo gravure.",
+    "shortDescription": "Sestavljena lesena 3D cerkev za dekoracijo, spomin ali darilo brez personalizacije.",
     "image": "assets/products/wood/5373 cerkev iz lesa.png",
     "gallery": [
       "assets/products/wood/5373 cerkev iz lesa.png"
@@ -237,8 +237,30 @@
     "checkoutUrl": "kontakt.html",
     "customizationOptions": {
       "imageUpload": false,
-      "customText": true,
-      "fontSelection": true,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
+    "id": "lesene-jaslice-led-lights",
+    "title": "Lesene jaslice z LED lights",
+    "category": "leseni-izdelki",
+    "material": "Les in LED osvetlitev",
+    "price": "80,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativne lesene jaslice z LED osvetlitvijo, pripravljene kot samostojen praznični izdelek brez personalizacije.",
+    "image": "assets/products/wood/jaslice-oblika-zvezde-ledlights.png",
+    "gallery": [
+      "assets/products/wood/jaslice-oblika-zvezde-ledlights.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
       "sizeSelection": false
     }
   },
