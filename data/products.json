@@ -461,27 +461,5 @@
       "fontSelection": true,
       "sizeSelection": false
     }
-  },
-  {
-    "id": "srce-paris-2026-kristalni-okras",
-    "title": "Kristalni srčni okras Paris 2026",
-    "category": "dodatki",
-    "material": "K9 kristal",
-    "price": "26,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": true,
-    "shortDescription": "Kristalni srčni okras z mestnim motivom za potovalne spomine, dogodke ali darila.",
-    "image": "assets/products/ornaments/srce-paris-2026-kristalni-okras-01.png",
-    "gallery": [
-      "assets/products/ornaments/srce-paris-2026-kristalni-okras-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
   }
 ]
