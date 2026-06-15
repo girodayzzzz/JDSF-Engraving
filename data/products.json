@@ -735,28 +735,6 @@
     }
   },
   {
-    "id": "srce-kamen-skrilavec-coffee-love",
-    "title": "Skrilavčevo srce Coffee Love",
-    "category": "kamen",
-    "material": "Naravni skrilavec",
-    "price": "23,90 €",
-    "personalized": true,
-    "featured": false,
-    "new": true,
-    "shortDescription": "Kamnito srce s toplim kavnim motivom za ljubitelje kave in osebnih dekoracij.",
-    "image": "assets/products/stone/srce-kamen-skrilavec-coffee-love-01.png",
-    "gallery": [
-      "assets/products/stone/srce-kamen-skrilavec-coffee-love-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "rozice",
     "title": "Rožice",
     "category": "leseni-izdelki",
