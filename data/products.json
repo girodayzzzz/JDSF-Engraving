@@ -243,6 +243,28 @@
     }
   },
   {
+    "id": "lesena-hiska-za-noc-carovnic",
+    "title": "Lesena hiška za noč čarovnic",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "80,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativna lesena hiška za noč čarovnic (haunted house), pripravljena kot samostojen praznični izdelek brez personalizacije.",
+    "image": "assets/products/wood/hounted-house.png",
+    "gallery": [
+      "assets/products/wood/hounted-house.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "leseno-srce-i-love-you",
     "title": "Leseno srce I Love You",
     "category": "leseni-izdelki",
