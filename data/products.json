@@ -265,6 +265,28 @@
     }
   },
   {
+    "id": "led-svetilka-skrat",
+    "title": "LED svetilka Škrat",
+    "category": "leseni-izdelki",
+    "material": "Les in LED osvetlitev",
+    "price": "37,50 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativna LED svetilka z motivom škrata, pripravljena kot samostojen izdelek brez personalizacije.",
+    "image": "assets/products/wood/ledsvetilka-skrat.png",
+    "gallery": [
+      "assets/products/wood/ledsvetilka-skrat.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "lesena-hiska-za-noc-carovnic",
     "title": "Lesena hiška za noč čarovnic",
     "category": "leseni-izdelki",
