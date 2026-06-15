@@ -613,6 +613,49 @@
     }
   },
   {
+    "id": "love-bears-k9-obesek",
+    "title": "Love Bears K9 obesek",
+    "category": "obeski",
+    "material": "K9 kristal",
+    "price": "20,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "K9 kristalni obesek Love Bears z izbiro izvedbe A, B ali C, pripravljen brez personalizacije.",
+    "image": "assets/products/keychains/Komplet-izbira-k9-obesek.png",
+    "gallery": [
+      "assets/products/keychains/Komplet-izbira-k9-obesek.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    },
+    "selectionOptions": [
+      {
+        "id": "izvedba",
+        "label": "Izvedba",
+        "required": true,
+        "choices": [
+          {
+            "value": "a",
+            "label": "A"
+          },
+          {
+            "value": "b",
+            "label": "B"
+          },
+          {
+            "value": "c",
+            "label": "C"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "kamen-skrilavec-sonce-in-luna",
     "title": "Skrilavec Sonce in luna",
     "category": "kamen",
