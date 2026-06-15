@@ -669,28 +669,6 @@
     ]
   },
   {
-    "id": "kamen-skrilavec-sonce-in-luna",
-    "title": "Skrilavec Sonce in luna",
-    "category": "kamen",
-    "material": "Naravni skrilavec",
-    "price": "26,90 €",
-    "personalized": true,
-    "featured": true,
-    "new": false,
-    "shortDescription": "Dekorativna plošča iz skrilavca z motivom sonca in lune za dom s posebnim pomenom.",
-    "image": "assets/products/stone/kamen-skrilavec-sonce-in-luna-01.png",
-    "gallery": [
-      "assets/products/stone/kamen-skrilavec-sonce-in-luna-01.png"
-    ],
-    "checkoutUrl": "kontakt.html",
-    "customizationOptions": {
-      "imageUpload": true,
-      "customText": true,
-      "fontSelection": true,
-      "sizeSelection": false
-    }
-  },
-  {
     "id": "kamen-skrilavec-kompas-gore",
     "title": "Skrilavec Kompas in gore",
     "category": "kamen",
