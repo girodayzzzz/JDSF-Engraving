@@ -749,6 +749,28 @@
     ]
   },
   {
+    "id": "darilo-za-8-marec",
+    "title": "Darilo za 8. marec",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "35,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativno leseno darilo za 8. marec, pripravljeno kot samostojen izdelek brez personalizacije.",
+    "image": "assets/products/wood/darilo za 8 marec.png",
+    "gallery": [
+      "assets/products/wood/darilo za 8 marec.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "sopek-rozic-1",
     "title": "Šopek rožic 1",
     "category": "leseni-izdelki",
