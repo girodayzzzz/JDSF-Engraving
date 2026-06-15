@@ -332,6 +332,28 @@
     }
   },
   {
+    "id": "velikonocni-zajcek-po-izbiri",
+    "title": "Velikonočni Zajček Po Izbiri",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "35,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativni lesen velikonočni zajček po izbiri, pripravljen kot samostojen praznični izdelek brez personalizacije.",
+    "image": "assets/products/wood/velikonocni-zajcek.png",
+    "gallery": [
+      "assets/products/wood/velikonocni-zajcek.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "led-svetilka-srce-za-valentinovo",
     "title": "LED svetilka Srce za Valentinovo",
     "category": "leseni-izdelki",
