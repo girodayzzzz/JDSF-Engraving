@@ -331,6 +331,28 @@
     }
   },
   {
+    "id": "darilna-skatla-s-pentljo-kocka",
+    "title": "Darilna škatla s pentljo - kocka",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "27,50 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Elegantna lesena darilna škatla v obliki kocke s pentljo, pripravljena brez personalizacije.",
+    "image": "assets/products/wood/darilnaskatlaspentljo-kocka.png",
+    "gallery": [
+      "assets/products/wood/darilnaskatlaspentljo-kocka.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "i-f-loveyou",
     "title": "I-F Love You",
     "category": "leseni-izdelki",
