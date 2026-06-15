@@ -309,6 +309,28 @@
     }
   },
   {
+    "id": "darilna-skatla-s-pentljo",
+    "title": "Darilna škatla s pentljo",
+    "category": "leseni-izdelki",
+    "material": "Les",
+    "price": "25,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Elegantna lesena darilna škatla s pentljo za posebna darila, pripravljena brez personalizacije.",
+    "image": "assets/products/wood/darilna-skatla-s-pentljo.png",
+    "gallery": [
+      "assets/products/wood/darilna-skatla-s-pentljo.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "leseno-srce-i-love-you",
     "title": "Leseno srce I Love You",
     "category": "leseni-izdelki",
