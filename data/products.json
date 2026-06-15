@@ -309,6 +309,28 @@
     }
   },
   {
+    "id": "led-lucka-velikonocna-jajcka",
+    "title": "LED Lučka velikonočna jajčka",
+    "category": "leseni-izdelki",
+    "material": "Les in LED osvetlitev",
+    "price": "37,50 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Dekorativna LED lučka z velikonočnimi jajčki, pripravljena kot samostojen praznični izdelek brez personalizacije.",
+    "image": "assets/products/wood/LED lučka velikonocna jajcka.png",
+    "gallery": [
+      "assets/products/wood/LED lučka velikonocna jajcka.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
+  },
+  {
     "id": "led-svetilka-srce-za-valentinovo",
     "title": "LED svetilka Srce za Valentinovo",
     "category": "leseni-izdelki",
