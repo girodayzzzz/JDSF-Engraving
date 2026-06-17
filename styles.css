@@ -433,14 +433,12 @@ textarea:focus {
   border-color: var(--gold);
 }
 
-.map-placeholder {
+.contact-map {
+  width: 100%;
+  min-height: 320px;
   margin-top: 1rem;
+  border: 0;
   border-radius: 14px;
-  border: 1px dashed var(--border);
-  min-height: 180px;
-  display: grid;
-  place-items: center;
-  color: var(--muted);
 }
 
 .site-footer {
