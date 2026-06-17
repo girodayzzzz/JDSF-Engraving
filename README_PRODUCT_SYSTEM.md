@@ -49,7 +49,6 @@ Primer:
 - `dodatki`
 - `kristali`
 - `leseni-izdelki`
-- `personalizirano`
 
 ## Opomba o mapi `products/`
 Mapa `products/` ostaja v repozitoriju zaradi starejših zapisov in primerov, vendar je za trenutno trgovino glavni katalog `data/products.json`. Stari brskalniški loader za ločene JSON zapise je odstranjen, zato nove spremembe izdelkov urejajte v glavnem katalogu.
