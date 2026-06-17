@@ -30,7 +30,7 @@
     "personalized": false,
     "featured": true,
     "new": true,
-    "shortDescription": "K9 kristalni dekor Thor Style z dovršeno 3D gravuro in priloženim LED podstavkom, pripravljen za darilo brez personalizacije.",
+    "shortDescription": "K9 kristalni dekor Thor Style z dovršeno 3D gravuro in priloženim LED podstavkom, pripravljen za darilo.",
     "image": "assets/products/k9-crystal/k9-thor.png",
     "gallery": [
       "assets/products/k9-crystal/k9-thor.png"
@@ -52,7 +52,7 @@
     "personalized": false,
     "featured": true,
     "new": true,
-    "shortDescription": "Eleganten K9 kristalni dekor Paris z motivom Eifflovega stolpa in priloženim LED podstavkom, pripravljen za darilo brez personalizacije.",
+    "shortDescription": "Eleganten K9 kristalni dekor Paris z motivom Eifflovega stolpa in priloženim LED podstavkom, pripravljen za darilo.",
     "image": "assets/products/k9-crystal/paris-k9-kristal.png",
     "gallery": [
       "assets/products/k9-crystal/paris-k9-kristal.png"
@@ -252,7 +252,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Sestavljena lesena 3D cerkev za dekoracijo, spomin ali darilo brez personalizacije.",
+    "shortDescription": "Sestavljena lesena 3D cerkev za dekoracijo, spomin ali darilo.",
     "image": "assets/products/wood/5373 cerkev iz lesa.png",
     "gallery": [
       "assets/products/wood/5373 cerkev iz lesa.png"
@@ -274,7 +274,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativne lesene jaslice z LED osvetlitvijo, pripravljene kot samostojen praznični izdelek brez personalizacije.",
+    "shortDescription": "Dekorativne lesene jaslice z LED osvetlitvijo, pripravljene kot samostojen praznični izdelek.",
     "image": "assets/products/wood/jaslice-oblika-zvezde-ledlights.png",
     "gallery": [
       "assets/products/wood/jaslice-oblika-zvezde-ledlights.png"
@@ -296,7 +296,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativni lesen traktor z vozom, pripravljen kot samostojen izdelek brez personalizacije.",
+    "shortDescription": "Dekorativni lesen traktor z vozom, pripravljen kot samostojen izdelek.",
     "image": "assets/products/wood/traktor-z-vozom.png",
     "gallery": [
       "assets/products/wood/traktor-z-vozom.png"
@@ -318,7 +318,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativna LED svetilka z motivom škrata, pripravljena kot samostojen izdelek brez personalizacije.",
+    "shortDescription": "Dekorativna LED svetilka z motivom škrata, pripravljena kot samostojen izdelek.",
     "image": "assets/products/wood/ledsvetilka-skrat.png",
     "gallery": [
       "assets/products/wood/ledsvetilka-skrat.png"
@@ -340,7 +340,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativna LED svetilka z napisom You & Me, pripravljena kot samostojen izdelek brez personalizacije.",
+    "shortDescription": "Dekorativna LED svetilka z napisom You & Me, pripravljena kot samostojen izdelek.",
     "image": "assets/products/wood/ledsvetilka-youme.png",
     "gallery": [
       "assets/products/wood/ledsvetilka-youme.png"
@@ -362,7 +362,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativna LED lučka z velikonočnimi jajčki, pripravljena kot samostojen praznični izdelek brez personalizacije.",
+    "shortDescription": "Dekorativna LED lučka z velikonočnimi jajčki, pripravljena kot samostojen praznični izdelek.",
     "image": "assets/products/wood/LED lučka velikonocna jajcka.png",
     "gallery": [
       "assets/products/wood/LED lučka velikonocna jajcka.png"
@@ -384,7 +384,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativni lesen velikonočni zajček po izbiri, pripravljen kot samostojen praznični izdelek brez personalizacije.",
+    "shortDescription": "Dekorativni lesen velikonočni zajček po izbiri, pripravljen kot samostojen praznični izdelek.",
     "image": "assets/products/wood/velikonocni-zajcek.png",
     "gallery": [
       "assets/products/wood/velikonocni-zajcek.png"
@@ -427,7 +427,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativna LED svetilka v obliki srca z napisom Happy Valentine's Day, pripravljena kot samostojen valentinov izdelek brez personalizacije.",
+    "shortDescription": "Dekorativna LED svetilka v obliki srca z napisom Happy Valentine's Day, pripravljena kot samostojen valentinov izdelek.",
     "image": "assets/products/wood/happy-valentines-day.srce.png",
     "gallery": [
       "assets/products/wood/happy-valentines-day.srce.png"
@@ -449,7 +449,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativna lesena hiška za noč čarovnic (haunted house), pripravljena kot samostojen praznični izdelek brez personalizacije.",
+    "shortDescription": "Dekorativna lesena hiška za noč čarovnic (haunted house), pripravljena kot samostojen praznični izdelek.",
     "image": "assets/products/wood/hounted-house.png",
     "gallery": [
       "assets/products/wood/hounted-house.png"
@@ -471,7 +471,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Elegantna lesena darilna škatlica za posebna darila, pripravljena brez personalizacije.",
+    "shortDescription": "Elegantna lesena darilna škatlica za posebna darila.",
     "image": "assets/products/wood/darilna-skatlica.png",
     "gallery": [
       "assets/products/wood/darilna-skatlica.png"
@@ -493,7 +493,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Elegantna lesena darilna škatla s pentljo za posebna darila, pripravljena brez personalizacije.",
+    "shortDescription": "Elegantna lesena darilna škatla s pentljo za posebna darila.",
     "image": "assets/products/wood/darilna-skatla-s-pentljo.png",
     "gallery": [
       "assets/products/wood/darilna-skatla-s-pentljo.png"
@@ -515,7 +515,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Elegantna lesena darilna škatla v obliki kocke s pentljo, pripravljena brez personalizacije.",
+    "shortDescription": "Elegantna lesena darilna škatla v obliki kocke s pentljo.",
     "image": "assets/products/wood/darilnaskatlaspentljo-kocka.png",
     "gallery": [
       "assets/products/wood/darilnaskatlaspentljo-kocka.png"
@@ -537,7 +537,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Elegantna lesena darilna škatla v obliki knjige za posebna darila, pripravljena brez personalizacije.",
+    "shortDescription": "Elegantna lesena darilna škatla v obliki knjige za posebna darila.",
     "image": "assets/products/wood/darilna-skatlica.png",
     "gallery": [
       "assets/products/wood/darilna-skatlica.png"
@@ -559,7 +559,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativni lesen izdelek I-F Love You z izbiro izvedbe A ali B, pripravljen brez personalizacije.",
+    "shortDescription": "Dekorativni lesen izdelek I-F Love You z izbiro izvedbe A ali B.",
     "image": "assets/products/wood/I-F-loveyou.png",
     "gallery": [
       "assets/products/wood/I-F-loveyou.png"
@@ -620,7 +620,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Eleganten K9 kristal z vnaprej pripravljeno versko gravuro, primeren kot spominsko ali praznično darilo brez personalizacije.",
+    "shortDescription": "Eleganten K9 kristal z vnaprej pripravljeno versko gravuro, primeren kot spominsko ali praznično darilo.",
     "image": "assets/products/k9-crystal/verska gravura na k9 kristal.png",
     "gallery": [
       "assets/products/k9-crystal/verska gravura na k9 kristal.png"
@@ -642,7 +642,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "K9 kristalni obesek Love Bears z izbiro izvedbe A, B ali C, pripravljen brez personalizacije.",
+    "shortDescription": "K9 kristalni obesek Love Bears z izbiro izvedbe A, B ali C.",
     "image": "assets/products/keychains/Komplet-izbira-k9-obesek.png",
     "gallery": [
       "assets/products/keychains/Komplet-izbira-k9-obesek.png"
@@ -685,7 +685,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Romantični svetleči obeski z izbiro motiva od A do L, brez personalizacije.",
+    "shortDescription": "Romantični svetleči obeski z izbiro motiva od A do L.",
     "image": "assets/products/keychains/komplet obeskov.png",
     "gallery": [
       "assets/products/keychains/komplet obeskov.png"
@@ -835,7 +835,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativno leseno darilo za 8. marec, pripravljeno kot samostojen izdelek brez personalizacije.",
+    "shortDescription": "Dekorativno leseno darilo za 8. marec, pripravljeno kot samostojen izdelek.",
     "image": "assets/products/wood/darilo za 8 marec.png",
     "gallery": [
       "assets/products/wood/darilo za 8 marec.png"
@@ -857,7 +857,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativni lesen šopek rožic 1, pripravljen kot samostojen izdelek brez personalizacije.",
+    "shortDescription": "Dekorativni lesen šopek rožic 1, pripravljen kot samostojen izdelek.",
     "image": "assets/products/wood/soperroz-1.png",
     "gallery": [
       "assets/products/wood/soperroz-1.png"
@@ -879,7 +879,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Dekorativni lesen šopek rož 2, pripravljen kot samostojen izdelek brez personalizacije.",
+    "shortDescription": "Dekorativni lesen šopek rož 2, pripravljen kot samostojen izdelek.",
     "image": "assets/products/wood/sopekroz-2.png",
     "gallery": [
       "assets/products/wood/sopekroz-2.png"

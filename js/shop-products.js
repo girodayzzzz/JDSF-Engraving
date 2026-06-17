@@ -54,6 +54,7 @@
   };
 
   const createBadgeList = (product) => getProductBadges(product)
+    .filter((badge) => badge !== 'Personalizacija')
     .map((badge) => `<span>${escapeHtml(badge)}</span>`)
     .join('');
 
