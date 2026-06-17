@@ -13,8 +13,6 @@
     'all',
     'kamen',
     'obeski',
-    'nakit',
-    'dodatki',
     'kristali',
     'leseni-izdelki'
   ];

@@ -29,12 +29,7 @@
   }[char]));
 
   const renderFilters = () => {
-    const activeCategories = new Set(products.map((product) => product.category));
-    const visibleCategoryKeys = CATEGORY_ORDER.filter((key) => key === 'all' || activeCategories.has(key));
-
-    if (!visibleCategoryKeys.includes(currentCategory)) currentCategory = 'all';
-
-    const filters = visibleCategoryKeys.map((key) => [key, CATEGORY_LABELS[key]]);
+    const filters = CATEGORY_ORDER.map((key) => [key, CATEGORY_LABELS[key]]);
 
     categoryWrap.innerHTML = filters
       .map(([key, label]) => `<button class="btn btn-filter ${key === currentCategory ? 'active' : ''}" data-category="${key}" type="button">${label}</button>`)
