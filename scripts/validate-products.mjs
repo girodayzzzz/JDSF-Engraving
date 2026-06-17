@@ -8,8 +8,7 @@ const ALLOWED_CATEGORIES = new Set([
   'nakit',
   'dodatki',
   'kristali',
-  'leseni-izdelki',
-  'personalizirano'
+  'leseni-izdelki'
 ]);
 
 const errors = [];

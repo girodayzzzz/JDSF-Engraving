@@ -6,8 +6,7 @@
     nakit: 'Nakit',
     dodatki: 'Dodatki',
     kristali: 'Kristali',
-    'leseni-izdelki': 'Leseni izdelki',
-    personalizirano: 'Personalizirano'
+    'leseni-izdelki': 'Leseni izdelki'
   };
 
   const CATEGORY_ORDER = [
@@ -17,8 +16,7 @@
     'nakit',
     'dodatki',
     'kristali',
-    'leseni-izdelki',
-    'personalizirano'
+    'leseni-izdelki'
   ];
 
   const CATEGORY_ALIASES = {
@@ -47,11 +45,7 @@
     'k9-crystal': 'kristali',
     les: 'leseni-izdelki',
     wood: 'leseni-izdelki',
-    'leseni-izdelki': 'leseni-izdelki',
-    custom: 'personalizirano',
-    personalized: 'personalizirano',
-    personalizirano: 'personalizirano',
-    darila: 'personalizirano'
+    'leseni-izdelki': 'leseni-izdelki'
   };
 
   const CUSTOMIZATION_LABELS = {
@@ -61,9 +55,9 @@
     sizeSelection: 'Izbira velikosti'
   };
 
-  const normalizeCategory = (raw) => CATEGORY_ALIASES[String(raw || '').trim().toLowerCase()] || 'personalizirano';
+  const normalizeCategory = (raw) => CATEGORY_ALIASES[String(raw || '').trim().toLowerCase()] || 'dodatki';
 
-  const getCategoryLabel = (category) => CATEGORY_LABELS[normalizeCategory(category)] || CATEGORY_LABELS.personalizirano;
+  const getCategoryLabel = (category) => CATEGORY_LABELS[normalizeCategory(category)] || CATEGORY_LABELS.dodatki;
 
   const normalizeSelectionOptions = (options = []) => (Array.isArray(options) ? options : [])
     .map((option) => ({
