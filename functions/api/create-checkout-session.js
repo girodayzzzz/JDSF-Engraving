@@ -172,6 +172,7 @@ export async function onRequestPost({ request, env }) {
   form.append('success_url', `${siteUrl}/potrjeno-narocilo.html?session_id={CHECKOUT_SESSION_ID}`);
   form.append('cancel_url', `${siteUrl}/zavrnjeno-narocilo.html`);
   form.append('billing_address_collection', 'auto');
+  form.append('allow_promotion_codes', 'true');
   form.append('shipping_address_collection[allowed_countries][0]', 'SI');
   form.append('metadata[source]', 'jdsf-cart');
   appendShippingOption(form, env);
