@@ -52,6 +52,7 @@ try {
   assert.equal(capturedStripeBody.get('shipping_options[0][shipping_rate_data][fixed_amount][amount]'), '490');
   assert.equal(capturedStripeBody.get('shipping_options[0][shipping_rate_data][fixed_amount][currency]'), 'eur');
   assert.equal(capturedStripeBody.get('shipping_options[0][shipping_rate_data][display_name]'), 'Poštnina');
+  assert.equal(capturedStripeBody.get('allow_promotion_codes'), 'true');
   assert.equal(capturedStripeBody.get('line_items[0][price_data][unit_amount]'), '1000');
   assert.equal(capturedStripeBody.get('line_items[0][quantity]'), '2');
 
