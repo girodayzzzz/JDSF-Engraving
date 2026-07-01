@@ -1612,6 +1612,18 @@ input[type="range"] {
   color: var(--muted);
 }
 
+.form-intro .required-note {
+  margin-top: 0.65rem;
+  color: var(--gold-strong);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.required-mark {
+  color: var(--gold-strong);
+  font-weight: 900;
+}
+
 .form-badge {
   display: inline-flex;
   width: fit-content;
