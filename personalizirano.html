@@ -94,20 +94,21 @@
               <span class="form-badge">Premium brief</span>
               <h3>Podrobnosti za popolno izvedbo</h3>
               <p>Izpolnite čim več polj – tako lahko hitreje preverimo izvedljivost, svetujemo najboljši material in pripravimo natančno ponudbo.</p>
+              <p class="required-note"><span aria-hidden="true">*</span> označuje obvezna polja.</p>
             </div>
 
             <div class="form-two-col">
-              <label for="custom-name">Ime in priimek
-                <input id="custom-name" name="name" type="text" placeholder="Vaše ime" autocomplete="name" required />
+              <label for="custom-name">Ime in priimek <span class="required-mark" aria-hidden="true">*</span>
+                <input id="custom-name" name="name" type="text" placeholder="Vaše ime" autocomplete="name" required aria-required="true" />
               </label>
-              <label for="custom-email">E-pošta
-                <input id="custom-email" name="email" type="email" placeholder="vi@primer.si" autocomplete="email" required />
+              <label for="custom-email">E-pošta <span class="required-mark" aria-hidden="true">*</span>
+                <input id="custom-email" name="email" type="email" placeholder="vi@primer.si" autocomplete="email" required aria-required="true" />
               </label>
             </div>
 
             <div class="form-two-col">
-              <label for="custom-phone">Telefon
-                <input id="custom-phone" name="phone" type="tel" placeholder="+386 ..." autocomplete="tel" />
+              <label for="custom-phone">Telefon <span class="required-mark" aria-hidden="true">*</span>
+                <input id="custom-phone" name="phone" type="tel" placeholder="+386 ..." autocomplete="tel" required aria-required="true" />
               </label>
               <label for="custom-deadline">Želeni rok
                 <input id="custom-deadline" name="deadline" type="text" placeholder="Npr. do 15. junija" />
@@ -115,7 +116,7 @@
             </div>
 
             <fieldset class="premium-fieldset">
-              <legend>Izberite material</legend>
+              <legend>Izberite material <span class="required-mark" aria-hidden="true">*</span></legend>
               <div class="material-choice-grid">
                 <label class="material-choice">
                   <input name="material" type="radio" value="Les" required />
@@ -145,11 +146,11 @@
             </fieldset>
 
             <div class="form-two-col">
-              <label for="custom-product-type">Tip izdelka
-                <input id="custom-product-type" name="product_type" type="text" placeholder="Npr. obesek, plaketa, darilo, tabla, kristal ..." required />
+              <label for="custom-product-type">Tip izdelka <span class="required-mark" aria-hidden="true">*</span>
+                <input id="custom-product-type" name="product_type" type="text" placeholder="Npr. obesek, plaketa, darilo, tabla, kristal ..." required aria-required="true" />
               </label>
-              <label for="custom-quantity">Količina
-                <input id="custom-quantity" name="quantity" type="number" min="1" step="1" value="1" required />
+              <label for="custom-quantity">Količina <span class="required-mark" aria-hidden="true">*</span>
+                <input id="custom-quantity" name="quantity" type="number" min="1" step="1" value="1" required aria-required="true" />
               </label>
             </div>
 
@@ -180,8 +181,8 @@
                   <option value="Poslovno / z logotipom">Poslovno / z logotipom</option>
                 </select>
               </label>
-              <label for="custom-engraving">Kaj graviramo?
-                <input id="custom-engraving" name="engraving_content" type="text" placeholder="Ime, datum, posvetilo, logo, fotografija ..." required />
+              <label for="custom-engraving">Kaj graviramo? <span class="required-mark" aria-hidden="true">*</span>
+                <input id="custom-engraving" name="engraving_content" type="text" placeholder="Ime, datum, posvetilo, logo, fotografija ..." required aria-required="true" />
               </label>
             </div>
 
@@ -194,13 +195,13 @@
               <span class="form-hint" data-file-status>Datoteka ni obvezna, vendar zelo pomaga pri pripravi predloga.</span>
             </label>
 
-            <label for="custom-message">Dodatne informacije
-              <textarea id="custom-message" name="message" rows="7" placeholder="Opišite idejo, tekst za gravuro, posebne želje, namen darila, barve, materiale ali primer izdelka, ki vam je všeč ..." required></textarea>
+            <label for="custom-message">Dodatne informacije <span class="required-mark" aria-hidden="true">*</span>
+              <textarea id="custom-message" name="message" rows="7" placeholder="Opišite idejo, tekst za gravuro, posebne želje, namen darila, barve, materiale ali primer izdelka, ki vam je všeč ..." required aria-required="true"></textarea>
             </label>
 
             <label class="consent-line" for="custom-consent">
               <input id="custom-consent" name="consent" type="checkbox" value="Da" required />
-              <span>Strinjam se, da JDSF Laser Craft uporabi poslane podatke in priponke za pripravo odgovora, predloga izvedbe in ponudbe.</span>
+              <span>Strinjam se, da JDSF Laser Craft uporabi poslane podatke in priponke za pripravo odgovora, predloga izvedbe in ponudbe. <span class="required-mark" aria-hidden="true">*</span></span>
             </label>
 
             <button class="btn btn-primary" type="submit">Pošlji premium povpraševanje</button>
