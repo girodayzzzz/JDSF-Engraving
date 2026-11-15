@@ -2053,3 +2053,48 @@ input[type="range"] {
     margin: -0.25rem 0 1rem;
   }
 }
+
+
+/* Black Friday homepage banner — full viewport width */
+.bf-campaign-section-full {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: #0e0f12;
+}
+
+.bf-campaign-banner-home {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #0e0f12;
+}
+
+.bf-campaign-banner-home:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.bf-campaign-banner-home img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+.bf-campaign-banner-home:focus-visible {
+  outline: 3px solid var(--gold-strong);
+  outline-offset: -3px;
+}
+
+@media (max-width: 640px) {
+  .bf-campaign-section-full {
+    padding: 0;
+  }
+
+  .bf-campaign-banner-home {
+    border-radius: 0;
+  }
+}
