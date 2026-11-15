@@ -1992,3 +1992,64 @@ input[type="range"] {
   margin: 0;
   color: var(--text);
 }
+
+
+/* --- Black Friday 2026 campaign visuals --- */
+.bf-campaign-section {
+  position: relative;
+  padding: 1.25rem 0 0;
+  background: radial-gradient(ellipse at center, rgba(201, 169, 106, 0.09), transparent 72%);
+}
+
+.bf-campaign-banner {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(201, 169, 106, 0.34);
+  border-radius: 18px;
+  background: #111318;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), 0 0 28px rgba(201, 169, 106, 0.08);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bf-campaign-banner:hover {
+  transform: translateY(-3px);
+  border-color: rgba(225, 187, 120, 0.72);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.42), 0 0 34px rgba(201, 169, 106, 0.14);
+}
+
+.bf-campaign-banner picture,
+.bf-campaign-banner img {
+  display: block;
+  width: 100%;
+}
+
+.bf-campaign-banner img {
+  height: auto;
+  border-radius: 0;
+}
+
+.bf-campaign-banner-home {
+  margin-bottom: 1rem;
+}
+
+.bf-campaign-banner-shop {
+  margin: -0.5rem 0 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .bf-campaign-section {
+    padding-top: 0.75rem;
+  }
+
+  .bf-campaign-banner {
+    border-radius: 12px;
+  }
+
+  .bf-campaign-banner-home {
+    margin-bottom: 0.5rem;
+  }
+
+  .bf-campaign-banner-shop {
+    margin: -0.25rem 0 1rem;
+  }
+}
