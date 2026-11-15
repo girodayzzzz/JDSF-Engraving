@@ -11,7 +11,8 @@
     CATEGORY_LABELS,
     CATEGORY_ORDER,
     normalizeProduct,
-    getProductBadges
+    getProductBadges,
+    getPriceInfo
   } = window.JDSFProducts;
 
   let currentCategory = 'all';
@@ -53,10 +54,16 @@
     }, 1600);
   };
 
-  const createBadgeList = (product) => getProductBadges(product)
-    .filter((badge) => badge !== 'Personalizacija')
-    .map((badge) => `<span>${escapeHtml(badge)}</span>`)
-    .join('');
+  const createBadgeList = (product) => {
+    const badges = getProductBadges(product).filter((badge) => badge !== 'Personalizacija');
+    if (getPriceInfo(product).active) badges.unshift('Akcija');
+    return badges.map((badge) => `<span>${escapeHtml(badge)}</span>`).join('');
+  };
+  const renderPrice = (product) => {
+    const info = getPriceInfo(product);
+    if (!info.active) return `<div class="price">${escapeHtml(info.currentPrice)}</div>`;
+    return `<div class="price sale-price-wrap"><span class="sale-price-current">${escapeHtml(info.currentPrice)}</span><del class="sale-price-old">${escapeHtml(info.regularPrice)}</del><span class="sale-price-discount">−${info.discountPercent}%</span></div>`;
+  };
 
   const productRequiresDetailSelection = (product) => Array.isArray(product.selectionOptions)
     && product.selectionOptions.some((option) => option.required);
@@ -72,7 +79,7 @@
       <div class="shop-card-body">
         <h3>${escapeHtml(product.name)}</h3>
         <p>${escapeHtml(product.description)}</p>
-        <div class="price">${escapeHtml(product.price)}</div>
+        ${renderPrice(product)}
       </div>
     </a>
     <div class="shop-card-actions">
@@ -122,8 +129,8 @@
         .toLowerCase()
         .includes(currentSearch));
 
-    if (currentSort === 'asc') filtered.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
-    if (currentSort === 'desc') filtered.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+    if (currentSort === 'asc') filtered.sort((a, b) => parsePrice(getPriceInfo(a).currentPrice) - parsePrice(getPriceInfo(b).currentPrice));
+    if (currentSort === 'desc') filtered.sort((a, b) => parsePrice(getPriceInfo(b).currentPrice) - parsePrice(getPriceInfo(a).currentPrice));
 
     grid.innerHTML = '';
     filtered.forEach((p) => grid.appendChild(createCard(p)));
