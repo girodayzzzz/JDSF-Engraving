@@ -81,6 +81,9 @@
       category,
       material: product.material || '',
       price: product.price || product.cena || '',
+      salePrice: product.salePrice || product.akcijskaCena || '',
+      saleStart: product.saleStart || '',
+      saleEnd: product.saleEnd || '',
       image: product.image || product.slika || '',
       gallery: Array.isArray(product.gallery) ? product.gallery : [],
       featured: Boolean(product.featured),
@@ -93,6 +96,27 @@
     };
   };
 
+  const parsePrice = (value) => {
+    const parsed = Number(String(value || '').replace(/[^\d,.-]/g, '').replace(',', '.'));
+    return Number.isFinite(parsed) ? parsed : 0;
+  };
+  const parseSaleBoundary = (value, isEnd = false) => {
+    if (!value) return null;
+    const raw = String(value).trim();
+    const normalized = /^\d{4}-\d{2}-\d{2}$/.test(raw) && isEnd ? raw + 'T23:59:59.999Z' : raw;
+    const timestamp = Date.parse(normalized);
+    return Number.isFinite(timestamp) ? timestamp : NaN;
+  };
+  const getPriceInfo = (product, now = Date.now()) => {
+    const regularAmount = parsePrice(product.price);
+    const saleAmount = parsePrice(product.salePrice);
+    const start = parseSaleBoundary(product.saleStart);
+    const end = parseSaleBoundary(product.saleEnd, true);
+    const datesValid = !Number.isNaN(start) && !Number.isNaN(end);
+    const inDateRange = datesValid && (start === null || now >= start) && (end === null || now <= end);
+    const active = saleAmount > 0 && regularAmount > 0 && saleAmount < regularAmount && inDateRange;
+    return { active, regularPrice: product.price || '', currentPrice: active ? product.salePrice : (product.price || ''), discountPercent: active ? Math.round((1 - saleAmount / regularAmount) * 100) : 0 };
+  };
   const getCustomizationLabels = (customizationOptions = {}) => Object.entries(CUSTOMIZATION_LABELS)
     .filter(([key]) => customizationOptions[key])
     .map(([, label]) => label);
@@ -109,6 +133,7 @@
     normalizeProduct,
     getCategoryLabel,
     getCustomizationLabels,
-    getProductBadges
+    getProductBadges,
+    getPriceInfo
   };
 })();
