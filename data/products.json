@@ -981,5 +981,27 @@
       "fontSelection": false,
       "sizeSelection": false
     }
+  },
+  {
+    "id": "k9-kristal-vecna-vrtnica",
+    "title": "K9 Kristal – Večna vrtnica",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "price": "79,99 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Eleganten K9 kristal s tridimenzionalno gravuro vrtnice, ki v svetlobi čudovito zasije. Brezčasna dekoracija in posebno darilo za rojstni dan, obletnico ali drugo nepozabno priložnost.",
+    "image": "assets/products/k9-crystal/Luminous Crystal Rose Display.png",
+    "gallery": [
+      "assets/products/k9-crystal/Luminous Crystal Rose Display.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
   }
 ]
