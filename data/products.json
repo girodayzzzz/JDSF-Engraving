@@ -934,5 +934,29 @@
         ]
       }
     ]
+  },
+  {
+    "id": "k9-kristal-gravura-metulja",
+    "title": "K9 Kristal z gravuro metulja",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "price": "75,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Eleganten K9 kristal z nežno gravuro metulja in naravnih motivov. Čudovita dekoracija ali posebno darilo za različne priložnosti.",
+    "image": "assets/products/k9-crystal/Golden Crystal Butterfly Cube.png",
+    "gallery": [
+      "assets/products/k9-crystal/Golden Crystal Butterfly Cube.png",
+      "assets/products/k9-crystal/Crystal Cube Dragonfly Engraving.png",
+      "assets/products/k9-crystal/Etched Butterfly Crystal Cube.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
   }
 ]
