@@ -1003,5 +1003,28 @@
       "fontSelection": false,
       "sizeSelection": false
     }
+  },
+  {
+    "id": "k9-kristal-carobni-ribnik",
+    "title": "K9 Kristal – Čarobni ribnik",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "price": "79,99 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Elegantna kristalna kocka K9 s podrobno gravuro ribnika, žabice in vodnega rastlinja. Igra svetlobe poudari nežne podrobnosti motiva ter ustvari čudovito dekoracijo ali posebno darilo za ljubitelje narave.",
+    "image": "assets/products/k9-crystal/Glow-Edged Crystal Pond Lamp.png",
+    "gallery": [
+      "assets/products/k9-crystal/Glow-Edged Crystal Pond Lamp.png",
+      "assets/products/k9-crystal/Crystal Frog Pond Etched Cube.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
   }
 ]
