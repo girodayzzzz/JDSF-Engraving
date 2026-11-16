@@ -958,5 +958,28 @@
       "fontSelection": false,
       "sizeSelection": false
     }
+  },
+  {
+    "id": "k9-kristal-gravura-lilije",
+    "title": "K9 Kristal – Eleganca lilije",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "price": "75,00 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Prefinjen K9 kristal z nežno gravuro lilije, ki poudari lepoto cvetličnega motiva. Elegantna dekoracija in čudovito darilo za posebne priložnosti.",
+    "image": "assets/products/k9-crystal/Glowing Crystal Lily Plaque.png",
+    "gallery": [
+      "assets/products/k9-crystal/Glowing Crystal Lily Plaque.png",
+      "assets/products/k9-crystal/Crystal Floral Engraving Display Block.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
   }
 ]
