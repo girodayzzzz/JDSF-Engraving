@@ -1026,5 +1026,28 @@
       "fontSelection": false,
       "sizeSelection": false
     }
+  },
+  {
+    "id": "k9-kristal-morska-meduza",
+    "title": "K9 Kristal – Morska meduza",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "price": "79,99 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Prefinjen K9 kristal z nežno tridimenzionalno gravuro meduze, ki pričara čarobnost podvodnega sveta. Svetlobni odsevi poudarijo podrobnosti motiva in ustvarijo elegantno dekoracijo ali posebno darilo za ljubitelje morja.",
+    "image": "assets/products/k9-crystal/Glowing Jellyfish Crystal Display.png",
+    "gallery": [
+      "assets/products/k9-crystal/Glowing Jellyfish Crystal Display.png",
+      "assets/products/k9-crystal/Glowing Crystal Jellyfish Engraving.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
   }
 ]
