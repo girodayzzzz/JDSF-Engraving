@@ -1049,5 +1049,27 @@
       "fontSelection": false,
       "sizeSelection": false
     }
+  },
+  {
+    "id": "k9-kristal-carobni-morski-svet",
+    "title": "K9 Kristal – Čarobni morski svet",
+    "category": "kristali",
+    "material": "K9 kristal",
+    "price": "79,99 €",
+    "personalized": false,
+    "featured": false,
+    "new": true,
+    "shortDescription": "Kristal K9 z dovršeno gravuro morskega sveta, kjer meduza in morska želva ustvarjata očarljiv podvodni prizor. Nežni detajli in igra svetlobe mu dajejo poseben čar – čudovita dekoracija ali darilo za ljubitelje morja.",
+    "image": "assets/products/k9-crystal/Morski style z meduzo.png",
+    "gallery": [
+      "assets/products/k9-crystal/Morski style z meduzo.png"
+    ],
+    "checkoutUrl": "kontakt.html",
+    "customizationOptions": {
+      "imageUpload": false,
+      "customText": false,
+      "fontSelection": false,
+      "sizeSelection": false
+    }
   }
 ]
