@@ -901,7 +901,7 @@
     "personalized": false,
     "featured": false,
     "new": true,
-    "shortDescription": "Svetleč kristalni obesek v obliki srca z napisom LOVE in cvetličnim motivom. Izberi barvo: A – turkizna, B – modra ali C – zelena.",
+    "shortDescription": "Svetleč kristalni obesek v obliki srca z napisom LOVE in nežnim cvetličnim motivom. Lepo darilo za posebno osebo.",
     "image": "assets/products/keychains/A, B, C Crystal Love Keychains.png",
     "gallery": [
       "assets/products/keychains/A, B, C Crystal Love Keychains.png"
@@ -912,28 +912,7 @@
       "customText": false,
       "fontSelection": false,
       "sizeSelection": false
-    },
-    "selectionOptions": [
-      {
-        "id": "barva",
-        "label": "Barva obeska",
-        "required": true,
-        "choices": [
-          {
-            "value": "a",
-            "label": "A – turkizna"
-          },
-          {
-            "value": "b",
-            "label": "B – modra"
-          },
-          {
-            "value": "c",
-            "label": "C – zelena"
-          }
-        ]
-      }
-    ]
+    }
   },
   {
     "id": "k9-kristal-gravura-metulja",
